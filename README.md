@@ -12,7 +12,7 @@ Project 2: Advanced Lane Finding
 Project 3: Traffic Sign Classifier  
 Project 4: Behavioral Cloning  
 Project 5: Extended Kalman Filters  
-Estimated time: 81 days  
+
 
 ## PART 2
 Localization, Path Planning, Control, and System Integration
