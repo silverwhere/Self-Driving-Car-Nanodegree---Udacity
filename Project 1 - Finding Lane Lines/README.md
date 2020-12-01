@@ -28,15 +28,19 @@ The provided images are in RGB colorspace. To begin processing these images, I f
 
 Continuing, I achieved a decent result with RGB to Grayscale conversion, but I had also learned about HSV and HSL colorspace when developing a traffic light classifier In the "Intro to Self Driving Cars Nanodegree" to detect specific colors of a traffic light.  At this point I am only concerned with detecting a line, not the specific color, so HSV (Hue, Saturation, Value) or HSL (Hue, Saturation, Lightness) colorspace will prove to be the best filter to detect the lines themselves.  Utilzing HSL I am better able to detect the lines as "lightness" is best understood as the amount of white in the pixel.  HSV provided a better result than grayscale, however, when looking at the results of HSV compared to HSL, I found better detection and proceeded to continue with HSL for accuracy.
 
-![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)*Grayscale*  
-![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hsv_white_lanes.jpg)*HSV*  
-![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)*HLS*  
+![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)
+*Grayscale*  
+![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hsv_white_lanes.jpg)
+*HSV*  
+![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)
+*HLS*  
 
 #### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES
 
 In image processing, a Gaussian blur (also known as Gaussian smoothing) is an image pre-processing technique.  It is the result of blurring an image by a Gaussian function (named after mathematician and scientist Carl Friedrich Gauss).  The effect is typically to reduce image noise and reduce detail.
 
-![Figure6](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gaussian_blur.jpg)
+![Figure6](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gaussian_blur.jpg)  
+*Gaussian Blur*
 
 *Note that a Canny Filter which we will also use has a 5 x 5 Gaussian Blur, but adding one before is for additional smoothing.
 
@@ -44,17 +48,19 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 A Canny Edge Detector is an edge detection operator.  This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges shown in the image as possible.  The edge point detected from the operator should accurately localize on the center of the edge.  Finally a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
-![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/canny_edge.jpg)
+![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/canny_edge.jpg)  
+*Canny Edge Detector Output*
 
 #### STEP 4: CREATE A MASKED IMAGE OF OUR CANNY EDGE OUTPUT
 
 The output of the Canny Edge Detector is an image "edges", this of course has edges detected in the entire image, which includes areas not of interest such as other lane lines, or road signs and trees.  To focus in directly on the problem, I applied a region of interest utilizing a polygon combined with the masked image.  The result is a Canny Edge Output image "masked_edges".  
 
-![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/region_of_interest.jpg)
+![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/region_of_interest.jpg)  *Region of Interest*
 
 The OpenCV implementation requires passing in two parameters in addition to our blurred image, a low and high threshold which determines whether to include a given edge or not. A threshold captures the intensity of change of a given point (you can think of it as a gradient). Any point beyond the high threshold will be included in our resulting image, while points between the threshold values will only be included if they are next to edges beyond our high threshold. Edges that are below our low threshold are discarded. Recommended low:high threshold ratios are 1:3 or 1:2. We use values 50 and 150 respectively for low and high thresholds.
 
-![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/masked_canny.jpg)
+![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/masked_canny.jpg)  
+*Region of Interest with Masked Canny Detector Output*
 
 #### STEP 5: PERFORM A HOUGH TRANSFORM 
 
@@ -69,7 +75,8 @@ Therefore, in such plane, we can more easily identify lines that go via the same
 
 All straight lines going through a given point will correspond to a sinusoidal curve in the (ρ, θ) plane. Therefore, a set of points on the same straight line in Cartesian space will yield sinusoids that cross at the point (ρ, θ). This naturally means that the problem of detecting points on a line in cartesian space is reduced to finding intersecting sinusoids in Hough space.
 
-![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)
+![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)  
+*Hough Lines*
 
 #### STEP 6: SEPERATE LEFT AND RIGHT LANES / DRAW LINES
 
@@ -77,7 +84,8 @@ The drawlines function that was provided works quite well, but it only draws lin
 
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest.  To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced.  Y-coordinates were already determined as the y-coodrinates of the region of interest, 540 (bottom) and 350 (top) pixels.  To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.
 
-![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg) 
+![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)
+*Draw Lines Connecting Hough Lines*
 ### 2.0 Identify potential shortcomings with your current pipeline
 
 I feel my pipeline accurately determines the location of the left or right lane accurately, this includes a lane that is painted yellow or white.  A shortcoming to my pipeline is the accurate determination of curved lines.  My pipeline is detecting the length of a line first before determining how long of a solid red line is should draw.  
