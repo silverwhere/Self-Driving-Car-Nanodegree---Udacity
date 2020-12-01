@@ -14,7 +14,7 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 ---
 
-### Description
+### 1.0 Description
 
 The project consists of first developing a pipeline for use on several still images of 960 x 540 pixels to train our pipeline against. Below is one of the provided images.
 
@@ -65,19 +65,19 @@ Therefore, in such plane, we can more easily identify lines that go via the same
 
 All straight lines going through a given point will correspond to a sinusoidal curve in the (ρ, θ) plane. Therefore, a set of points on the same straight line in Cartesian space will yield sinusoids that cross at the point (ρ, θ). This naturally means that the problem of detecting points on a line in cartesian space is reduced to finding intersecting sinusoids in Hough space.
 
-### STEP 6: SEPERATE LEFT AND RIGHT LANES / DRAW LINES
+#### STEP 6: SEPERATE LEFT AND RIGHT LANES / DRAW LINES
 
 The drawlines function that was provided works quite well, but it only draws lines over the edges detected and often you end up with a line on each edge of the solid road line and not a single solid line.  To solve for this I noticed that while the lanes are in fact straight on the road, our camera viewing angle actually shows a slope for both the left lane (positive slope) and right lane (negative slope).  In order to draw a single line on the left and right lanes, I modified the draw_lines() function by first calculating the slope of the detected lines coordinates.  For slopes greater or less than 0.3 I appended the coordinates of the identified left or right lane lines.  Slopes between -0.3 and 0.3 were ignored as edges close to zero did not appear as a lane line and often detected edges that were not lanes in certain frames of the video.
 
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest.  To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced.  Y-coordinates were already determined as the y-coodrinates of the region of interest, 540 (bottom) and 350 (top) pixels.  To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2.0 Identify potential shortcomings with your current pipeline
 
 I feel my pipeline accurately determines the location of the left or right lane accurately, this includes a lane that is painted yellow or white.  A shortcoming to my pipeline is the accurate determination of curved lines.  My pipeline is detecting the length of a line first before determining how long of a solid red line is should draw.  
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3.0 Suggest possible improvements to your pipeline
 
 To improve my pipeline I could seperate my original image into RGB color channels.  Yellow would only appear in a green or red channel and not a blue channel.  Knowing this I could isolate my white lines from my yellow lines and potentially apply logic and rules for solid and dashed yellow or white lines, or orange lines is often new in areas under construction!
 
