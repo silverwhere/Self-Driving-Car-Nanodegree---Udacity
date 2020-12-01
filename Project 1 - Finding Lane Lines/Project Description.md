@@ -3,7 +3,7 @@
 ---
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-**Finding Lane Lines on the Road**
+### **Finding Lane Lines on the Road**
 
 Conventional vehicles from the very first steam engines to this centuries internal combustion engines and electric vehicles have relied on human decision making by the driver of the vehicle to identify and navigate the lanes of the road.  As automonous vehicles will have to be able to precieve, decide and action to target their position automatically.  To accomplish this we first will need to develop a pipeline using computer vision methods utlized from the OpenCV libary for Python.  The libary Open-Source Computer Vision (OpenCV) is a library of programming functions mainly aimed at real-time computer vision.  It is the combination of this library and how to best process the video images we will be able to identify the location of the lanes in real-time.
 
