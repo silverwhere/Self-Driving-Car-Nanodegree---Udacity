@@ -28,13 +28,15 @@ The provided images are in RGB colorspace. To begin processing these images, I f
 
 Continuing, I achieved a decent result with RGB to Grayscale conversion, but I had also learned about HSV and HSL colorspace when developing a traffic light classifier In the "Intro to Self Driving Cars Nanodegree" to detect specific colors of a traffic light.  At this point I am only concerned with detecting a line, not the specific color, so HSV (Hue, Saturation, Value) or HSL (Hue, Saturation, Lightness) colorspace will prove to be the best filter to detect the lines themselves.  Utilzing HSL I am better able to detect the lines as "lightness" is best understood as the amount of white in the pixel.  HSV provided a better result than grayscale, however, when looking at the results of HSV compared to HSL, I found better detection and proceeded to continue with HSL for accuracy.
 
-![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hsv_white_lanes.jpg)![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)
+![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)
+![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hsv_white_lanes.jpg)
+![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)
 
 #### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES
 
 In image processing, a Gaussian blur (also known as Gaussian smoothing) is an image pre-processing technique.  It is the result of blurring an image by a Gaussian function (named after mathematician and scientist Carl Friedrich Gauss).  The effect is typically to reduce image noise and reduce detail.
 
-*****INCLUDE IMAGE OF GAUSSIAN BLUR***************
+![Figure6](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gaussian_blur.jpg)
 
 *Note that a Canny Filter which we will also use has a 5 x 5 Gaussian Blur, but adding one before is for additional smoothing.
 
