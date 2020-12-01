@@ -10,7 +10,7 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 [//]: # (Image References)
 
-[Grayscale]: # (/examples/grayscale.jpg)
+![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
 
 ---
 
@@ -18,7 +18,7 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 The project consists of first developing a pipeline for use on several still images of 960 x 540 pixels to train our pipeline against. Below is one of the provided images.
 
-[image1]: ./examples/solidWhiteCurve.jpg "Color"
+![image1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg./examples/solidWhiteCurve.jpg)
 
 After the pipeline is proven to work on still images of our video feed, we can apply the pipeline to full video to determine if the identification of lane lines is sufficient.
 
