@@ -14,9 +14,7 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 ---
 
-## Reflection
-
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### Description
 
 The project consists of first developing a pipeline for use on several still images of 960 x 540 pixels to train our pipeline against. Below is one of the provided images.
 
