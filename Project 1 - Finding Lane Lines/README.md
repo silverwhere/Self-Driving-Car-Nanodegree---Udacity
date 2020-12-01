@@ -50,9 +50,11 @@ A Canny Edge Detector is an edge detection operator.  This is useful for us as s
 
 The output of the Canny Edge Detector is an image "edges", this of course has edges detected in the entire image, which includes areas not of interest such as other lane lines, or road signs and trees.  To focus in directly on the problem, I applied a region of interest utilizing a polygon combined with the masked image.  The result is a Canny Edge Output image "masked_edges".  
 
+![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/region_of_interest.jpg)
+
 The OpenCV implementation requires passing in two parameters in addition to our blurred image, a low and high threshold which determines whether to include a given edge or not. A threshold captures the intensity of change of a given point (you can think of it as a gradient). Any point beyond the high threshold will be included in our resulting image, while points between the threshold values will only be included if they are next to edges beyond our high threshold. Edges that are below our low threshold are discarded. Recommended low:high threshold ratios are 1:3 or 1:2. We use values 50 and 150 respectively for low and high thresholds.
 
-*****INCLUDE Masked Image of Canny Edge Output*************
+![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/masked_canny.jpg)
 
 #### STEP 5: PERFORM A HOUGH TRANSFORM 
 
@@ -73,7 +75,7 @@ The drawlines function that was provided works quite well, but it only draws lin
 
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest.  To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced.  Y-coordinates were already determined as the y-coodrinates of the region of interest, 540 (bottom) and 350 (top) pixels.  To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.
 
-![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)  
+![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg) 
 ### 2.0 Identify potential shortcomings with your current pipeline
 
 I feel my pipeline accurately determines the location of the left or right lane accurately, this includes a lane that is painted yellow or white.  A shortcoming to my pipeline is the accurate determination of curved lines.  My pipeline is detecting the length of a line first before determining how long of a solid red line is should draw.  
