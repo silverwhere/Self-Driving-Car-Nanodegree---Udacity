@@ -28,7 +28,7 @@ The provided images are in RGB colorspace. To begin processing these images, I f
 
 Continuing, I achieved a decent result with RGB to Grayscale conversion, but I had also learned about HSV and HSL colorspace when developing a traffic light classifier In the "Intro to Self Driving Cars Nanodegree" to detect specific colors of a traffic light.  At this point I am only concerned with detecting a line, not the specific color, so HSV (Hue, Saturation, Value) or HSL (Hue, Saturation, Lightness) colorspace will prove to be the best filter to detect the lines themselves.  Utilzing HSL I am better able to detect the lines as "lightness" is best understood as the amount of white in the pixel.  HSV provided a better result than grayscale, however, when looking at the results of HSV compared to HSL, I found better detection and proceeded to continue with HSL for accuracy.
 
-****INCLUDE IMAGES OF ORIGINAL/Grayscale/HSV/HSL********
+![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)
 
 #### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES
 
@@ -71,7 +71,7 @@ The drawlines function that was provided works quite well, but it only draws lin
 
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest.  To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced.  Y-coordinates were already determined as the y-coodrinates of the region of interest, 540 (bottom) and 350 (top) pixels.  To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.
 
-![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)  
+![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)  
 ### 2.0 Identify potential shortcomings with your current pipeline
 
 I feel my pipeline accurately determines the location of the left or right lane accurately, this includes a lane that is painted yellow or white.  A shortcoming to my pipeline is the accurate determination of curved lines.  My pipeline is detecting the length of a line first before determining how long of a solid red line is should draw.  
