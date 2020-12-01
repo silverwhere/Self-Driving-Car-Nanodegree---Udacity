@@ -10,7 +10,7 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: (/Project%201%20-%20Finding%20Lane%20Lines/examples/grayscale.jpg)
 
 ---
 
