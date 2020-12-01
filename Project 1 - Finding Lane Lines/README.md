@@ -44,7 +44,7 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 A Canny Edge Detector is an edge detection operator.  This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges shown in the image as possible.  The edge point detected from the operator should accurately localize on the center of the edge.  Finally a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
-*****INCLUDE CANNY EDGE OUTPUT**********
+![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/canny_edge.jpg)
 
 #### STEP 4: CREATE A MASKED IMAGE OF OUR CANNY EDGE OUTPUT
 
