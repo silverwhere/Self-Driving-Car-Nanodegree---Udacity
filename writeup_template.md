@@ -22,7 +22,7 @@ The project consists of first developing a pipeline for use on several still ima
 
 After the pipeline is proven to work on still images of our video feed, we can apply the pipeline to full video to determine if the identification of lane lines is sufficient.
 
-### Step 1: Convert RGB (Red, Green, Blue) Image to HSL (Hue, Saturation, Lightness)
+#### Step 1: Convert RGB (Red, Green, Blue) Image to HSL (Hue, Saturation, Lightness)
 
 The provided images are in RGB colorspace. To begin processing these images, I first considered converting the images to grayscale.  Grayscale images remove the color and focus on the areas of highest contrast, such as a white or yellow line when against the backdrop of a black asphalt road, i.e. the white and yellow lines will be brighter than the road and therefore observe a higher contrast.  Recall however though that if I were to filter the image out to individual color channels "Red, Green and Blue", the yellow lane lines would not appear in the "Green" color channel and therefore would be a good technique if I was to program in what each color lane line would represent, though seperating yellow and white lanes not required for this project.   
 
@@ -30,7 +30,7 @@ Continuing, I achieved a decent result with RGB to Grayscale conversion, but I h
 
 ****INCLUDE IMAGES OF ORIGINAL/Grayscale/HSV/HSL********
 
-### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES
+#### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES
 
 In image processing, a Gaussian blur (also known as Gaussian smoothing) is an image pre-processing technique.  It is the result of blurring an image by a Gaussian function (named after mathematician and scientist Carl Friedrich Gauss).  The effect is typically to reduce image noise and reduce detail.
 
@@ -38,13 +38,13 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 *Note that a Canny Filter which we will also use has a 5 x 5 Gaussian Blur, but adding one before is for additional smoothing.
 
-### STEP 3: APPLY A CANNY EDGE DETECTOR
+#### STEP 3: APPLY A CANNY EDGE DETECTOR
 
 A Canny Edge Detector is an edge detection operator.  This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges shown in the image as possible.  The edge point detected from the operator should accurately localize on the center of the edge.  Finally a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
 *****INCLUDE CANNY EDGE OUTPUT**********
 
-### STEP 4: CREATE A MASKED IMAGE OF OUR CANNY EDGE OUTPUT
+#### STEP 4: CREATE A MASKED IMAGE OF OUR CANNY EDGE OUTPUT
 
 The output of the Canny Edge Detector is an image "edges", this of course has edges detected in the entire image, which includes areas not of interest such as other lane lines, or road signs and trees.  To focus in directly on the problem, I applied a region of interest utilizing a polygon combined with the masked image.  The result is a Canny Edge Output image "masked_edges".  
 
@@ -52,7 +52,7 @@ The OpenCV implementation requires passing in two parameters in addition to our 
 
 *****INCLUDE Masked Image of Canny Edge Output*************
 
-### STEP 5: PERFORM A HOUGH TRANSFORM 
+#### STEP 5: PERFORM A HOUGH TRANSFORM 
 
 The next step is to apply the Hough Transform technique to extract lines and color them. A Hough Transform finds lines by identifying all points that lie on them. This is done by converting our current Cartesian system denoted by axis (x,y) to a parametric one where axes are (m (slope), b (y-intercept). 
 
