@@ -69,6 +69,8 @@ Therefore, in such plane, we can more easily identify lines that go via the same
 
 All straight lines going through a given point will correspond to a sinusoidal curve in the (ρ, θ) plane. Therefore, a set of points on the same straight line in Cartesian space will yield sinusoids that cross at the point (ρ, θ). This naturally means that the problem of detecting points on a line in cartesian space is reduced to finding intersecting sinusoids in Hough space.
 
+![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)
+
 #### STEP 6: SEPERATE LEFT AND RIGHT LANES / DRAW LINES
 
 The drawlines function that was provided works quite well, but it only draws lines over the edges detected and often you end up with a line on each edge of the solid road line and not a single solid line.  To solve for this I noticed that while the lanes are in fact straight on the road, our camera viewing angle actually shows a slope for both the left lane (positive slope) and right lane (negative slope).  In order to draw a single line on the left and right lanes, I modified the draw_lines() function by first calculating the slope of the detected lines coordinates.  For slopes greater or less than 0.3 I appended the coordinates of the identified left or right lane lines.  Slopes between -0.3 and 0.3 were ignored as edges close to zero did not appear as a lane line and often detected edges that were not lanes in certain frames of the video.
