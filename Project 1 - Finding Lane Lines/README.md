@@ -45,16 +45,16 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 #### STEP 3: Aplly a Canny Edge Detector  
 
-A Canny Edge Detector is an edge detection operator. This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges as shown in the image as possible. The edge point detected from the operator should accurately localize on the center of the edge. Finally, a given edge in the image should only be marked once, and where possible, image noise should not create false edges.<p align="center">
+A Canny Edge Detector is an edge detection operator. This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges as shown in the image as possible. The edge point detected from the operator should accurately localize on the center of the edge. Finally, a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
 ![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/canny_edge.jpg)  
 *Canny Edge Detector Output*
 
 #### STEP 4: Create a Masked Image of our Canny Edge Output
 
-The output of the Canny Edge Detector is an image "edges", this course has edges detected in the entire image, which includes areas, not of interest such as other lane lines, or road signs and trees. To focus indirectly on the problem, I applied a region of interest utilizing a polygon combined with the masked image. The result is a Canny Edge Output image "masked_edges".<p align="center">
+The output of the Canny Edge Detector is an image "edges", this course has edges detected in the entire image, which includes areas, not of interest such as other lane lines, or road signs and trees. To focus indirectly on the problem, I applied a region of interest utilizing a polygon combined with the masked image. The result is a Canny Edge Output image "masked_edges".
 
-![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/region_of_interest.jpg)  *Region of Interest*
+![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/region_of_interest.jpg) *Region of Interest*
 
 The OpenCV implementation requires passing in two parameters in addition to our blurred image, a low and high threshold which determines whether to include a given edge or not. A threshold captures the intensity of change of a given point (you can think of it as a gradient). Any point beyond the high threshold will be included in our resulting image, while points between the threshold values will only be included if they are next to edges beyond our high threshold. Edges that are below our low threshold are discarded. Recommended low:high threshold ratios are 1:3 or 1:2. We use values 50 and 150 respectively for low and high thresholds.<p align="center">
 
