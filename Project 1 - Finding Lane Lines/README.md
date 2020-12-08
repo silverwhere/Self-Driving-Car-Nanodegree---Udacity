@@ -90,6 +90,7 @@ The drawlines function that was provided works quite well, but it only draws lin
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest. To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced. Y-coordinates were already determined as the y-coordinates of the region of interest, 540 (bottom) and 350 (top) pixels. To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.<p align="center">
 
 ![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)
+
 *Draw Lines Connecting Hough Lines*</p>
 ### 2.0 Identify potential shortcomings with your current pipeline
 
