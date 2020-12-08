@@ -20,7 +20,7 @@ The project consists of first developing a pipeline for use on several still ima
 
 ![Figure2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidWhiteCurve.jpg)
 
-After the pipeline is proven to work on still images of our video feed, we can apply the pipeline to full video to determine if the identification of lane lines is sufficient.
+After the pipeline is proven to demonstrate a successful result on still images of our video feed, we can apply the pipeline to full video to determine if the identification of lane lines is sufficient.
 
 #### Step 1: Convert RGB (Red, Green, Blue) Image to HSL (Hue, Saturation, Lightness)
 
@@ -35,7 +35,7 @@ Continuing, I achieved a decent result with RGB to Grayscale conversion, but I h
 ![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)
 *HLS*  
 
-#### Step 2: APPLY A GAUSSIAN BLUR FILTER FOR SMOOTHING OF LANE LINES  
+#### Step 2: Apply a Gaussian Blur Filter for Smoothing of Lane Lines 
 
 In image processing, a Gaussian blur (also known as Gaussian smoothing) is an image pre-processing technique. It is the result of blurring an image by a Gaussian function (named after mathematician and scientist Carl Friedrich Gauss). The effect is typically to reduce image noise and reduce detail.
 
@@ -44,14 +44,14 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 *Note that a Canny Filter which we will also use has a 5 x 5 Gaussian Blur, but adding one before is for additional smoothing.
 
-#### STEP 3: APPLY A CANNY EDGE DETECTOR  
+#### STEP 3: Aplly a Canny Edge Detector  
 
 A Canny Edge Detector is an edge detection operator. This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges as shown in the image as possible. The edge point detected from the operator should accurately localize on the center of the edge. Finally, a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
 ![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/canny_edge.jpg)  
 *Canny Edge Detector Output*
 
-#### STEP 4: CREATE A MASKED IMAGE OF OUR CANNY EDGE OUTPUT
+#### STEP 4: Create a Masked Image of our Canny Edge Output
 
 The output of the Canny Edge Detector is an image "edges", this course has edges detected in the entire image, which includes areas, not of interest such as other lane lines, or road signs and trees. To focus indirectly on the problem, I applied a region of interest utilizing a polygon combined with the masked image. The result is a Canny Edge Output image "masked_edges".
 
@@ -62,7 +62,7 @@ The OpenCV implementation requires passing in two parameters in addition to our 
 ![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/masked_canny.jpg)  
 *Region of Interest with Masked Canny Detector Output*
 
-#### STEP 5: PERFORM A HOUGH TRANSFORM 
+#### STEP 5: Perform a Hough Transform 
 
 The next step is to apply the Hough Transform technique to extract lines and color them. A Hough Transform finds lines by identifying all points that lie on them. This is done by converting our current Cartesian system denoted by axis (x,y) to a parametric one where axes are (m (slope), b (y-intercept).
 In parameter space this plane:  
@@ -77,7 +77,7 @@ All straight lines going through a given point will correspond to a sinusoidal c
 ![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)  
 *Hough Lines*
 
-#### STEP 6: SEPERATE LEFT AND RIGHT LANES / DRAW LINES
+#### STEP 6: Seperate Left and Right Lanes / Draw Lines
 
 The drawlines function that was provided works quite well, but it only draws lines over the edges detected and often you end up with a line on each edge of the solid road line and not a single solid line. To solve this I noticed that while the lanes are in fact straight on the road, our camera viewing angle actually shows a slope for both the left lane (positive slope) and right lane (negative slope) as they converge at the top of the view. To draw a single line on the left and right lanes, I modified the draw_lines() function by first calculating the slope of the detected line coordinates. For slopes greater or less than 0.3 I appended the coordinates of the identified left or right lane lines. Slopes between -0.3 and 0.3 were ignored as edges close to zero did not appear as a lane line and often detected edges that were not lanes in certain frames of the video.
   
