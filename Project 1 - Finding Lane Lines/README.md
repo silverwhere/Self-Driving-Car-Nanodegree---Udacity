@@ -9,9 +9,9 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 
 [//]: # (Image References)
-
+<p align="center">
 ![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
-
+</p>
 ---
 
 ### 1.0 Description
