@@ -34,7 +34,7 @@ Continuing, I achieved a decent result with RGB to Grayscale conversion, but I h
 *HSV*  
 ![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)  
 *HLS*   
-
+</p>
 #### Step 2: Apply a Gaussian Blur Filter for Smoothing of Lane Lines 
 
 In image processing, a Gaussian blur (also known as Gaussian smoothing) is an image pre-processing technique. It is the result of blurring an image by a Gaussian function (named after mathematician and scientist Carl Friedrich Gauss). The effect is typically to reduce image noise and reduce detail.<p align="center">
