@@ -9,9 +9,9 @@ Conventional vehicles from the very first steam engines to this centuries intern
 
 
 [//]: # (Image References)
-<p align="center">
+
 ![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
-</p>
+
 ---
 
 ### 1.0 Description
@@ -27,9 +27,9 @@ After the pipeline is proven to demonstrate a successful result on still images 
 The provided images are in RGB colorspace. To begin processing these images, I first considered converting the images to grayscale. Grayscale images remove the color and focus on the areas of highest contrast, such as a white or yellow line when against the backdrop of a black asphalt road, i.e. the white and yellow lines will be brighter than the road and therefore observe a higher contrast. Recall however though that if I were to filter the image out to individual color channels "Red, Green and Blue", the yellow lane lines would not appear in the "Green" color channel and therefore would be a good technique if I was to program in what each color lane line would represent, though separating yellow and white lanes not required for this project.  
 
 Continuing, I achieved a decent result with RGB to Grayscale conversion, but I had also learned about HSV and HSL colorspace when developing a traffic light classifier In the "Intro to Self Driving Cars Nanodegree" to detect specific colors of a traffic light. At this point I am only concerned with detecting a line, not the specific color, so HSV (Hue, Saturation, Value) or HSL (Hue, Saturation, Lightness) colorspace will prove to be the best filter to detect the lines themselves. Utilizing HSL I am better able to detect the lines as "lightness" is best understood as the amount of white in the pixel. HSV provided a better result than grayscale, however, when looking at the results of HSV compared to HSL, I found better detection and proceeded to continue with HSL for accuracy.
-
+<p align="center">
 ![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/gray_white_lanes.jpg)  
-*Grayscale*<p align="center">
+*Grayscale*
 ![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hsv_white_lanes.jpg)  
 *HSV*  
 ![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hls_white_lanes.jpg)  
