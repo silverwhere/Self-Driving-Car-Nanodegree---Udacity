@@ -46,7 +46,7 @@ In image processing, a Gaussian blur (also known as Gaussian smoothing) is an im
 
 *Note that a Canny Filter which we will also use has a 5 x 5 Gaussian Blur, but adding one before is for additional smoothing.
 
-#### STEP 3: Aplly a Canny Edge Detector  
+#### STEP 3: Apply a Canny Edge Detector  
 
 A Canny Edge Detector is an edge detection operator. This is useful for us as since we have already identified the regions of lightness and smoothed the image in pre-processing, the Canny Edge Detector can detect and edge with a low error rate, which means that the detection should accurately catch as many edges as shown in the image as possible. The edge point detected from the operator should accurately localize on the center of the edge. Finally, a given edge in the image should only be marked once, and where possible, image noise should not create false edges.
 
