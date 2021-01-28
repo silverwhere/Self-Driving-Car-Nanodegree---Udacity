@@ -6,7 +6,7 @@
 
 ### **Advanced Lane Finding**
 
-![alt text](videos/project_video_augmented.gif "Result")
+![alt text](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/project_video_out.gif.mp4 "Result")
 
 The goals / steps of this project are the following:
 
