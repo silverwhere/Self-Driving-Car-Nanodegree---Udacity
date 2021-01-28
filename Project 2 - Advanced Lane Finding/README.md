@@ -1,10 +1,23 @@
 ## Advanced Lane Finding
+# Project 1: Finding Lane Lines on the Road
+
+---
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-![Lanes Image](./examples/example_output.jpg)
 
-In this project, your goal is to write a software pipeline to identify the lane boundaries in a video, but the main output or product we want you to create is a detailed writeup of the project.  Check out the [writeup template](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.  
+### **Finding Lane Lines on the Road**
 
-Creating a great writeup:
+Conventional vehicles from the very first steam engines to this centuries internal combustion engines and electric vehicles have relied on human decision making by the driver of the vehicle to identify and navigate the lanes of the road. As autonomous vehicles will have to be able to 'perceive', 'decide' and 'act' to target their position automatically, we will need to identify the lane lines on the road accurately. To accomplish this we first will need to develop a pipeline using computer vision methods utilized from the OpenCV library for Python. The library Open-Source Computer Vision (OpenCV) is a library of programming functions mainly aimed at real-time computer vision. It is the combination of this library and how to best process the video images we will be able to identify the location of the lanes in real-time.
+
+
+[//]: # (Image References)
+
+![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
+
+---
+
+### 1.0 Description
+
+The project consists of first developing a pipeline for use on several still images of 960 x 540 pixels to train our p
 ---
 A great writeup should include the rubric points as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
 
