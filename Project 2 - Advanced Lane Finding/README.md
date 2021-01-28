@@ -84,7 +84,7 @@ The direction of the gradient is simply the inverse tangent (arctan) of the y gr
 
 ![Figure6](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Grad_Direction.jpg)
 
-### 4.d Color Thresholding 
+### 4.d Colour Thresholding 
 
 RGB is red-green-blue color space, where any color can be represented by a 3D coordinate of R, G and B values. For example, white has the coordinate (255,255,255), which has the maximum value for red, green, and blue.  HSV is hue-saturation-value colorspace and HLS is hue, lightness and saturation.  Which we will utilize in our function.
 
@@ -95,3 +95,9 @@ RGB is red-green-blue color space, where any color can be represented by a 3D co
  `hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)` was the function used and I isolated for saturation as it was best at identifying lane lines in most scenarios including (shadows).   A binary threshold to select pixels based from 120 to 255 was applied.  The result was lane lines identified as follows:
     
 ![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/s_channel.jpg)
+
+### 5.0 Combine Colour and Gradient Thresholding
+
+Each thresholding filter offers advantages and disadvantages, by utilizing four filters as described above, we are able to combine them into a single image filter for futher processing of the lane lines.  The image below is the combined binary output of all thresholding filters, with good results on identifying the lane lines.
+
+![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/combined_binary)
