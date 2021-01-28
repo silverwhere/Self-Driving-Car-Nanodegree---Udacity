@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
+![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/calibration17.jpg)
 
 The project consists of first developing a pipeline
 
