@@ -104,11 +104,18 @@ Each thresholding filter offers advantages and disadvantages, by utilizing four 
 
 ### 6.0 Find Lane Lines Using Sliding Windows
 
-To accomplish this we'll use a method called "Peaks in a Histogram" where we analyse the histogram of section of the image, window, and identify the peaks which represent the location of the lane lines.
+To accomplish this we'll use a method called "Peaks in a Histogram" where we analyse the histogram of section of the image, window, and identify the peaks which represent the location of the lane lines.  We then split the image in to two, for the right lane and left lane detection. 
 
 ![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/histogram.jpg)
 
-Once you've detected pixels in a sliding window, the function will now find points to be fitted with the second-order polynomial using the sliding window technique. I have shaded the left yellow lane line in red, and you can see the white dotted line for passing is in blue.
+Once you've detected pixels in a sliding window, there is a minimum number of pixels to be detected before a recentre of our windows on the lane line.  Once completed, the function will now find points to be fitted with the second-order polynomial using the sliding window technique. I have shaded the left yellow lane line in red, and you can see the white dotted line for passing is in blue.
 
 ![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/sliding_windows.jpg)
+
+### 7.0 Search Around For Lane Lines
+
+Once we have used the sliding windows function and detected lane lines and right and left lane indicies, we can return these values for the next frame in the video to search around for lane lines based on activated x-values within the +/- margin of our polynomial function.  This should speed up processing time as our search area has been greatly narrowed.
+
+![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/shaded_lanes.jpg)
+
 
