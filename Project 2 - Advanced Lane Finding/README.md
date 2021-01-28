@@ -133,9 +133,9 @@ Once we have thresholded and determined our lane line locations, curvatures and 
 
 Once the pipeline can correctly identify each of the test images we can utilize a function `findlane(img)` to call each of the methods described above to process each frame of the video.  The result output of the video can be seen in Figure 1 above.
 
-### 11.0 Suggest possible improvements to your pipeline
+### 11.0 Possible Improvements for Pipeline
 
-I feel my pipeline does a good job of identifying the lane lines.  What I have noticed is that in rapid changes of high contrast, brightness or dark shawdows the lane detection starts to fail momentarily.  I feel I can accomplish this with a combination of additional threshold checks, but also implementing further logic, such as the distance a lane should be.  
+I feel my pipeline does a good job of identifying the lane lines.  What I have noticed is that in rapid changes of high contrast, brightness or dark shawdows the lane detection starts to fail momentarily.  I feel I can accomplish this with a combination of additional threshold checks, but also implementing further logic, such as the distance a lane should be.  Secondly, I feel I should also average the lane lines before committing to a fitted polynomial.  Lastly, for colour changes, I feel that certain thresholds can be activated in a lane line is not detected, i.e. higher areas of lightness, etc.
 
 Overall, this was a wonderful project.  I always saw images of lane detection animations on televison or in SAE articles and wanted to learn more how to develop these.  Now I have developed my own and this is really exciting.  I plan to calibrate my own camera and test my pipeline out on my own highway.
 
