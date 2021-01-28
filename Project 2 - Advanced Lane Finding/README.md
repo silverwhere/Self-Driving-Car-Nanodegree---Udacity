@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
+![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Finding%20Lane%20Lines/test_images/solidYellowCurve.jpg)
 
 The project consists of first developing a pipeline
 
@@ -32,15 +32,21 @@ Camera parameters include intrinsics, extrinsics, and distortion coefficients. T
 
 I developed a camera calibration function when Camera calibration, given object points, image points, and the shape of the grayscale image, returns distortion coefficients (dist) camera matrix (mtx), camera position in the world, rotation (rvecs), translation (tvecs).
 
+I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
+
+I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result:
+
+
+
 ### 2.0 Image Distortion Correction
 
 The lens used in a camera is not a perfect piece of glass, so some form of distortion might be present in the image it captures. There is what we call radial distortion in which the light bends at a certain angle that deviates from a rectilinear plane.  Therefore, we need to correct for image distortion utilizing our camera matrix and distortion coefficients.  Distortion can - 
 
-* a) change the apparent size of an object in an image.  
-* b) change the apparent shape of an object in an image.  
-* c) cause an objects appearance to change depending on where it is in the field of view.  
-* d) and make objects appear closer or father away than they actually are.
+* change the apparent size of an object in an image.  
+* change the apparent shape of an object in an image.  
+* cause an objects appearance to change depending on where it is in the field of view.  
+* and make objects appear closer or father away than they actually are.
 
-I utilized cv2.undistort(img, mtx, dist, None, mtx) to perform an image distortion correction.
+I utilized `cv2.undistort(img, mtx, dist, None, mtx)` to perform an image distortion correction.
        
 
