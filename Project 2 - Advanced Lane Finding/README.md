@@ -83,3 +83,15 @@ When looking at lane lines, knowing the direction of the gradient can be useful,
 The direction of the gradient is simply the inverse tangent (arctan) of the y gradient divided by the x gradient, arctan(sobely/sobelx) `np.arctan2(np.absolute(sobely), np.absolute(sobelx))`  It can be seen for the yellow line, the direction of the gradient determined this well.
 
 ![Figure6](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Grad_Direction.jpg)
+
+### 4.d Color Thresholding 
+
+RGB is red-green-blue color space, where any color can be represented by a 3D coordinate of R, G and B values. For example, white has the coordinate (255,255,255), which has the maximum value for red, green, and blue.  HSV is hue-saturation-value colorspace and HLS is hue, lightness and saturation.  Which we will utilize in our function.
+
+* Hue is a value that represents color independent of any change in brightness.  
+* Lightness and Value represent different ways to measure the relative lightness or darkness of a color.  
+* Saturation is a measurement of colorfulness, i.e. as a colors get lighter and closer to white, they have a lower saturation value.  
+
+ `hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)` was the function used and I isolated for saturation as it was best at identifying lane lines in most scenarios including (shadows).   A binary threshold to select pixels based from 120 to 255 was applied.  The result was lane lines identified as follows:
+    
+![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/s_channel.jpg)
