@@ -8,14 +8,14 @@
 
 The goals / steps of this project are the following:
 
-Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
-Apply a distortion correction to raw images.
-Use color transforms, gradients, etc., to create a thresholded binary image.
-Apply a perspective transform to rectify binary image ("birds-eye view").
-Detect lane pixels and fit to find the lane boundary.
-Determine the curvature of the lane and vehicle position with respect to center.
-Warp the detected lane boundaries back onto the original image.
-Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
+* Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
+* Apply a distortion correction to raw images.
+* Use color transforms, gradients, etc., to create a thresholded binary image.
+* Apply a perspective transform to rectify binary image ("birds-eye view").
+* Detect lane pixels and fit to find the lane boundary.
+* Determine the curvature of the lane and vehicle position with respect to center.
+* Warp the detected lane boundaries back onto the original image.
+* Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 
 [//]: # (Image References)
@@ -36,11 +36,11 @@ I developed a camera calibration function when Camera calibration, given object 
 
 The lens used in a camera is not a perfect piece of glass, so some form of distortion might be present in the image it captures. There is what we call radial distortion in which the light bends at a certain angle that deviates from a rectilinear plane.  Therefore, we need to correct for image distortion utilizing our camera matrix and distortion coefficients.  Distortion can - 
 
-a) change the apparent size of an object in an image
-b) change the apparent shape of an object in an image
-c) cause an objects appearance to change depending on where it is in the field of view
-d) and make objects appear closer or father away than they actually are.
+* a) change the apparent size of an object in an image.  
+* b) change the apparent shape of an object in an image.  
+* c) cause an objects appearance to change depending on where it is in the field of view.  
+* d) and make objects appear closer or father away than they actually are.
 
- I utilized cv2.undistort(img, mtx, dist, None, mtx) to perform an image distortion correction.
+I utilized cv2.undistort(img, mtx, dist, None, mtx) to perform an image distortion correction.
        
 
