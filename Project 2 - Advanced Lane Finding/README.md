@@ -127,9 +127,11 @@ Utilizing output values in pixel space based on the polynomials calculated, we c
 Once we have thresholded and determined our lane line locations, curvatures and position of vehicle, we can transpose these values on the image, however, we must consider that the image is still warped and using the `Minv` the inverse transform matrix we can utilze the warp perspective and place our lane boundaries back onto the original image.
 `cv2.warpPerspective(color_warp, Minv, (image.shape[1], image.shape[0]))`
 
+![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/shaded_lane.jpg)
+
 ### 10.0 Run Pipeline
 
-Once the pipeline can correctly identify each of the test images we can utilize a function findlane(img) to call each of the methods described above to process each frame of the video.  The result output of the video can be seen in Figure 1 above.
+Once the pipeline can correctly identify each of the test images we can utilize a function `findlane(img)` to call each of the methods described above to process each frame of the video.  The result output of the video can be seen in Figure 1 above.
 
 ### 11.0 Suggest possible improvements to your pipeline
 
