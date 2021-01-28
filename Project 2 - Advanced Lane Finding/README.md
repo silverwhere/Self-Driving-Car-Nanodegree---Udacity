@@ -101,3 +101,14 @@ RGB is red-green-blue color space, where any color can be represented by a 3D co
 Each thresholding filter offers advantages and disadvantages, by utilizing four filters as described above, we are able to combine them into a single image filter for futher processing of the lane lines.  The image below is the combined binary output of all thresholding filters, with good results on identifying the lane lines.
 
 ![Figure8](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/combined_binary)
+
+### 6.0 Find Lane Lines Using Sliding Windows
+
+To accomplish this we'll use a method called "Peaks in a Histogram" where we analyse the histogram of section of the image, window, and identify the peaks which represent the location of the lane lines.
+
+![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/histogram.jpg)
+
+Once you've detected pixels in a sliding window, the function will now find points to be fitted with the second-order polynomial using the sliding window technique. 
+
+![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/sliding_windows.jpg)
+
