@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
----
+---  
 The project consists of first developing a pipeline
 
 ### 1.0 Camera Calibration
@@ -70,3 +70,8 @@ a way of taking the derivative of the image in the x or y direction.  As lane li
 
 ![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Undistored_Warped.jpg)
 
+### 4.2 Magnitude of the Gradient
+
+Apply a threshold to the overall magnitude of the gradient, in both x and y direction by taking the square root of Sobelx^2 and Sobely^2 `np.sqrt(sobelx**2 + sobely**2)`
+
+![Figure5](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Mag_Gradient.jpg)
