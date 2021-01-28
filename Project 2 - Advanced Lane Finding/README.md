@@ -118,4 +118,24 @@ Once we have used the sliding windows function and detected lane lines and right
 
 ![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/shaded_lanes.jpg)
 
+### 8.0 Determine the curvature of the lane and vehicle position with respect to center.
+
+Utilizing output values in pixel space based on the polynomials calculated, we can utilize a few mathematical operators to determine the left and right lane curvature and average curvature based on those two values.  Secondly, if we assume the camera is mounted directly in the centre of the vehicle, determining the centre of the lane we can calculate a vehicle offset from the centreline of the calculated lane. `measure_curvature_real()` is the function I wrote to calculate these values.
+
+### 9.0 Warp the detected lane boundaries back onto the original image.
+
+Once we have thresholded and determined our lane line locations, curvatures and position of vehicle, we can transpose these values on the image, however, we must consider that the image is still warped and using the `Minv` the inverse transform matrix we can utilze the warp perspective and place our lane boundaries back onto the original image.
+`cv2.warpPerspective(color_warp, Minv, (image.shape[1], image.shape[0]))`
+
+### 10.0 Run Pipeline
+
+Once the pipeline can correctly identify each of the test images we can utilize a function findlane(img) to call each of the methods described above to process each frame of the video.  The result output of the video can be seen in Figure 1 above.
+
+### 11.0 Suggest possible improvements to your pipeline
+
+I feel my pipeline does a good job of identifying the lane lines.  What I have noticed is that in rapid changes of high contrast, brightness or dark shawdows the lane detection starts to fail momentarily.  I feel I can accomplish this with a combination of additional threshold checks, but also implementing further logic, such as the distance a lane should be.  
+
+Overall, this was a wonderful project.  I always saw images of lane detection animations on televison or in SAE articles and wanted to learn more how to develop these.  Now I have developed my own and this is really exciting.  I plan to calibrate my own camera and test my pipeline out on my own highway.
+
+
 
