@@ -1,4 +1,4 @@
-## Advanced Lane Finding
+
 # Project 2: Advanced Lane Finding
 
 ---
@@ -21,9 +21,7 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-
-![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/calibration17.jpg)
-
+---
 The project consists of first developing a pipeline
 
 ### 1.0 Camera Calibration
@@ -38,6 +36,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result:
 
+![Figure1](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/calibration17.jpg)
 
 
 ### 2.0 Image Distortion Correction
@@ -50,14 +49,15 @@ The lens used in a camera is not a perfect piece of glass, so some form of disto
 * and make objects appear closer or father away than they actually are.
 
 I utilized `cv2.undistort(img, mtx, dist, None, mtx)` to perform an image distortion correction.
-       
+
+![Figure2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/distorted_undistored.jpg)
 
 ### 3.0 Apply a Perspective Transform
 
 Transforming an image such that we are effectively viewing objects from a different angle or direction.  Objects appear smaller the farther away they are from a viewpoint, like a camera, parallel lanes appear to converge to a point.  We are interested in a perspective transform as we want to ultimately measure the curvature of a lane line.
 To accomplish this I needed to transform a top-down view using `cv2.getPerspectiveTransform()` to obtain the to get `M`, the transform matrix and `Minv` the inverse transform matrix, to be utilized later to transform our image back.  Prior to transforming my image I had to select source points `src` and destination points `dst`.   In Perspective Transform, we need provide the points `src` on the image from which want to gather information by changing the perspective. We also need to provide the points inside which we want to display our image `dst`. Then, we get the perspective transform from the two given set of points and wrap it with the original image using ` cv2.warpPerspective()`  to warp your image to a top-down view.
 
-![Figure2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Undistored_Warped.jpg)
+![Figure3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Undistored_Warped.jpg)
 
 ### 4.0 Thresholding
 
@@ -68,4 +68,5 @@ In digital image processing, thresholding is the simplest method of segmenting i
 Sobel operators is a joint Gausssian smoothing plus differentiation operation, so it is more resistant to noise. You can specify the direction of derivatives to be taken, vertical y or horizontal x.  The Sobel operator is at the heart of the Canny edge detection algorithim.  Applying the Sobel operator to an image is
 a way of taking the derivative of the image in the x or y direction.  As lane lines are mostly vertical, I choose to use a Sobelx, denoted by 1,0, `cv2.Sobel(gray, cv2.CV_64F, 1, 0)` whereas Sobely would be 0,1.  I converted the image to 8-bit and a binary threshold to select pixels based on gradient strength from 20 to 100.  The result was lane lines identified as follows:
 
+![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Undistored_Warped.jpg)
 
