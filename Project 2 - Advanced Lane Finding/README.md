@@ -108,7 +108,7 @@ To accomplish this we'll use a method called "Peaks in a Histogram" where we ana
 
 ![Figure9](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/histogram.jpg)
 
-Once you've detected pixels in a sliding window, the function will now find points to be fitted with the second-order polynomial using the sliding window technique. 
+Once you've detected pixels in a sliding window, the function will now find points to be fitted with the second-order polynomial using the sliding window technique. I have shaded the left yellow lane line in red, and you can see the white dotted line for passing is in blue.
 
 ![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/sliding_windows.jpg)
 
