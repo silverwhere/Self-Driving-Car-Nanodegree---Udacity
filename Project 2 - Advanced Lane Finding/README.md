@@ -68,7 +68,7 @@ In digital image processing, thresholding is the simplest method of segmenting i
 Sobel operators is a joint Gausssian smoothing plus differentiation operation, so it is more resistant to noise. You can specify the direction of derivatives to be taken, vertical y or horizontal x.  The Sobel operator is at the heart of the Canny edge detection algorithim.  Applying the Sobel operator to an image is
 a way of taking the derivative of the image in the x or y direction.  As lane lines are mostly vertical, I choose to use a Sobelx, denoted by 1,0, `cv2.Sobel(gray, cv2.CV_64F, 1, 0)` whereas Sobely would be 0,1.  I converted the image to 8-bit and a binary threshold to select pixels based on gradient strength from 20 to 100.  The result was lane lines identified as follows:
 
-![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/Undistored_Warped.jpg)
+![Figure4](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/sobelx.jpg)
 
 ### 4.2 Magnitude of the Gradient
 
