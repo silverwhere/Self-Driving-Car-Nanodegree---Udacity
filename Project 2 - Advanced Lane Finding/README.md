@@ -1,4 +1,4 @@
-## Advanced Lane Finding
+
 # Project 2: Advanced Lane Finding
 
 ---
@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-
+---
 The project consists of first developing a pipeline
 
 ### 1.0 Camera Calibration
