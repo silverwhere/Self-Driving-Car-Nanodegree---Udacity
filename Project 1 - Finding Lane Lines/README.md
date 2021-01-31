@@ -77,10 +77,13 @@ In parameter space this plane:
 2. points are presented as lines (since they can be on many lines in a traditional coordinate system)
 3. intersecting lines means the same point is on multiple lines  
 
-Therefore, in such a plane, we can more easily identify lines that go via the same point. We however need to move from the current system to a Hough Space which uses a polar coordinates system as our original expression is not differentiable when m=0 (i.e. vertical lines). In polar coordinates, a given line will now be expressed as (ρ, θ), where line L is reachable by going a distance ρ at angle θ from the origin, thus meeting the perpendicular L; that is ρ = x cos θ + y sin θ.
+Therefore, in such a plane, we can more easily identify lines that go via the same point. We however need to move from the current system to a Hough Space which uses a polar coordinates system as our original expression is not differentiable when m=0 (i.e. vertical lines). In polar coordinates, a given line will now be expressed as (ρ, θ), where line L is reachable by going a distance ρ at angle θ from the origin, thus meeting the perpendicular L; that is ρ = x cos θ + y sin θ.  
+
+![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/hough_transform_diagram.jpg)
+
 All straight lines going through a given point will correspond to a sinusoidal curve in the (ρ, θ) plane. Therefore, a set of points on the same straight line in Cartesian space will yield sinusoids that cross at the point (ρ, θ). This naturally means that the problem of detecting points on a line in cartesian space is reduced to finding intersecting sinusoids in Hough space.<p align="center">
 
-![Figure10](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)  
+![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/hough_lines.jpg)  
 *Hough Lines*
 
 #### STEP 6: Seperate Left and Right Lanes / Draw Lines
@@ -89,7 +92,7 @@ The drawlines function that was provided works quite well, but it only draws lin
   
 Now that we know our left and right lanes, we can draw single, solid, red lines that trace the lane line through the entire region of interest. To accomplish this we need to determine the X-coordinates of the bottom of the line and the top of the line to be traced. Y-coordinates were already determined as the y-coordinates of the region of interest, 540 (bottom) and 350 (top) pixels. To draw the lines we used our x and y coordinates with the CV2.line function to draw our solid red lines in red.<p align="center">
 
-![Figure11](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)
+![Figure12](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%201%20-%20Finding%20Lane%20Lines/test_pipeline_images/solidWhiteCurve.jpg)
 
 *Draw Lines Connecting Hough Lines*</p>
 ### 2.0 Identify potential shortcomings with your current pipeline
