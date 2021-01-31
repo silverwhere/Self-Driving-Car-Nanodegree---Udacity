@@ -92,7 +92,7 @@ RGB is red-green-blue color space, where any color can be represented by a 3D co
 * Lightness and Value represent different ways to measure the relative lightness or darkness of a color.  
 * Saturation is a measurement of colorfulness, i.e. as a colors get lighter and closer to white, they have a lower saturation value.  
 
- `hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)` was the function used and I isolated for saturation as it was best at identifying lane lines in most scenarios including (shadows).   A binary threshold to select pixels based from 120 to 255 was applied.  The result was lane lines identified as follows:
+ `hls = cv2.cvtColor(img, cv2.COLOR_RGB2HLS)` was the function used and I isolated for saturation as it was best at identifying lane lines in most scenarios including (shadows).  However, in periods of approached the cement bridge, change in pavement the path drifted, therefore I found that combining with lightness also aided in detecting the white dashed lines.   A binary threshold to select pixels based from 120 to 255 was applied for saturation and 200 to 255 for lightness.  The result was lane lines identified as follows:
     
 ![Figure7](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%202%20-%20Advanced%20Lane%20Finding/output_images/s_channel.jpg)
 
