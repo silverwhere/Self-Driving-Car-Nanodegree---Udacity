@@ -23,6 +23,6 @@ Here, you'll expand on your sensor knowledge to localize and control the vehicle
 Project 6: Kidnapped Vehicle  
 Project 7: Highway Driving  
 Project 8: PID Controller  
-Project 9: Improve Your LinkedIn Profile  
-Project 10: Optimize Your GitHub Profile  
+Project 9: [Improve Your LinkedIn Profile](https://www.linkedin.com/in/ianwhittal/) 
+Project 10: [Optimize Your GitHub Profile](https://github.com/silverwhere)
 Project 11: Programming a Real Self-Driving Car  
