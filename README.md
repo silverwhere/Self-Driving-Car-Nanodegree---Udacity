@@ -11,7 +11,7 @@ Here, you'll first become an expert in applying Computer Vision and Deep Learnin
 
 Project 1: [Finding Lane Lines](/Project%201%20-%20Finding%20Lane%20Lines)  
 Project 2: [Advanced Lane Finding](/Project%202%20-%20Advanced%20Lane%20Finding)  
-Project 3: Traffic Sign Classifier  
+Project 3: [Traffic Sign Classifier](/Project%203%20-%20Traffic%20Sign%20Classifier)
 Project 4: Behavioral Cloning  
 Project 5: Extended Kalman Filters  
 
