@@ -63,14 +63,20 @@ With parameter sharing, each neuron in an output channel shares it's weights wit
 
 **Remember with weight sharing we use the same filter for an entire depth slice!**
 
-If you have N inputs, & K outputs you have (N+1)K parameters to use.
+If you have N inputs, & K outputs you have (N+1)K parameters to use.  
+  
+* Use the model to make predictions on new images  
 
+Utilizing the model initially offered a great training accuracy, but a poor validation accuracy.  The training log in the `Traffic_Sign_Classifier.ipynb` file will list the changes.  But most notable were:  
+* data augmentation training images (rotated) preprocessing at this step  
+* shuffled training data
+* normalization (changed normalization to -1 to 1 from 0 to 1)
+* LeNet model architecture modification - original LeNet model plus added I a dropout before final 3rd fully connected layer.  The course mentioned an initial keep_prob: 0.7 for a dropout regularization, but from From Nitish Srivastava [paper](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) "<i>Dropout probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."  Therefore, I choose a keep_prob: 0.5.  
 
+Overall my results were great!  
 
+## **99.6% Training Accuracy / Validation Accuracy = 96.1% / 93.1% Test Set Accuracy**
 
-
-
-* Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 
 
