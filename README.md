@@ -1,4 +1,4 @@
-# Self-Driving-Car-Engineer-Nanodegree-Udacity
+# Self Driving Car Engineer Nanodegree - Udacity
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
   
 Project write-ups and code for the Self Driving Car Nanodegree Offered By Udacity
@@ -11,7 +11,7 @@ Here, you'll first become an expert in applying Computer Vision and Deep Learnin
 
 Project 1: [Finding Lane Lines](/Project%201%20-%20Finding%20Lane%20Lines)  
 Project 2: [Advanced Lane Finding](/Project%202%20-%20Advanced%20Lane%20Finding)  
-Project 3: Traffic Sign Classifier  
+Project 3: [Traffic Sign Classifier](/Project%203%20-%20Traffic%20Sign%20Classifier)  
 Project 4: Behavioral Cloning  
 Project 5: Extended Kalman Filters  
 
@@ -23,6 +23,6 @@ Here, you'll expand on your sensor knowledge to localize and control the vehicle
 Project 6: Kidnapped Vehicle  
 Project 7: Highway Driving  
 Project 8: PID Controller  
-Project 9: Improve Your LinkedIn Profile  
-Project 10: Optimize Your GitHub Profile  
+Project 9: [Improve Your LinkedIn Profile](https://www.linkedin.com/in/ianwhittal/)   
+Project 10: [Optimize Your GitHub Profile](https://github.com/silverwhere)  
 Project 11: Programming a Real Self-Driving Car  
