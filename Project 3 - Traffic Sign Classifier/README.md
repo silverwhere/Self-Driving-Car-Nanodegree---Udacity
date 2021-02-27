@@ -85,4 +85,12 @@ To test my model I downloaded (5) German road signs at random.  I wanted to try 
 
 ![Web Images](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/web_images.jpg)  
 
+The results were as expected, low, 40% accuracy.  But I was still impressed with my accuracy, as I had choosen images such as `20 km/h` and `dangerous left curve ahead` which had only 180 training images each.  Furthermore, the `stop` sign was half missing.  
+
+Below is a tensorflow 5 Softmax Probabilities For each image I found on the Web  
+
+![softmax](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/tensorflow_probs.jpg)  
+
+
+
 
