@@ -20,7 +20,16 @@ From the visualization of a histogram we can clearly see this is a large amount 
 
 ![Figure_2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/histogram.jpg)  
 
-The histogram above shows an overlay of each data set across each of the 43 different sign classes. Of additional note is that there are limited images available for individual classes, which may make those images harder to classify accurately. I will want to use data augmentation to create more images overall for training.  
+The histogram above shows an overlay of each data set across each of the 43 different sign classes. Of additional note is that there are limited images available for individual classes, some with as little as 180 total images, which may make those images harder to classify accurately. I will want to use data augmentation to create more images overall for training.  
+  
+Number of training examples = 34,799
+Number of validation examples = 4,410
+Number of testing examples = 12,630  
+
+To add more training images from the existing training data, I used a rotation data augmentation technique, whereby taking each image in the training data set and rotating it both 10 degrees from vertical to 350 degrees (-10 degrees) from vertical.  This brought the new amount of training examples available to train against to 104,397.  
+  
+![Figure_3](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/rotated.jpg)  
+
 
 * Design, train and test a model architecture  
 
