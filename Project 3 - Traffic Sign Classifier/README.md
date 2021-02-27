@@ -1,4 +1,4 @@
-## Project: Build a Traffic Sign Recognition Program
+## Project 3: Building a Traffic Sign Classifier (Recognition Program)
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
