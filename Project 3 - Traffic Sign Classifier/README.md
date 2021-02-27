@@ -75,9 +75,9 @@ Utilizing the model initially offered a great training accuracy, but a poor vali
 
 Overall my results were great!  
 
-## **Training Accuracy = 99.6%**     
-**Validation Accuracy = 96.1%    
-**Test Set Accuracy = 93.1%**  
+## **Training Accuracy = 99.6%     
+Validation Accuracy = 96.1%    
+Test Set Accuracy = 93.1%**  
 
 * Analyze the softmax probabilities of the new images
 
