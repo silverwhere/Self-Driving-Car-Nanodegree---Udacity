@@ -81,5 +81,8 @@ Test Set Accuracy = 93.1%**
 
 * Analyze the softmax probabilities of the new images
 
+To test my model I downloaded (5) German road signs at random.  I wanted to try really unique photos, so I tried to find road signs that are toxic as I read about in the following paper [DARTS: Deceiving Autonomous Cars with Toxic Signs](https://arxiv.org/pdf/1802.06430.pdf).  I wanted to ensure the pictures had some graffiti, poor lighting, I also selected a few images that had a limited training data for that class.   
+
+![Web Images](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/web_images.jpg)  
 
 
