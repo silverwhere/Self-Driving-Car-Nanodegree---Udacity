@@ -5,7 +5,7 @@ Overview
 ---
 In this project, I utilized deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model was trained, I tested out the model on images of German traffic signs I found on the web.  The [rubric](https://review.udacity.com/#!/rubrics/481/view) contains "Stand Out Suggestions" for enhancing the project beyond the minimum requirements, of which I believe I accomplished by augmenting the training data and challenging my classifier with "toxic" difficult to read road signs.
 
-The goal of this project was to build a CNN in [TensorFlow](https://www.tensorflow.org/)  
+The goal of this project was to build a Convolutional Neural Network (CNN) in [TensorFlow](https://www.tensorflow.org/) and [Python](https://www.python.org/)
 
 Overall my results were great!  
 
