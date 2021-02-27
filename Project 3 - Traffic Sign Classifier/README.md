@@ -20,11 +20,11 @@ From the visualization of a histogram we can clearly see this is a large amount 
 
 ![Figure_2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/histogram.jpg)  
 
-The histogram above shows an overlay of each data set across each of the 43 different sign classes. Of additional note is that there are limited images available for individual classes, some with as little as 180 total images, which may make those images harder to classify accurately. I will want to use data augmentation to create more images overall for training.  
+The histogram above shows an overlay of each data set across each of the 43 different sign classes. Of additional note is that there are limited images available for individual classes, some with as little as 180 total images, which may make those images harder to classify accurately. I will want to use data augmentation to create more images overall for training.    
   
-Number of training examples = 34,799
-Number of validation examples = 4,410
-Number of testing examples = 12,630  
+Number of training examples = 34,799  
+Number of validation examples = 4,410  
+Number of testing examples = 12,630    
 
 To add more training images from the existing training data, I used a rotation data augmentation technique, whereby taking each image in the training data set and rotating it both 10 degrees from vertical to 350 degrees (-10 degrees) from vertical.  This brought the new amount of training examples available to train against to 104,397.  
   
@@ -36,6 +36,34 @@ To add more training images from the existing training data, I used a rotation d
 Prior to training the model, I normalized all the training, validation and test data. The image data should be normalized so that the data has mean zero and equal variance. For image data, `(pixel - 127.5)/ 255` will take the pixel is a quick way to approximately normalize the data and can be used in this project. A well conditioned image allows the optimizer to be more efficient to find a solution.
 
 Secondly, I converted all of the images to `grayscale` to help with image classification.  As Pierre Sermanet and Yann LeCun mentioned in their [paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), using color channels didn't seem to improve things a lot.  Therefore, I will only use a single channel in my model, e.g. grayscale images instead of color RGB.  
+
+My model architecture (Deep Learning Model) Based on LeNet Architecture, with the exception of adding max pooling layers, ReLU's sub sampling methods and dropout regularizations.  
+
+![LeNet Architecture](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/lenet.png)
+Source: Yan LeCun
+
+#### Parameters  
+
+To calculate the number of neurons in each layer on our CNN:
+
+Given: 
+*  Input Layer has a Width `W` and a Height `H`  
+*  Convolution Layer has a Filter size `F`
+*  Stride of `S`
+*  Padding `P`  Note no padding was neccessary for image library (images are 32x32x3)
+*  Number of Filters `K`
+
+Formula:  
+*  Width of Next Layer `W_out = [(W - F + 2P) / S] + 1`
+*  Height of Next Layer `H_out = [(H - F + 2P) / S] + 1`
+*  Output Depth `D_out = K` Number of filters
+*  Output Volume `V_out = W_out * H_out * D_out`  
+
+With parameter sharing, each neuron in an output channel shares it's weights with every other neuron in that channel.  So the number of parameters is equal to the number of neurons in the filter, plus a bias neuron, all multiplied by the number of channels in the output layer.
+
+**Remember with weight sharing we use the same filter for an entire depth slice!**
+
+If you have N inputs, & K outputs you have (N+1)K parameters to use.
 
 
 
