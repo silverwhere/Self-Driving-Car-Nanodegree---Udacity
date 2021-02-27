@@ -98,5 +98,9 @@ Overall, I was able to accurately detect `no entry` and `20 km/h`, I was surpise
 This was an optional section, but I was curious to see how the feature maps looked after the first convolution. Below is an image of the `no entry` sign.  I am very intriqued that it was able to pick up such details with limited number of pixels to accurately identify, I even have a hard time.  But that is why the deep learning becomes so valuable.  
 ![feature map](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/softmax_feature_map.jpg)  
 
+* Remarks  
+
+This was a very interesting project.  I spent a lot of time learning about the math that goes into a neural network, how each perceptron and how weights and bias' are updated.  I can certainly see how different CNN's are more powerful and how deep learning as a field keeps increasing accuracy with fewer parameters.  If I had more time, I would have liked to have gone back and changed the filter dimensions for different layer values in my model architecture, just to see how the results change.  Overall, I am very happy with my results, espcially on such a large test set and a small set of 5 random images with lots of issues!  I am really curious to see how we take in images that are of larger pixel size and classify them through a CNN.   
+
 
 
