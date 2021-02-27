@@ -8,7 +8,18 @@ In this project, I utilized deep neural networks and convolutional neural networ
 The Project
 ---
 The goals / steps of this project are the following:
-* Load the data set
+* Load the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)  
+
+A sample of the data set is included below. From the visualization of a histogram we can clearly see this is a large amount of training data, however there is very little validation data. The test data seems appropriate enough to test our classifier on.  
+
+(https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/training_data_sample.png)
+
+
+
+
+
+
+The histogram below shows an overlay of each data set across each of the 43 different sign classes. Of additional note is that there are limited images available for individual classes, which may make those images harder to classify accurately. I will want to use data augmentation to create more images overall for training.
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
