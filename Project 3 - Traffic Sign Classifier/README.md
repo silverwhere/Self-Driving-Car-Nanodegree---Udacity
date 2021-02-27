@@ -85,12 +85,18 @@ To test my model I downloaded (5) German road signs at random.  I wanted to try 
 
 ![Web Images](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/web_images.jpg)  
 
-The results were as expected, low, 40% accuracy.  But I was still impressed with my accuracy, as I had choosen images such as `20 km/h` and `dangerous left curve ahead` which had only 180 training images each.  Furthermore, the `stop` sign was half missing.  
+The results were as expected, low, 40% accuracy.  But I was still impressed with my accuracy, as I had choosen images such as `20 km/h` and `dangerous curve to the left` which had only 180 training images each.  Furthermore, the `stop` sign was half missing due to stickers being placed on the bottom half. 
 
 Below is a tensorflow 5 Softmax Probabilities For each image I found on the Web  
 
 ![softmax](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/tensorflow_probs.jpg)  
 
+Overall, I was able to accurately detect `no entry` and `20 km/h`, I was surpised my classifier did not detect `70 km/h` given it had both a high amount of training data and was the clearest image.  I may need to recheck how the image converted to 32x32 pixels for use in LeNet.  
+
+* Visualize the Neural Network's State with Test Images (Optional)  
+
+This was an optional section, but I was curious to see how the feature maps looked after the first convolution. Below is an image of the `no entry` sign.  I am very intriqued that it was able to pick up such details with limited number of pixels to accurately identify, I even have a hard time.  But that is why the deep learning becomes so valuable.  
+![feature map](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%203%20-%20Traffic%20Sign%20Classifier/project_screenshots/softmax_feature_map.jpg)  
 
 
 
