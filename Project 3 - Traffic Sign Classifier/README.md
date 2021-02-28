@@ -16,9 +16,9 @@ Test Set Accuracy = 93.1%**
 The Project
 ---
 The goals / steps of this project are the following:
-* Load the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)  
+* # Load the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)  
 
-* Explore, summarize and visualize the data set  
+* # Explore, summarize and visualize the data set  
   
 A sample of the data set is included below. From the visualization of a histogram we can clearly see this is a large amount of training data, however there is very little validation data. The test data seems appropriate enough to test our classifier on.  
 
