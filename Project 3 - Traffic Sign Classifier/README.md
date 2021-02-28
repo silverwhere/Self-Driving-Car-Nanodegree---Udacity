@@ -82,13 +82,20 @@ Utilizing the model initially offered a great training accuracy, but a poor vali
 * data augmentation training images (rotated) preprocessing at this step  
 * shuffled training data
 * normalization (changed normalization to -1 to 1 from 0 to 1)
-* LeNet model architecture modification - original LeNet model plus added I a dropout before final 3rd fully connected layer.  The course mentioned an initial keep_prob: 0.7 for a dropout regularization, but from From Nitish Srivastava [paper](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) *"Dropout probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."  Therefore, I choose a keep_prob: 0.5.    
+* LeNet model architecture modification - original LeNet model plus added I a dropout before final 3rd fully connected layer.  The course mentioned an initial keep_prob: 0.7 for a dropout regularization, but from From Nitish Srivastava [paper](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) *"Dropout probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."  Therefore, I choose a keep_prob: 0.5 for training and validation.   
+
+* Training  
+
+To train the model I had to adjust several hyperparameters, most notibly `EPOCHS`, `batch size`, `learning rate` and `optimizer`.  
+  
+`EPOCHS` tells TensorFlow how many times to run our training data through the network in general the more epochs, the better our model will train but also the longer training will take.  I initially selected 10 `EPOCHS`, however, I noticed a high accuracy on the training set and a low accuracy on the validation set (78.3%), which implies overfitting.  To increase accuracy I updated the number of `EPOCHS` to 50, which I noticed while training the accuracy appeared to level off on both the training set and validation data set.
+  
+`BATCH_SIZE` tells TensorFlow how many training images to run through the network at a time the larger the batch size, the faster our model will train, but our processor may have a memory limit on how large a batch it can run.  I initally began with a `BATCH_SIZE` of 128 and remained with this size for the duration of testing, however, at the end of tuning all my other hyper-parameters, I decided to reduce the `BATCH_SIZE` to 100 to see if it would improve accuracy, which it did slightly, therefore keeping my selection at a `BATCH_SIZE` of 100.  
+  
+Learning `rate` tells TensorFlow how quickly to update the network's weights; 0.001 is a good default value but can be experimented with, though I remained with my initial selection.  Earlier on in tuning my model I decided to reduce the `rate` by half to 0.0005, however this took both longer to run the model and secondly, did not improve accuracy.  
+
 
 Overall my results were great!  
-
-**Training Accuracy = 99.6%     
-Validation Accuracy = 96.1%    
-Test Set Accuracy = 93.1%**  
 
 * Analyze the softmax probabilities of the new images
 
