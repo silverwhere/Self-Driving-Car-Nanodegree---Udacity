@@ -93,7 +93,8 @@ To train the model I had to adjust several hyperparameters, most notibly `EPOCHS
 `BATCH_SIZE` tells TensorFlow how many training images to run through the network at a time the larger the batch size, the faster our model will train, but our processor may have a memory limit on how large a batch it can run.  I initally began with a `BATCH_SIZE` of 128 and remained with this size for the duration of testing, however, at the end of tuning all my other hyper-parameters, I decided to reduce the `BATCH_SIZE` to 100 to see if it would improve accuracy, which it did slightly, therefore keeping my selection at a `BATCH_SIZE` of 100.  
   
 Learning `rate` tells TensorFlow how quickly to update the network's weights; 0.001 is a good default value but can be experimented with, though I remained with my initial selection.  Earlier on in tuning my model I decided to reduce the `rate` by half to 0.0005, however this took both longer to run the model and did not improve accuracy.  
-
+  
+Optimizer - `AdamOptimizer` is a replacement optimization algorithm for stochastic gradient descent (SGD) for training deep learning models. Adam combines the best properties of the AdaGrad and RMSProp algorithms to provide an optimization algorithm that can handle sparse gradients on noisy problems. I used our hyperparamter rate to tune the learning `rate` here.
 
 Overall my results were great!  
 
