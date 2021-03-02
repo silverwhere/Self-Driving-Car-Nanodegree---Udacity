@@ -16,7 +16,7 @@
 # 
 # ## Import Libraries
 
-# In[2]:
+# In[1]:
 
 
 import pickle
@@ -25,19 +25,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 import scipy.ndimage
+import cv2 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # ---
 # ## Load The Data
 
-# In[3]:
+# In[2]:
 
 
 # Load pickled data
 # import pickle
 
 # Reference location of saved the training, validation and testing data
+
 
 training_file = "../data/train.p"
 validation_file= "../data/valid.p"
@@ -85,7 +87,7 @@ print("y_test shape:", y_test.shape)
 
 # ### Basic Summary of the Data Set Using Python, Numpy
 
-# In[4]:
+# In[3]:
 
 
 ### Replace each question mark with the appropriate value. 
@@ -120,12 +122,10 @@ print("Number of classes =", n_classes)
 # The histogram below shows an overlay of each data set across each of the 43 different sign classes.  Of additional note is that there are limited images available for individual classes, which may make those images harder to classify accurately.  I will want to use data augmentation to create more images overall for training.
 # 
 
-# In[5]:
-
+# In[4]:
 
 
 # Show visualations of dataset
-
 
 fig, axs = plt.subplots(2,10, figsize=(15, 6)) 
 fig.subplots_adjust(hspace = .2, wspace=.1)
@@ -138,7 +138,7 @@ for i in range(20):
     axs[i].set_title(y_train[index])
 
 
-# In[6]:
+# In[5]:
 
 
 # Histogram of Image Class Distribution
@@ -177,7 +177,7 @@ plt.show()
 
 # ## Data Augmentation (Rotation)
 
-# In[7]:
+# In[6]:
 
 
 ## Data augmentation technique: Rotate training images
@@ -239,7 +239,7 @@ new_n_train_y = len(y_train)
 print("New length of ground truth labels =", new_n_train_y)
 
 
-# In[8]:
+# In[ ]:
 
 
 # Display an example for rotation
@@ -264,7 +264,7 @@ plt.show()
 # 
 # Shuffle the training data.
 
-# In[9]:
+# In[7]:
 
 
 from sklearn.utils import shuffle
@@ -282,36 +282,60 @@ print('shuffle complete')
 # 
 # As Pierre Sermanet and Yann LeCun mentioned in their [paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), using color channels didn't seem to improve things a lot.  Therefore, I will only use a single channel in my model, e.g. grayscale images instead of color RGB.
 # 
+# ### Histogram Equalization 
+# This method usually increases the global contrast of many images, especially when the usable data of the image is represented by close contrast values. Through this adjustment, the intensities can be better distributed on the histogram. This allows for areas of lower local contrast to gain a higher contrast. Histogram equalization accomplishes this by effectively spreading out the most frequent intensity values.
+# 
 
-# In[10]:
+# In[8]:
 
 
-# Normalizing Images for zero mean and equal variance.
+# # Normalizing Images for zero mean and equal variance to improve convergence rate
+def normalize(image):
+    normal = (image - 127.5)/255
+    return np.reshape(normal, (32,32,1))
 
-X_train = (X_train - 127.5)/255 #pixel range from -1 to 1
-X_valid = (X_valid - 127.5)/255
-X_test = (X_test - 127.5)/255
+# Convert RGB to grayscale
+def grayscale(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    return np.reshape(gray, (32,32,1))
 
-# Convert RGB image to grayscale
-#X_train_rgb = X_train_grayscale
-X_train = np.sum(X_train/3, axis=3, keepdims=True)
+# Histogram equalization to improve contrast
+def histogram_equalize(image):
+    equal = cv2.equalizeHist(image)
+    return np.reshape(equal, (32,32,1))
 
-#X_valid_rgb = X_valid_grayscale
-X_valid = np.sum(X_valid/3, axis=3, keepdims=True)
 
-#X_test_rgb = X_test_grayscale
-X_test = np.sum(X_test/3, axis=3, keepdims=True)
+# In[9]:
 
-print('Image shape:', X_train[0].shape)
-#print('Grayscale shape:', X_train_gray[0].shape)
 
-get_ipython().run_line_magic('matplotlib', 'inline')
-index = random.randint(0, len(X_train))
-image = X_train[index].squeeze()
+# training set data preprocessing
+X_train_normalized = []
 
-plt.figure(figsize=(3,3))
-plt.imshow(image, cmap="gray")
-print(y_train[index])
+for image in X_train:
+    gray_image = grayscale(image)
+    equal_image = histogram_equalize(gray_image)
+    normalized_image = normalize(equal_image)
+    X_train_normalized.append(normalized_image)
+
+# validation set data preprocessing
+X_valid_normalized = []
+
+for image in X_valid:
+    gray_image = grayscale(image)
+    equal_image = histogram_equalize(gray_image)
+    normalized_image = normalize(equal_image)
+    X_valid_normalized.append(normalized_image)
+    
+# test set data preprocessing
+X_test_normalized = []
+
+for image in X_test:
+    gray_image = grayscale(image)
+    equal_image = histogram_equalize(gray_image)
+    normalized_image = normalize(equal_image)
+    X_test_normalized.append(normalized_image)
+
+print('completed')
 
 
 # ### Model Architecture (Deep Learning Model) Based on LeNet Architecture
@@ -344,19 +368,17 @@ print(y_train[index])
 # 
 # 
 
-# In[11]:
+# In[10]:
 
 
 from tensorflow.contrib.layers import flatten
 
-def LeNet(x):    
+def LeNet(x, keep_prob):    
     # Hyperparameters for tuning
     
     #Agruments used for tf.truncated_normal, randomly defines variables for the weights and biases for each layer
     mu = 0 # zero mean
     sigma = 0.1 # variance
-    
-    keep_prob = 0.5 # dropout parameter
     
     # Layer 1: Convolutional. Input = 32x32x1. Output = 28x28x6.
     conv1_W = tf.Variable(tf.truncated_normal(shape=(5, 5, 1, 6), mean = mu, stddev = sigma)) #[5,5,1,6] is a 5x5 filter with a input depth of 1 and output depth of 6
@@ -439,16 +461,20 @@ print('completed')
 # 
 # ### Setup Hyperparameters
 # 
-# `EPOCHS` tells TensorFlow how many times to run our training data through the network in general the more epochs, the better our model will train but also the longer training will take.  
+# `keep_prob` Dropout is a regularization technique for reducing overfitting.  The technique temporarily drops units (artificial neurons) from the network, along with all of those units incoming and outgoing connections.  From Nitish Srivastava [paper](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) *"Dropout probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."  
 # 
+# `EPOCHS` tells TensorFlow how many times to run our training data through the network in general the more epochs, the better our model will train but also the longer training will take.    
+#   
 # `BATCH_SIZE` tells TensorFlow how many training images to run through the network at a time the larger the batch size, the faster our model will train, but our processor may have a memory limit on how large a batch it can run.
-# 
+#   
 # `rate` learning rate tells TensorFlow how quickly to update the network's weights; 0.001 is a good default value but can be experimented with.
 
-# In[12]:
+# In[11]:
 
 
-EPOCHS = 50 
+keep_prob = 1.0  #0.5 for Training/Valdation, 1.0 for Test
+
+EPOCHS = 40 
 
 BATCH_SIZE = 100 
 
@@ -464,7 +490,7 @@ rate = 0.001
 # 
 # `one_hot_y` is a one-hot-label, a 1D list that is 'n' length of the classes
 
-# In[13]:
+# In[12]:
 
 
 x = tf.placeholder(tf.float32, (None, 32, 32, 1)) # images
@@ -489,12 +515,12 @@ one_hot_y = tf.one_hot(y, 43) # One-hot label encode each of the 43 classes
 # 
 # Training Operation - The `minimize` function is used on the optimizer which uses backpropagation to update the network and minimize our training loss
 
-# In[14]:
+# In[13]:
 
 
-rate = 0.001
+# Pipeline
 
-logits = LeNet(x) # pass the input data to the LeNet function to calculate our logits
+logits = LeNet(x, keep_prob) # pass the input data to the LeNet function to calculate our logits
 
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels = one_hot_y, logits = logits) # softmax function, compare those
 # logits to the ground truth labels and calculate the cross entropy.
@@ -518,7 +544,7 @@ training_operation = optimizer.minimize(loss_operation) # run the minimize funct
 # 
 # 
 
-# In[15]:
+# In[14]:
 
 
 correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(one_hot_y, 1))
@@ -546,7 +572,7 @@ def evaluate(X_data, y_data):
 # Save the model after training.
 # 
 
-# In[16]:
+# In[15]:
 
 
 with tf.Session() as sess:
@@ -556,26 +582,22 @@ with tf.Session() as sess:
     print("Training...")
     print()
     for i in range(EPOCHS): # EPOCHS is a set hyperparameter
-        X_train, y_train = shuffle(X_train, y_train) # shuffle to prevent training data bias
+        X_train_normalized, y_train = shuffle(X_train_normalized, y_train) # shuffle to prevent training data bias
         for offset in range(0, num_examples, BATCH_SIZE): # range(start, stop, step)
             end = offset + BATCH_SIZE
-            batch_x = X_train[offset:end] # break training data into batches
+            batch_x = X_train_normalized[offset:end] # break training data into batches
             batch_y = y_train[offset:end]
             sess.run(training_operation, feed_dict={x: batch_x, y: batch_y}) # train the model on each batch
             
         # at the end of each epoch, we evaluate the model on our validation data
-        validation_accuracy = evaluate(X_valid, y_valid)
+        validation_accuracy = evaluate(X_valid_normalized, y_valid)
         
         # also evaluate the model on training data to see if the model is over- or underfitted
-        training_accuracy = evaluate(X_train, y_train)
-        
-        # also evaluate the model on test data (different from validation data)
-        test_accuracy = evaluate(X_test, y_test)
+        training_accuracy = evaluate(X_train_normalized, y_train)
         
         print("EPOCH {} ...".format(i+1))
-        print("Validation Accuracy = {:.3f}".format(validation_accuracy))
+        print("Accuracy on the validation set = {:.3f}".format(validation_accuracy))
         print("Accuracy on the training set = {:.3f}".format(training_accuracy))
-        print("Accuracy on the test set = {:.3f}".format(test_accuracy))
         
         print()
         
@@ -645,13 +667,32 @@ with tf.Session() as sess:
 # Notes: From Nitish Srivastava [paper](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) "<i>Dropout probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."  
 #   
 #   
-# * Test 9 - 99.7% !! Training Accuracy / 94.8 % Validation Accuracy !!!     
-# Same as Test 8, reduced Batch size to 100.  Slight improvement.      
+# * Test 9 - 99.7% !! Training Accuracy / 94.8 % Validation Accuracy !!!       
+# Same as Test 8, reduced Batch size to 100.  Slight improvement.  
 # 
-# * Test 10 - **99.6% Training Accuracy / Validation Accuracy = 96.1% / 93.1% Test Set Accuracy**
+#    
+# * Test 10 - **99.6% Training Accuracy / Validation Accuracy = 95.9 %
+# Added histogram equalization to pre-processing.  Added Data Augmentation training images (rotated)
+# preprocessing: shuffle, normalization (changed normalization to -1 to 1), grayscale
+# model: original LeNet plus added a dropout before final 3rd fully connected layer, 
+# batch size: 128, epochs: 50, rate: 0.001, mu: 0, sigma: 0.1 keep_prob: 0.5 for Dropout
 # 
 
-# ## Test the Model
+# ### Test the Model
+# 
+# Load our `LeNet` model saved from training and run on test data.
+
+# In[16]:
+
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    saver = tf.train.import_meta_graph('./lenet.meta')
+    saver.restore(sess, "./lenet")
+    test_accuracy = evaluate(X_test_normalized, y_test)
+    print("Accuracy on the Test set = {:.3f}".format(test_accuracy))
+    
+
 
 # ---
 # 
@@ -670,6 +711,9 @@ import cv2
 import glob
 import os
 from PIL import Image
+import pandas as pd
+import matplotlib.gridspec as gridspec
+
 
 # Load images from .png files to` NumPy array named X_web
 X_web = np.empty([0, 32, 32, 3], dtype = np.float64) # numpy.empty(shape, dtype); shape > int or tuple of int; 
@@ -702,9 +746,10 @@ y_web = np.array([
 ])
 
 
-# In[23]:
+# In[19]:
 
 
+# Plot original images from the web
 fig = plt.figure()
 fig.subplots_adjust(left = 0, right = 2, bottom = 0, top = 2, hspace = 0.05, wspace = 0.05)
 
@@ -724,6 +769,7 @@ X_web = (X_web - 127.5)/255 #pixel range from 0 to 1
 
 # Convert RGB image to grayscale
 X_web = np.sum(X_web/3, axis=3, keepdims=True)
+
 
 print("X_web[0].shape: ", X_web[0].shape)
 print("X_web.shape: ", X_web.shape)
@@ -822,7 +868,7 @@ with tf.Session() as sess:
 #  <p></p> 
 # 
 
-# In[24]:
+# In[23]:
 
 
 ### Visualize your network's feature maps here.
@@ -854,10 +900,13 @@ def outputFeatureMap(image_input, tf_activation, activation_min=-1, activation_m
             plt.imshow(activation[0,:,:, featuremap], interpolation="nearest", cmap="gray")
 
 
-# In[37]:
+# In[24]:
 
+
+#LeNet Model will only accept 32x32 images
 
 img = np.zeros((1,32,32,3))
+
 img[0,:,:,:] = np.array(Image.open('../CarND-Traffic-Sign-Classifier-Project/signs/example_2.png').resize((32,32)))
 
 #normalize
