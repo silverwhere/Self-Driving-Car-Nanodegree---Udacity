@@ -676,7 +676,7 @@ with tf.Session() as sess:
 # preprocessing: shuffle, normalization (changed normalization to -1 to 1), grayscale
 # model: original LeNet plus added a dropout before final 3rd fully connected layer, 
 # batch size: 128, epochs: 50, rate: 0.001, mu: 0, sigma: 0.1 keep_prob: 0.5 for Dropout  
-# 
+#   
 # * Test 11 - **99.5% Training Accuracy / Validation Accuracy = 95.8 %
 # Added histogram equalization to pre-processing.  Added Data Augmentation training images (rotated)
 # preprocessing: shuffle, normalization (changed normalization to -1 to 1), grayscale
