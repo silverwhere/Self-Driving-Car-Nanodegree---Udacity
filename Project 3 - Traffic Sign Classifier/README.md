@@ -10,7 +10,7 @@ The goal of this project was to build a Convolutional Neural Network (CNN) in [T
 Overall my results were great!  
 
 **Training Accuracy = 99.5%     
-Validation Accuracy = 95.9%    
+Validation Accuracy = 95.8%    
 Test Set Accuracy = 93.1%** 
 
 The Project
@@ -47,6 +47,8 @@ Prior to training the model, I normalized all the training, validation and test 
 
 
 Secondly, I converted all of the images to `grayscale` to help with image classification.  As Pierre Sermanet and Yann LeCun mentioned in their [paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), using color channels didn't seem to improve things a lot.  Therefore, I will only use a single channel in my model, e.g. grayscale images instead of color RGB.  
+  
+Third, I used histogram equalization.  This method usually increases the global contrast of many images, especially when the usable data of the image is represented by close contrast values. Through this adjustment, the intensities can be better distributed on the histogram. This allows for areas of lower local contrast to gain a higher contrast. Histogram equalization accomplishes this by effectively spreading out the most frequent intensity values.
 
 My model architecture (Deep Learning Model) Based on LeNet Architecture, with the exception of adding max pooling layers, ReLU's sub sampling methods and dropout regularizations.  
 
