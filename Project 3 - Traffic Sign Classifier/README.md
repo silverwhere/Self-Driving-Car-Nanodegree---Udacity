@@ -9,8 +9,8 @@ The goal of this project was to build a Convolutional Neural Network (CNN) in [T
 
 Overall my results were great!  
 
-**Training Accuracy = 99.6%     
-Validation Accuracy = 96.1%    
+**Training Accuracy = 99.5%     
+Validation Accuracy = 95.9%    
 Test Set Accuracy = 93.1%** 
 
 The Project
