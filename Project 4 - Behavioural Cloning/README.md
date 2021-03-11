@@ -37,5 +37,7 @@ The most common loss function for classification in this context is cross-entrop
 
 Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. Indeed, there is no reason why you can’t have just one output node in a neural network, and then it becomes a classic regression problem.
 
+To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler. 
+
   
 
