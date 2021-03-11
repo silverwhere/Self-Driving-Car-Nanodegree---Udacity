@@ -25,7 +25,7 @@ Data collection was performed by driving a car in a simulator utilzing keyboard 
 <p align="center">
 <img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
   
- Data Augmentation
+Data Augmentation
 ---  
 
 Network Architecture
