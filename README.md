@@ -2,7 +2,7 @@
 ### **Course Work By Ian Whittal P.Eng**  
 
 <p align="center">
-<img width="500" height="310" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
+<img width="500" height="500" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
     
 ![Figure1](https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg)  
 
