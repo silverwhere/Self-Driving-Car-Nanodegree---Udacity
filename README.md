@@ -3,7 +3,8 @@
 
 <p align="center">
 <img width="500" height="310" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
-  ![Figure1](https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg)  
+    
+![Figure1](https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg)  
 ![Figure2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/partnerships.jpg)  
   
 Nanodegree applying computer vision and deep learning to automotive problems, including detecting lane lines, predicting steering angles, and more. Next, you'll learn sensor fusion, which you'll use to filter data from an array of sensors in order to perceive the environment. The capstone of the entire Self-Driving Car Engineer Nanodegree Program We’ll introduce Carla, the Udacity self-driving car, and the Robot Operating System that controls her. You’ll work to combine what you’ve learned over the course of the entire Nanodegree Program to run your code on a virtual version of Carla, a real self-driving car.  
