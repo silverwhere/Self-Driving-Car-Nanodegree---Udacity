@@ -31,13 +31,13 @@ Data collection was performed by driving a car in a simulator utilzing keyboard 
 Network Architecture
 ---    
   
-Most of the popularized well-known CNNs use classification, but this has to do with the fact that more often than not, in both both machine learning and deep learning, we’re most interested to give a specific label to something, and the training data itself comes in this format, i..e, as in [Project 3 - Traffic Sign Classifier](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%203%20-%20Traffic%20Sign%20Classifier) it comes as a list of pairs of examples of (data, label). If you are talking about ImageNet for example, perhaps the machine learning competition where CNNs were first used, the training data is set of images paired with labels, not images paired with probabilities or numbers.
+Most of the popularized well-known CNNs use `classification`, but this has to do with the fact that more often than not, in both both machine learning and deep learning, we’re most interested to give a specific label to something, and the training data itself comes in this format, i..e, as in [Project 3 - Traffic Sign Classifier](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%203%20-%20Traffic%20Sign%20Classifier) it comes as a list of pairs of examples of (images, label).
 
-The most common loss function for classification in this context is cross-entropy loss, summed across all your output nodes. This has to do with the fact that we are comparing a set of probabilities output by the network with a bunch of 0’s and 1 (or a few more than 1 in the case of multi-label classification) “1”s to indicate the one-hot encoded labels that apply for each label. With regression, things are a little different, because the network is trained not on specific labels, but on training examples paired with numeric values. This means we need a different, more appropriate loss function, with the most obvious choice being mean squared error loss. (Note; for both classification and regression, many choices are possible!).
+The most common loss function for classification in this context is cross-entropy loss, summed across all your output nodes. This has to do with the fact that we are comparing a set of probabilities output by the network with a bunch of 0’s and 1 (or a few more than 1 in the case of multi-label classification) “1”s to indicate the one-hot encoded labels that apply for each label.   
 
-Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. Indeed, there is no reason why you can’t have just one output node in a neural network, and then it becomes a classic regression problem.
+However, with `regression`, things are a little different, because the network is trained not on specific labels, but on training examples such as steering angle paired with numeric steering angle values. This means we need a different, more appropriate loss function, with the most obvious choice being mean squared error loss. (Note; for both classification and regression, many choices are possible!).
 
-To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler. 
+Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler. 
 
   
 
