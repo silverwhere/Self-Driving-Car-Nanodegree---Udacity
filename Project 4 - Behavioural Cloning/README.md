@@ -37,7 +37,9 @@ The most common loss function for classification in this context is cross-entrop
 
 However, with `regression`, things are a little different, because the network is trained not on specific labels, but on training examples such as steering angle paired with numeric steering angle values. This means we need a different, more appropriate loss function, with the most obvious choice being mean squared error loss. (Note; for both classification and regression, many choices are possible!).
 
-Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler. 
+Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler.  
+
+![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)
 
   
 
