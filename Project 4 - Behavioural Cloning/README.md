@@ -39,7 +39,7 @@ However, with `regression`, things are a little different, because the network i
 
 Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler.  
 
-![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)
+![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf)
 
   
 
