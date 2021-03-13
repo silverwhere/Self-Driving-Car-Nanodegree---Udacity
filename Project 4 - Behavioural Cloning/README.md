@@ -58,7 +58,7 @@ A `pooling layer` that reduces the image dimensionality without losing important
   
 A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
   
-A `fully connected layer` also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
+A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
 
   
