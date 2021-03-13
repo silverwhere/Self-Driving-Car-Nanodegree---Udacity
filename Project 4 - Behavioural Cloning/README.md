@@ -39,16 +39,19 @@ However, with `regression`, things are a little different, because the network i
 
 Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler.  
 
-![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf) 
+![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf)  
+
+My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as see above.  
   
 
 A `convolutional layer` that extracts features from a source image. Convolution helps with blurring, sharpening, edge detection, noise reduction, or other operations that can help the machine to learn specific characteristics of an image.  
 
-A `pooling layer` that reduces the image dimensionality without losing important features or patterns.
+A `pooling layer` that reduces the image dimensionality without losing important features or patterns.    
+  
+A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
+  
+A `fully connected layer` also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
-A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
-
-In between the convolutional layer and the fully connected layer, there is a `Flatten’ layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.
 
   
 
