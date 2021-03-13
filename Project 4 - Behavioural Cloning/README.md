@@ -22,9 +22,11 @@ Data Collection
 
 Data collection was performed by driving a car in a simulator utilzing keyboard and mouse commands for steering and throttle.  To collect data I drove the car along the centre-line of the road for a two laps and recorded all of the images.  I then drove the car along the centre-line in reverse on the same track for a single lap.  Finally, to capture some edge cases, I wanted to steer close to borders of the road on turns, areas with no curb and walls on a bridge, returning to centre as soon as I got to close.  Steering angles for each image were captured via `.csv` driving log; images were captured for a left, centre and right camera `160 x 320 x 3`  as follows.  
   
-<p align="center">
+<p align="left">
 <img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
-  
+
+<p align="right">
+<img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p> 
 Data Augmentation
 ---  
 After saving my data, I wanted to increase the amount of my data, therefore I `flipped` each frame of the video along the vertical axis; and correspondingly multiplied the ground truth measurement by -1 to correct for the flipped position.
