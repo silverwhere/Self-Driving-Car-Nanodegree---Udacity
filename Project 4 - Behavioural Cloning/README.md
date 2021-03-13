@@ -34,7 +34,8 @@ Additionally, using a `Cropping2D Layer` I was able to crop the images 70 pixels
 <p align="center">
 <src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
   
-
+<p align="center">
+<img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/original-image.jpg"</p>  
 
 
 
