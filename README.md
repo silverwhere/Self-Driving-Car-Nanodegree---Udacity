@@ -1,6 +1,9 @@
 # Self Driving Car Engineer Nanodegree Udacity
 ### **Course Work By Ian Whittal P.Eng**  
-  ![Figure1](https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg)  
+
+<p align="center">
+<img width="700" height="500" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
+
 ![Figure2](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/partnerships.jpg)  
   
 Nanodegree applying computer vision and deep learning to automotive problems, including detecting lane lines, predicting steering angles, and more. Next, you'll learn sensor fusion, which you'll use to filter data from an array of sensors in order to perceive the environment. The capstone of the entire Self-Driving Car Engineer Nanodegree Program We’ll introduce Carla, the Udacity self-driving car, and the Robot Operating System that controls her. You’ll work to combine what you’ve learned over the course of the entire Nanodegree Program to run your code on a virtual version of Carla, a real self-driving car.  
@@ -12,7 +15,7 @@ Here, you'll first become an expert in applying Computer Vision and Deep Learnin
 Project: [Finding Lane Lines](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%201%20-%20Finding%20Lane%20Lines)  
 Project: [Advanced Lane Finding](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%202%20-%20Advanced%20Lane%20Finding)    
 Project: [Traffic Sign Classifier](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%203%20-%20Traffic%20Sign%20Classifier)    
-Project: Behavioral Cloning  
+Project: [Behavioral Cloning](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%204%20-%20Behavioural%20Cloning)  
 Project: Extended Kalman Filters  
   
 PART 2  

@@ -20,8 +20,48 @@ This project requires Python 3.9 and the following Python libraries installed:
 Data Collection
 ---
 
-Data collection was performed by driving a car in a simulator utilzing keyboard and mouse commands for steering and throttle.  To collect data I drove the car along the centre of the road for a single lap and recorded all of the images.  I then drove the car along the centre-line in reverse on the same track for a single lap.  Finally, to capture some edge cases, I wanted to steer close to borders of the road on turns, areas with no curb and walls on a bridge, returning to centre as soon as I got to close.  Images were captured for a left, centre and right camera as follows.  
+Data collection was performed by driving a car in a simulator utilzing keyboard and mouse commands for steering and throttle.  To collect data I drove the car along the centre-line of the road for a two laps and recorded all of the images.  I then drove the car along the centre-line in reverse on the same track for a single lap.  Finally, to capture some edge cases, I wanted to steer close to borders of the road on turns, areas with no curb and walls on a bridge, returning to centre as soon as I got to close.  Steering angles for each image were captured via `.csv` driving log; images were captured for a left, centre and right camera `160 x 320 x 3`  as follows.  
   
 <p align="center">
-<img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>
+<img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
+  
+Data Augmentation
+---  
+After saving my data, I wanted to increase the amount of my data, therefore I `flipped` each frame of the video along the vertical axis; and correspondingly multiplied the ground truth measurement by -1 to correct for the flipped position.
+
+Additionally, using a `Cropping2D Layer` I was able to crop the images 70 pixels from the top of each frame and 20 pixels from the bottom.  This was done to increase the performance time for the model to focus only on the areas that require training for the steering angle.
+
+<p align="center">
+<src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
+  
+
+
+
+
+Network Architecture
+---    
+  
+Most of the popularized well-known CNNs use `classification`, but this has to do with the fact that more often than not, in both both machine learning and deep learning, we’re most interested to give a specific label to something, and the training data itself comes in this format, i..e, as in [Project 3 - Traffic Sign Classifier](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%203%20-%20Traffic%20Sign%20Classifier) it comes as a list of pairs of examples of (images, label).
+
+The most common loss function for classification in this context is cross-entropy loss, summed across all your output nodes. This has to do with the fact that we are comparing a set of probabilities output by the network with a bunch of 0’s and 1 (or a few more than 1 in the case of multi-label classification) “1”s to indicate the one-hot encoded labels that apply for each label.   
+
+However, with `regression`, things are a little different, because the network is trained not on specific labels, but on training examples such as steering angle paired with numeric steering angle values. This means we need a different, more appropriate loss function, with the most obvious choice being mean squared error loss. (Note; for both classification and regression, many choices are possible!).
+
+Typically when we hear “regression”, we mean we want to predict a single numeric independent variable. For this CNN we will use regression to output the correct steering angle for our position on the road.  To accomplish this, we will utilize Keras!  Keras makes coding deep neural networks simpler.  
+
+![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf)  
+
+My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as see above.  
+  
+
+A `convolutional layer` that extracts features from a source image. Convolution helps with blurring, sharpening, edge detection, noise reduction, or other operations that can help the machine to learn specific characteristics of an image.  
+
+A `pooling layer` that reduces the image dimensionality without losing important features or patterns.    
+  
+A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
+  
+A `fully connected layer` also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
+
+
+  
 
