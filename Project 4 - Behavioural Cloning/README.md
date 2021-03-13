@@ -33,10 +33,8 @@ Additionally, using a `Cropping2D Layer` I was able to crop the images 70 pixels
 
   
 <p align="center">
-<img width="320" height="160" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/original-image.jpg"</p>  Original Frame Image  
-  
-<p align="center">
-<img width="230" height="160" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cropped-image_post.jpg"</p>  Cropped Frame Image
+<img width="500" height="400" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/original-image.jpg"</p>
+ 
 
 Network Architecture
 ---    
@@ -60,7 +58,7 @@ A `pooling layer` that reduces the image dimensionality without losing important
   
 A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
   
-A `fully connected layer` also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
+A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
 
   
