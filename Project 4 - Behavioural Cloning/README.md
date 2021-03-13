@@ -29,7 +29,7 @@ Data Augmentation
 ---  
 After saving my data, I wanted to increase the amount of my data, therefore I `flipped` each frame of the video along the vertical axis; and correspondingly multiplied the ground truth measurement by -1 to correct for the flipped position.
 
-Additionally, using a `Cropping2D Layer` I was able to crop the images 70 pixels from the top of each frame and 20 pixels from the bottom.  This was done to increase the performance time for the model to focus only on the areas that require training for the steering angle.  As can be seen from the example image below, removing the area above the road with background such as the sky, terrain and the hood of the car can aid in the model training more accurately and faster.  
+Additionally, using a `Cropping2D Layer` I was able to crop the images 75 pixels from the top of each frame and 20 pixels from the bottom.  This was done to increase the performance time for the model to focus only on the areas that require training for the steering angle.  As can be seen from the example image below, removing the area above the road with background such as the sky, terrain and the hood of the car can aid in the model training more accurately and faster.  
 
   
 <p align="center">
