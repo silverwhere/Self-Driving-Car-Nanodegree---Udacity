@@ -49,14 +49,16 @@ Typically when we hear “regression”, we mean we want to predict a single num
 
 ![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf)  
 
-My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as seen above.  When running the initial model, I achieved a great result in that my car was driving autonomously!  But in reality it was swerving to the left and the right of the frame  rhythmically.  To improve my model, I added layers such as a `max pooling` layer after most 2D convolutions. 
+My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as seen above.  When running the initial model, I achieved a great result in that my car was driving autonomously!  But in reality it was swerving to the left and the right of the frame  rhythmically.  To improve my model, I added layers such as a `max pooling` layer after most 2D convolutions, and a dropout layer to reduced overfitting. 
   
 
 A `convolutional layer` that extracts features from a source image. Convolution helps with blurring, sharpening, edge detection, noise reduction, or other operations that can help the machine to learn specific characteristics of an image.  
 
 A `pooling layer` that reduces the image dimensionality without losing important features or patterns.    
   
-A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
+A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier. 
+
+A `dropout layer` is a regularization technique for reducing overfitting.  The technique temporarily drops units (artificial neurons) from the network, along with all of those units incoming and outgoing connection.
   
 A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
