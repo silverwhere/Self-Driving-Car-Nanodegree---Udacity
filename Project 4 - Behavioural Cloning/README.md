@@ -2,13 +2,13 @@
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
 
-<p align="center">
-<img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/behavioral_cloning_gif.gif"</p>  
-
 Overview
 ---
 
-In this project I utilized end-to-end deep learning using convolutional neural networks (CNNs) to map the raw pixels from (3) a front-facing cameras to the steering commands for a self-driving car.  A simulator was used to capture the images during training laps around a track with various turns, curb styles, heights and pavement.  This powerful end-to-end approach means that with minimum training data from humans, the system learns to steer, with or without lane markings on roads.
+In this project I utilized end-to-end deep learning using convolutional neural networks (CNNs) to map the raw pixels from (3) a front-facing cameras to the steering commands for a self-driving car.  A simulator was used to capture the images during training laps around a track with various turns, curb styles, heights and pavement.  This powerful end-to-end approach means that with minimum training data from humans, the system learns to steer, with or without lane markings on roads.  
+
+<p align="center">
+<img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/behavioral_cloning_gif.gif"</p>  
 
 Dependencies
 ---
