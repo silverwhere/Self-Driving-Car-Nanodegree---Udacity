@@ -1,16 +1,19 @@
 # Project 4 - Behavioural Cloning
 
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
 
 Overview
 ---
 
-In this project I utilized end-to-end deep learning using convolutional neural networks (CNNs) to map the raw pixels from (3) a front-facing cameras to the steering commands for a self-driving car.  A simulator was used to capture the images during training laps around a track with various turns, curb styles, heights and pavement.  This powerful end-to-end approach means that with minimum training data from humans, the system learns to steer, with or without lane markings on roads.
+In this project I utilized end-to-end deep learning using convolutional neural networks (CNNs) to map the raw pixels from (3) a front-facing cameras to the steering commands for a self-driving car.  A simulator was used to capture the images during training laps around a track with various turns, curb styles, heights and pavement.  This powerful end-to-end approach means that with minimum training data from humans, the system learns to steer, with or without lane markings on roads.  
+
+<p align="center">
+<img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/behavioral_cloning_gif.gif"</p>  
 
 Dependencies
 ---
 
-This project requires Python 3.9 and the following Python libraries installed:  
+This project requires [Python](https://www.python.org) and the following Python libraries installed:  
   
 [Keras](https://keras.io/)  
 [TensorFlow](https://www.tensorflow.org/)  
@@ -61,6 +64,42 @@ A `Flatten layer` is in between the `convolutional layer` and the `fully connect
 A `dropout layer` is a regularization technique for reducing overfitting.  The technique temporarily drops units (artificial neurons) from the network, along with all of those units incoming and outgoing connection.
   
 A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
+
+Below is a screenshot from Keras displaying my model used.  Note that initially I added only a single `dropout layer` at the top of the network, however, upon training with eventually what I deemed to be good data, I decided to apply one very early after the first `convolutional layer` to see if the model would improve, and it did!  The model can be viewed in `model.py`  
+
+<p align="center">
+<img width="600" height="810" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/CNN_Final.jpg"</p>   
+  
+Training
+---    
+  
+Training involved utilizing the Udacity Vehicle Simulator.  While the simulator was not based on a real vehicle, the physics engine and use of cameras to detect features in our recorded image space would be applicable in the real world; therefore this is a very valuable project.  Training proved to be the most time consuming aspect of this project for me.  While I was limited in my functionality of my computer `mouse` to adjust steering angle, one fact holds true.  That fact is that *Garbage Data In = Garbage Data Out*, or in my case poor prediction of steering angle.  During training if I drive off the road slightly and correct for reptitive areas on the track, there will be enough training data for the CNN to learn and predict the correct state.  However, with bad data combined with data augmentation to create additional data, those bad data points now occur at a higher magnitude of occurance and thus will have an impact on the overall training of my CNN.  To solve this, I realized that while I could keep adding more additonal, good data points, it was better for me to start fresh, with a smaller, cleaner data set.  Therefore, my final models training data is based on 3 laps in forward direction, and 1 lap in reverse.  
+  
+After running my CNN, I noticed in viewing my autonomous driving though that a few areas, especially where the curb disappears and in turns, the car would have trouble navigating those areas.  As my CNN was performing well, I attributed this to a limited amount of turning data, therefore, I added several more recordings in the areas of those turns.
+
+Mean Squared Error Loss / Adam Optimizer
+---
+
+I utilized the following loss function and optimizer while training my network.  
+
+The `Mean Squared Error, or MSE`, loss is the default loss to use for regression problems.
+
+Mean squared error is calculated as the average of the squared differences between the predicted and actual values. The result is always positive regardless of the sign of the predicted and actual values and a perfect value is 0.0. The squaring means that larger mistakes result in more error than smaller mistakes, meaning that the model is punished for making larger mistakes.  
+
+For my model, after 5 `EPOCHS` I noticed that the `MSE` after each `EPOCH` for the validation data correlated well against the training set.  
+
+![MSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/mean_squared_error_loss.png)  
+
+Optimizer - `Adam` is a replacement optimization algorithm for stochastic gradient descent (SGD) for training deep learning models. Adam combines the best properties of the AdaGrad and RMSProp algorithms to provide an optimization algorithm that can handle sparse gradients on noisy problems.
+
+Autonomous Driving
+---
+
+Once my model was validated I ran my model utilzing `drive.py` and `model.h5` file generated by Keras.   An .h5 file easily store the weights and model configuration in a single file. Upon launching the simulator the vehcile began to accelerate to a set speed and was able to navigate the test track quite smoothly with no error.  This autonomous driving was recorded from a single camera positioned on the center of the vehicle, utilzing the trained behvioural cloning network to predict the correct steering angle for a given vehicle position in a lane.  
+
+
+
+
 
 
   
