@@ -22,9 +22,12 @@ with open('training_data/driving_log.csv') as csvfile:
     for line in reader:
         lines.append(line)
 '''
-Generators can be a great way to work with large amounts of data. Instead of storing the preprocessed data in memory all at once, using a generator you can pull pieces of the data and process them on the fly only when you need them, which is much more memory-efficient.
+Generators can be a great way to work with large amounts of data. Instead of storing the preprocessed data in memory all at once, using a generator you can pull pieces 
+of the data and process them on the fly only when you need them, which is much more memory-efficient.
 
-A generator is like a coroutine, a process that can run separately from another main routine, which makes it a useful Python function. Instead of using return, the generator uses yield, which still returns the desired output values but saves the current values of all the generator's variables. When the generator is called a second time it re-starts right after the yield statement, with all its variables set to the same values as before.
+A generator is like a coroutine, a process that can run separately from another main routine, which makes it a useful Python function. Instead of using return, the
+generator uses yield, which still returns the desired output values but saves the current values of all the generator's variables. When the generator is called a second
+time it re-starts right after the yield statement, with all its variables set to the same values as before.
 '''        
 def generator(samples, batch_size):
     num_samples = len(samples)
