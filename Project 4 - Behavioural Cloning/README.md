@@ -68,7 +68,7 @@ A `dropout layer` is a regularization technique for reducing overfitting.  The t
   
 A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
-Below is a screenshot from Keras displaying my model used.  Note that initially, I added only a single `dropout layer` at the top of the network, however, upon training with eventually what I deemed to be good data, I decided to apply one very early after the first `convolutional layer` to see if the model would improve, and it did!  The model can be viewed in `model.py`  
+Below is a network summary from Keras/TensorFlow displaying my model used.  Note that initially, I added only a single `dropout layer` at the top of the network, however, upon training with eventually what I deemed to be good data, I decided to apply one very early after the first `convolutional layer` to see if the model would improve, and it did!  The model can be viewed in `model.py`  
 
 <p align="center">
 <img width="600" height="810" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/CNN_Final.jpg"</p>   
