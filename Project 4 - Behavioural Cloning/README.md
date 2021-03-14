@@ -77,8 +77,10 @@ Training involved utilizing the Udacity Vehicle Simulator.  While the simulator 
   
 After running my CNN, I noticed in viewing my autonomous driving though that a few areas, especially where the curb disappears and in turns, the car would have trouble navigating those areas.  As my CNN was performing well, I attributed this to a limited amount of turning data, therefore, I added several more recordings in the areas of those turns.
 
-Mean Squared Error Loss
+Mean Squared Error Loss / Adam Optimizer
 ---
+
+I utilized the following loss function and optimizer while training my network.  
 
 The `Mean Squared Error, or MSE`, loss is the default loss to use for regression problems.
 
@@ -87,6 +89,8 @@ Mean squared error is calculated as the average of the squared differences betwe
 For my model, after 5 `EPOCHS` I noticed that the `MSE` after each `EPOCH` for the validation data correlated well against the training set.  
 
 ![MSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/mean_squared_error_loss.png)  
+
+Optimizer - `Adam` is a replacement optimization algorithm for stochastic gradient descent (SGD) for training deep learning models. Adam combines the best properties of the AdaGrad and RMSProp algorithms to provide an optimization algorithm that can handle sparse gradients on noisy problems.
 
 
 
