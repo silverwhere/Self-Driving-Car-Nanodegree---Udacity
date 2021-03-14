@@ -64,14 +64,14 @@ def generator(samples, batch_size):
                 augmented_measurements.append(measurement)
                 augmented_measurements.append(measurement*-1.0)
 
-            # Convert images and steering measurements to numpy arrays since that's the format Keras requires
+            # Keras requires arrays. Convert images and steering measurements to numpy arrays
             X_train = np.array(augmented_images) # features from images
             y_train = np.array(augmented_measurements) # ground truth measurments
             
             # shuffle the data
             yield shuffle(X_train, y_train) 
 
-# Using Generators
+# Utilize Generators
 train_samples, validation_samples = train_test_split(lines, test_size=validation_split)
 train_generator = generator(train_samples, batch_size=batch_size)
 validation_generator = generator(validation_samples, batch_size=batch_size)
@@ -112,7 +112,7 @@ model.add(Dense(1)) # single output node = predicted steering angle
 
 model.summary() # print a model summary
 
-# To compile the keras model use a "mean squared error" loss function, good for regression and "adam" optimizer
+# To compile the keras model use a "mean squared error" loss function, good for regression and "Adam" optimizer
 model.compile(loss='mse', optimizer='adam')
 
 history_object = model.fit_generator(train_generator, steps_per_epoch = ceil(len(train_samples)/batch_size), validation_data = validation_generator, validation_steps = ceil(len(validation_samples)/batch_size), epochs=epochs, verbose=1)
@@ -130,6 +130,7 @@ plt.title('model mean squared error loss')
 plt.ylabel('mean squared error loss')
 plt.xlabel('epoch')
 plt.legend(['training set', 'validation set'], loc='upper right')
+
 # save the file (see next line)
 plt.savefig('examples/mean_squared_error_loss.png')
 
