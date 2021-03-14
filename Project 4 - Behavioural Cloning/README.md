@@ -84,7 +84,11 @@ The `Mean Squared Error, or MSE`, loss is the default loss to use for regression
 
 Mean squared error is calculated as the average of the squared differences between the predicted and actual values. The result is always positive regardless of the sign of the predicted and actual values and a perfect value is 0.0. The squaring means that larger mistakes result in more error than smaller mistakes, meaning that the model is punished for making larger mistakes.  
 
-For my model, after 5 `EPOCHS` I noticed that the `MSE` for the validation data correlated well against the training set.  
+For my model, after 5 `EPOCHS` I noticed that the `MSE` after each `EPOCH` for the validation data correlated well against the training set.  
+
+![MSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/mean_squared_error_loss.png)  
+
+
 
 
 
