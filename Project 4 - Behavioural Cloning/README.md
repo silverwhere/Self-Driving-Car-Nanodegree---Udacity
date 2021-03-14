@@ -11,7 +11,7 @@ In this project, I utilized end-to-end deep learning using convolutional neural 
 <img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/behavioral_cloning_gif.gif"
 </p>
 
-Vehicle Driving Autonomously
+
 
 Dependencies
 ---
