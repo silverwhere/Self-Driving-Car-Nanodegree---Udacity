@@ -13,7 +13,7 @@ In this project I utilized end-to-end deep learning using convolutional neural n
 Dependencies
 ---
 
-This project requires Python 3.9 and the following Python libraries installed:  
+This project requires [Python](https://www.python.org) and the following Python libraries installed:  
   
 [Keras](https://keras.io/)  
 [TensorFlow](https://www.tensorflow.org/)  
