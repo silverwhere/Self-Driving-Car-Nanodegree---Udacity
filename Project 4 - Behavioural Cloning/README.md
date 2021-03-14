@@ -20,16 +20,16 @@ This project requires Python 3.9 and the following Python libraries installed:
 Data Collection
 ---
 
-Data collection was performed by driving a car in a simulator utilzing keyboard and mouse commands for steering and throttle.  To collect data I drove the car along the centre-line of the road for a two laps and recorded all of the images.  I then drove the car along the centre-line in reverse on the same track for a single lap.  Finally, to capture some edge cases, I wanted to steer close to borders of the road on turns, areas with no curb and walls on a bridge, returning to centre as soon as I got to close.  Steering angles for each image were captured via `.csv` driving log; images were captured for a left, centre and right camera `160 x 320 x 3`  as follows.  
+Data collection was performed by driving a car in a simulator utilzing keyboard and mouse commands for steering and throttle.  To collect data I drove the car along the centre-line of the road for a two laps and recorded all of the images.  I then drove the car along the centre-line in reverse on the same track for a single lap.  Finally, to capture some edge cases, I wanted to steer close to borders of the road on turns, areas with no curb and walls on a bridge, returning to centre as soon as I got to close. For each frame of the image, the `feature` or image was stored in a file & the corresponding `label` measurment for the steering angle was also captured via a driving log file `.csv` ; `features` and `labels` were captured for a left, centre and right positioned camera `160 x 320 x 3`  as illustrated.    
   
 <p align="center">
-<img width="500" height="310" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/training.png"</p>  
+<img width="800" height="510" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/diagram.jpg"</p>  
 
 Data Augmentation
 ---  
 After saving my data, I wanted to increase the amount of my data, therefore I `flipped` each frame of the video along the vertical axis; and correspondingly multiplied the ground truth measurement by -1 to correct for the flipped position.
 
-Additionally, using a `Cropping2D Layer` I was able to crop the images 70 pixels from the top of each frame and 20 pixels from the bottom.  This was done to increase the performance time for the model to focus only on the areas that require training for the steering angle.
+Additionally, using a `Cropping2D Layer` I was able to crop the images 75 pixels from the top of each frame and 20 pixels from the bottom.  This was done to increase the performance time for the model to focus only on the areas that require training for the steering angle.  As can be seen from the example image below, removing the area above the road with background such as the sky, terrain and the hood of the car can aid in the model training more accurately and faster.  
 
   
 <p align="center">
@@ -49,14 +49,16 @@ Typically when we hear “regression”, we mean we want to predict a single num
 
 ![CNN](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/cnn-architecture.png)Source: [NVIDIA](https://arxiv.org/pdf/1604.07316v1.pdf)  
 
-My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as see above.  
+My goal for this project was to build my regression CNN to output a single output node to predict the steering angle required for a given position on the test track.  To start, I utilized a CNN Architecture developed by NVIDIA as seen above.  When running the initial model, I achieved a great result in that my car was driving autonomously!  But in reality it was swerving to the left and the right of the frame  rhythmically.  To improve my model, I added layers such as a `max pooling` layer after most 2D convolutions, and a dropout layer to reduced overfitting. 
   
 
 A `convolutional layer` that extracts features from a source image. Convolution helps with blurring, sharpening, edge detection, noise reduction, or other operations that can help the machine to learn specific characteristics of an image.  
 
 A `pooling layer` that reduces the image dimensionality without losing important features or patterns.    
   
-A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.  
+A `Flatten layer` is in between the `convolutional layer` and the `fully connected layer`. Flattening transforms a two-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier. 
+
+A `dropout layer` is a regularization technique for reducing overfitting.  The technique temporarily drops units (artificial neurons) from the network, along with all of those units incoming and outgoing connection.
   
 A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
