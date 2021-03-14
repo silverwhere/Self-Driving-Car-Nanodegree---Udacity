@@ -106,7 +106,7 @@ Once my model was validated I ran my model utilizing `drive.py` and `model.h5` f
 Remarks
 ---
 
-Behavioural Cloning was a great project to truly learn how vehicle systems can learn to drive a vehicle autonomously.  While this project doesn't capture every edge case one could expect in the real world, what it has shown though is how powerful deep-learning is to regressively determine the desired output.  What would have been interesting in this project would have also been to log the vehicle speed.  In reality, you would probably want to go faster on straightaways with minimal steering angle and slower on turns with larger positive or negative steering angles.   
+Behavioural Cloning was a great project to truly learn how vehicle systems can learn to drive a vehicle autonomously.  While this project doesn't capture every edge case one could expect in the real world, what it has shown though is how powerful deep-learning is to regressively determine the desired output.  What would have been interesting in this project would have also been to log the vehicle speed.  In reality, you would probably want to go faster on straightaways with minimal steering angle and slower on turns with larger positive or negative steering angles instead of a constant speed throughout.   
 
 
 
