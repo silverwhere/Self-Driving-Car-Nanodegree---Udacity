@@ -66,7 +66,7 @@ A `dropout layer` is a regularization technique for reducing overfitting.  The t
 A fully connected layer also known as the `dense layer`, in which the results of the convolutional layers are fed through one or more neural layers to generate a prediction.  
 
 <p align="center">
-<img width="800" height="510" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/CNN_Final.jpg"</p>    
+<img width="600" height="810" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%204%20-%20Behavioural%20Cloning/examples/CNN_Final.jpg"</p>    
 
 
 
