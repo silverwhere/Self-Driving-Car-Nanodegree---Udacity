@@ -10,10 +10,10 @@ from scipy import ndimage
 
 # Global Parameters
 epochs = 5
+batch_size = 32
 validation_split = 0.2
 correction = 0.2
-row, col, ch = 160, 320, 3
-batch_size = 32
+
 
 # Read in each row/line from driving_log.csv
 lines = [] # samples
@@ -87,16 +87,17 @@ model.add(Lambda(lambda x: x /255.0 - 0.5, input_shape=(160,320,3))) # normalize
 
 model.add(Cropping2D(cropping=((75,25),(0,0)))) # cropping image 75 pixels from the top and 25 from the bottom, from "Even more powerful network video"
 
+#NVIDIA END TO END NETWORK WITH MAX POOLING AND DROPOUTS ADDED AS DENOTED
 model.add(Conv2D(24, (5,5), padding='valid', activation='relu')) # 24 filters 5x5 kernal
-model.add(MaxPooling2D())
-model.add(Dropout(0.5)) # dropout rate set to 0.5 for training/validation
+model.add(MaxPooling2D()) #ADDED
+model.add(Dropout(0.5)) # ADDED dropout rate set to 0.5 for training/validation
 model.add(Conv2D(36, (5,5), padding='valid', activation='relu'))
-model.add(MaxPooling2D())
+model.add(MaxPooling2D()) #ADDED
 model.add(Conv2D(48, (5,5), padding='valid', activation='relu'))
-model.add(MaxPooling2D())
+model.add(MaxPooling2D()) #ADDED
 model.add(Conv2D(64, (3,3), padding='valid', activation='relu'))
 model.add(Conv2D(64, (1,1), padding='valid', activation='relu'))
-model.add(MaxPooling2D())
+model.add(MaxPooling2D()) #ADDED
 model.add(Dropout(0.5)) # dropout rate set to 0.5 for training/validation
 model.add(Flatten())
 
