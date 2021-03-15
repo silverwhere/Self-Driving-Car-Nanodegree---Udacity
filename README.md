@@ -1,7 +1,8 @@
 # Self Driving Car Engineer Nanodegree Udacity  
 ---
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
-### *Course Work By Ian Whittal, P.Eng* 
+### *Dec 2020 to Current Course Work By Ian Whittal, P.Eng* 
+
 <p align="center">
 <img width="700" height="500" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
 
@@ -21,7 +22,7 @@ Project: Extended Kalman Filters
   
 PART 2  
 Localization, Path Planning, Control, and System Integration  
-Here, I expand on my sensor knowledge to localize and control the vehicle. I evaluate sensor data from camera, radar, lidar, and GPS, and use these in closed-loop controllers that actuate the vehicle, finishing by combining all my skills on a real self-driving car!
+Here, I expand on my sensor knowledge to localize and control the vehicle. I evaluate sensor data from camera, radar, lidar, and GPS, and use these in closed-loop controllers that actuate the vehicle, finishing by combining all my skills on a real self-driving car under system integration!
 
 Project: Kidnapped Vehicle  
 Project: Highway Driving  
