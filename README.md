@@ -1,9 +1,7 @@
-# Self Driving Car Engineer Nanodegree Udacity
-### **Course Work By Ian Whittal P.Eng** 
-
+# Self Driving Car Engineer Nanodegree Udacity  
 ---
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
-
+### **Course Work By Ian Whittal P.Eng** 
 <p align="center">
 <img width="700" height="500" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
 
