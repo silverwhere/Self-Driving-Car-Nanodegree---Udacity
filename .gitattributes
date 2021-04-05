@@ -1,0 +1,5 @@
+*html linguist-detectable=false
+*.py linguist-detectable=true
+*.cpp linguist-detectable=true
+*ipynb linguist-detectable=false
+
