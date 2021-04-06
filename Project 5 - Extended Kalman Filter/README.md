@@ -29,13 +29,13 @@ The Kalman Filter algorithm will go through the following steps:
 
 **initialize state and covariance matrices** - the filter will initialize the bicycle's position based on the first measurement.  
 
-then the car will receive another sensor measurement after a time period \Delta{t}Δt. 
+then the car will receive another sensor measurement after a time period Δt. 
 
-**predict** - the algorithm will predict where the bicycle will be after time \Delta{t}Δt. One basic way to predict the bicycle location after \Delta{t}Δt is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity * \Delta{t}Δt.  We will assume the velocity is constant.  
+**predict** - the algorithm will predict where the bicycle will be after time Δt. One basic way to predict the bicycle location after \Delta{t}Δt is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity Δt.  We will assume the velocity is constant.  
 
 **update** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  
 
-then the car will receive another sensor measurement after a time period \Delta{t}Δt. The algorithm then does another predict and update step.
+then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
  
   
 Remarks
