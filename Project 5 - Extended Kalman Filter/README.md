@@ -11,7 +11,7 @@ In this project, I utilized an `Extended Kalman Filter` to estimate the state of
 <img width="500" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
 </p>
 
-Background - Radar
+Background - RADAR - RAdio Detection And Ranging
 ---
 
 * Radar has been used in automotive for years, usually placed behind the bumpers on light-duty vehicles.  
@@ -21,8 +21,17 @@ Background - Radar
 * Wide filed of view ~ 150 degrees
 * Range is 200 + metres  
 * Resultion in vertical dimension is limited  
-* Debris such as pop cans can have high clutter, high radar reflection, because of this auto manufacturers avoid static objects.
+* Debris such as pop cans can have high clutter, high radar reflection, because of this auto manufacturers avoid static objects.  
 
+Background - LIDAR - LIght Detection And Ranging
+---  
+
+* LIDAR uses infrared light laser beam to determine the distance between the sensor and nearby object.
+* Use light in 900 nano-metre wavelength range (Infrared)  
+* Some LIDAR's use longer wavelengths which perform betterin rain or fog.  Can get dirty though and are "bulky!".  
+* Data is returned as a point-cloud / high resolution  
+* Higher spatial resolution than Radar.   
+* Better at vertical scanning versus Radar.
 
 
 Dependencies
