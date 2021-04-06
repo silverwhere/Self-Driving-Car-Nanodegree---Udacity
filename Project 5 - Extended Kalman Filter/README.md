@@ -5,12 +5,11 @@
 Overview
 ---
 
-In this project, I utilized end-to-end deep learning using convolutional neural networks (CNNs) to map the raw pixels from (3) front-facing cameras to the steering commands for a self-driving car. A simulator was used to capture the images during training laps around a track with various turns, curb styles, heights and pavement. This powerful end-to-end approach means that with minimum training data from humans, the system learns to steer, with or without lane markings on roads.
+In this project, I utilized an `Extended Kalman Filter` to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric.
 
 <p align="center">
-<img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
+<img width="500" height="400" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
 </p>
-
 
 
 Dependencies
@@ -42,4 +41,3 @@ then the car will receive another sensor measurement after a time period \Delta{
 Remarks
 ---
 
-Behavioural Cloning was a great project to truly learn how vehicle systems can learn to drive a vehicle autonomously.  While this project doesn't capture every edge case one could expect in the real world, what it has shown though is how powerful deep-learning is to regressively determine the desired output.  What would have been interesting in this project would have also been to log the vehicle speed.  In reality, you would probably want to go faster on straightaways with minimal steering angle and slower on turns with larger positive or negative steering angles instead of a constant speed throughout.   
