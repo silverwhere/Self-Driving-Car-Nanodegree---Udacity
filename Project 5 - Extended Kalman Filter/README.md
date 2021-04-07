@@ -62,7 +62,7 @@ Process Flow
 * For the first iteration we just initalize the state `x` and `P` covariance matrix.  
 * After we will call `predict` and `update`  
   
-* Before `predict` we need to compute the elapsed time between the current and previous observation.
+* Before `predict` we need to compute the elapsed time Δt between the current and previous observation.
 * Based on the elapsed time we calculate the new predict `x'` state transition and `P'` process covariance matrices.  
   
 * The measurement `update` step depends on the the sensor type `RADAR` or `LIDAR`
