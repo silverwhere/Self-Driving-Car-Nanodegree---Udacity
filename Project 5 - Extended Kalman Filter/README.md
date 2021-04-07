@@ -48,7 +48,12 @@ File Structure
 * `FusionEKF.cpp` - initializes the filter, calls the `predict` function, calls the `update` function.  takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter class`. The `ekf_` will hold the matrix and vector values. Uses the `ekf_` instance to call the `predict and update` equations.    
 * `kalman_filter.cpp`* - defines the `predict` function, the `update` function for lidar, and the `update` function for radar.   
 * `tools.cpp`- function to calculate `RMSE` and the `Jacobian matrix`.  
- 
+
+Process Flow
+---
+
+* We have a pedestrian on a bicycle that is represented by a 2-D position `P<sub>x</sub>`, `P<sub>y</sub>`  as well as 2-D velocity `v<sub>x</sub>`, `v<sub>y</sub>` 
+
 Algorithim
 ---
 
