@@ -114,7 +114,7 @@ As the **h(x)** function is multi-dimensional the EKF will need to utilize a met
   
 where **Df(a)** is called the 'JacobianMatrix' & **D<sup>2<sup>f(a)** is called the Hessan matrix.  These represent the first and second order derivatives of multi-dimensional equations.
 
-**Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2<sub>f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2<sub>** or the multi-dimensional equivalent **(x-a)<sup>T<sub>(x-a) will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
+**Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2 f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2<sub>** or the multi-dimensional equivalent **(x-a)<sup>T<sub>(x-a) will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
 
 
 ---  
