@@ -93,7 +93,11 @@ The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishin
 
 * For laser sensors, we have a 2D measurement vector.  Each location component Px, PY are affected by a random noise.  So our noise vector "w" has the same dimension as "z".  And it is a distribution with zero mean and a 2x2 covariance matrix which comes from the product of the vertical vector "w" and its transpose.  
 
-* 
+***Extended Kalman Filter / Sensor Fusion***  
+
+Extended Kalman Filters(EKF) linearize the distribution around the mean of the current estimate and then use this linearization in the predict and update states of the Kalman Filter algorithm.  An existing Kalman Filter cannot be applied to a non-linear distribution, common with Radar data.  The key to be able to solve the kalman filter update equations is to linearize the **h(x)** function.
+
+The EKF uses a method called a first order taylor expansion 
 
 ---  
 Remarks
