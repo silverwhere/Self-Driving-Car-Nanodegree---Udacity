@@ -87,7 +87,12 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 * For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about [px​,py​,vx​,vy​] whereas the z vector will only contain [px,py]. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement. 
 * For radar, there is no H matrix that will map the state vector "x" into polar cordinates; instead you need to calculate the mapping manually to convert from cartesian coordinates to polar coordinates.  
 
-The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'**  
+The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
+
+<p align="center">
+<img width="600" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/radar%20equations.jpg"
+</p>
+
 
 **R** is the covariance matrix.  For a radar sensor this matrix represents uncertainty in our sensor measurments.  The dimensions of the R matrix is squared and each side of its matrix is the same length as the number of measurement parameters.
 
@@ -102,8 +107,14 @@ Extended Kalman Filters(EKF) linearize the distribution around the mean of the c
 </p>
 
 
-The EKF uses a method called a first order taylor expansion 
+As the **h(x)** function is multi-dimensional the EKF will need to utilize a method called a multivariable Taylor Series Expansion to make a linear approximation of the **h(x)** function.   
+<p align="center">
+<img width="800" height="75" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
+</p>  
+  
+where **Df(a)** is called the 'JacobianMatrix' & **D<sup>2<sup>f(a)** is called the Hessan matrix.  These represent the first and second order derivatives of multi-dimensional equations.
 
+**Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2 f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2<sub>** or the multi-dimensional equivalent **(x-a)<sup>T<sub>(x-a) will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
 
 
 ---  
