@@ -94,7 +94,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
 
-![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanequations.png)
+![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanvextendedkalmanfilter.png)
 
 
 **R** is the covariance matrix.  For a radar sensor this matrix represents uncertainty in our sensor measurments.  The dimensions of the R matrix is squared and each side of its matrix is the same length as the number of measurement parameters.
