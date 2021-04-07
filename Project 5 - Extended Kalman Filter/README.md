@@ -74,7 +74,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 **Q**  is the Process Covariance Matrix. It is a covariance matrix associated with the noise in states. I didn’t specify the equation to calculate the matrix here.
 
 **F** is the Transition Matrix (the one that deals with time steps and constant velocities) 
-
+[Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanequations.png)
 ---
 **update (measurement update)** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  Then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
 
