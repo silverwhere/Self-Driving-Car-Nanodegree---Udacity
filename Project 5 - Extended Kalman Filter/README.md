@@ -66,7 +66,7 @@ Process Flow
 * Based on the elapsed time we calculate the new `x'` state transition and `P'` process covariance matrices.  
   
 * The measurement `update` step depends on the the sensor type `RADAR` or `LIDAR`
-* If sensor = `RADAR` then we have to compute the new `JacobianMatrix` **H<sub>j</sub>** using the non-linear measurment function to project the predicted state **h(x)** and call the measurement update `z`.
+* If sensor = `RADAR` then we have to compute the new `JacobianMatrix` using the non-linear measurement function **H<sub>j</sub>** to project the predicted state **h(x)** and call the measurement update `z`.
 
 
 Algorithim
@@ -91,7 +91,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 **P** is the state covariance matrix, which contains information about the uncertainty of the object’s position and velocity. You can think of it as containing standard deviations.  
 
-**Q**  is the Process Covariance Matrix. It is a covariance matrix associated with the noise in states. I didn’t specify the equation to calculate the matrix here.
+**Q**  is the Process Covariance Matrix. It is a covariance matrix associated with the noise in states.
 
 **F** is the Transition Matrix (the one that deals with time steps and constant velocities) 
 
