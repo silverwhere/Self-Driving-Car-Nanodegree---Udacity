@@ -63,7 +63,7 @@ Process Flow
 * After we will call `predict` and `update`  
   
 * Before `predict` we need to compute the elapsed time between the current and previous observation.
-* Based on the elapsed time we calculate the new `x'` state transition and `P'` process covariance matrices.  
+* Based on the elapsed time we calculate the new predict `x'` state transition and `P'` process covariance matrices.  
   
 * The measurement `update` step depends on the the sensor type `RADAR` or `LIDAR`
 * If sensor = `RADAR` then we have to compute the new `JacobianMatrix` using the non-linear measurement function **H<sub>j</sub>** to project the predicted state **h(x)** and call the measurement update.  
