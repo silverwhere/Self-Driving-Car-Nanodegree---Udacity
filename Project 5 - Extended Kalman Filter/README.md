@@ -77,7 +77,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 ---
 <p align="center">
-<img width="500" height="350" src="(https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanequations.png"
+<img width="800" height="350" src="(https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanequations.png"
 </p>
 
 ---
