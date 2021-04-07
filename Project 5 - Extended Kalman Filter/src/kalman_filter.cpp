@@ -73,14 +73,42 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     float rho = sqrt((px * px) + (py * py)); /** The range (rho) is the distance to the pedestrian. The range is basically the magnitude of                                                                 * the position vector (P) which is defined as p = sqrt((px * px) + (py * py)) */
   	float phi = atan2(py, px); /* The bearing (phi) is the angle between P and X referenced CCW from the x-axis. */
   	float rho_dot; /* The radial velocity (rho_dot) is the project of the velocity v on the line */
-  	if (fabs(rho) < 0.0001) {
+  
+  // check if rho is zero	
+  if (fabs(rho) < 0.0001) 
+  {
     	rho_dot = 0;
-  } else {
+  } 
+  else 
+  {
     rho_dot = (px*vx + py*vy)/rho;
   }
+  
+  
   VectorXd z_pred(3); /* measurement vector 3 parameters */
-  z_pred << rho, phi, rho_dot;
+  z_pred << rho, 
+            phi, 
+            rho_dot;
+  
   VectorXd y = z - z_pred; /* Measurement Error */
+  
+  /* angle normalization Normalizing Angles (Description from Wolfgang-Stefani and Knowledge hub
+  * In C++, atan2() returns values between -pi and pi.
+  * When calculating phi in y = z - h(x) for radar measurements,
+  * the resulting angle phi in the y vector should be adjusted so that it is between -pi and pi.
+  * The Kalman filter is expecting small angle values between the range -pi and pi.
+  * When working in radians, you can add 2π or subtract 2π until the angle is within the desired range
+  */ 
+  if (y(1) < -M_PI) // y(1) refers to phi
+    {
+      y(1) += 2 * M_PI;
+    }
+    
+    else if (y(1) > M_PI)
+    {
+      y(1) -= 2 * M_PI;
+    }
+  
   MatrixXd Ht = H_.transpose(); /* Measurement Function */
   MatrixXd S = H_ * P_ * Ht + R_; /* Measurement Prediction Covariance */
   MatrixXd Si = S.inverse(); /* Inverse to Multiply */
