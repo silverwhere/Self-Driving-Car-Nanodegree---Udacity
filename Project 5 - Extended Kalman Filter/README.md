@@ -107,7 +107,7 @@ Extended Kalman Filters(EKF) linearize the distribution around the mean of the c
 </p>
 
 
-The EKF uses a method called a first order taylor expansion 
+As the **h(x)** function is multi-dimensional the EKF will need to utilize a method called a multivariable Taylor Series Expansion to make a linear approximation of the **h(x)** function.   
 <p align="center">
 <img width="1000" height="120" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
 </p>
