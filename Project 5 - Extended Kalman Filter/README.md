@@ -59,11 +59,15 @@ Process Flow
 <img width="600" height="450" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
 </p>  
 
-* For the first iteration we just initalize the state and covariance matrix.
+* For the first iteration we just initalize the state and covariance matrix.  
+* After we will call `predict` and `update`
+* Before `predict` we need to compute the elapsed time between the current and previous observation.
+* Based on the elapsed time we calculate the new `x` state transition and `P` process covariance matrices.
+* 
 
 
 Algorithim
-
+---  
 
 The Kalman Filter algorithm will go through the following steps:  
 
