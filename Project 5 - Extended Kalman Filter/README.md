@@ -97,6 +97,10 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 **Q**  is the Process Covariance Matrix. It is a covariance matrix associated with the noise in states.
 
 **F** is the Transition Matrix (the one that deals with time steps and constant velocities) 
+  
+**u** is the motion noise.  Motion noise & process noise refer to the same case: uncertainty in the object's position when predicting location.  The model assumes velocity is constant between Δt intervals, but in reality we know that an object's velocity can change due to acceleration.  The model includes this uncertainty via the process noise.  
+  
+As an example, a pedestrian randomly changes her velocity (accelerating) between time steps, the overall mean though is zero.  This is process noise!  
 
 ---
 
