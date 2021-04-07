@@ -66,7 +66,10 @@ Process Flow
 * Based on the elapsed time we calculate the new `x'` state transition and `P'` process covariance matrices.  
   
 * The measurement `update` step depends on the the sensor type `RADAR` or `LIDAR`
-* If sensor = `RADAR` then we have to compute the new `JacobianMatrix` using the non-linear measurement function **H<sub>j</sub>** to project the predicted state **h(x)** and call the measurement update `z`.
+* If sensor = `RADAR` then we have to compute the new `JacobianMatrix` using the non-linear measurement function **H<sub>j</sub>** to project the predicted state **h(x)** and call the measurement update.  
+* If sensor = `LIDAR` then we just set up the `H` and `R` and then call the measurement update.  
+
+* then the car will receive another sensor measurement after a time period \Delta{t}Δt. The algorithm then does another `predict` and `update` step.
 
 
 Algorithim
