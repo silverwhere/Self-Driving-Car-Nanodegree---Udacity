@@ -8,7 +8,7 @@ Overview
 In this project, I utilized an `Extended Kalman Filter` and  `Sensor Fusion`  to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric.
 
 <p align="center">
-<img width="500" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/overview.jpeg"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/overview.jpeg"
 </p>
 
 Background - RADAR - RAdio Detection And Ranging
