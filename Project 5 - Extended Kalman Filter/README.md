@@ -52,10 +52,10 @@ File Structure
 Process Flow
 ---
 
-* We have a pedestrian on a bicycle that is represented by a 2-D position P<sub>x</sub>, `P<sub>y</sub>`  as well as 2-D velocity `v<sub>x</sub>`, `v<sub>y</sub>` 
+* We have a pedestrian on a bicycle that is represented by a 2-D position P<sub>x</sub>, P<sub>y</sub>  as well as 2-D velocity v<sub>x</sub>, v<sub>y</sub>. 
 
 Algorithim
----
+
 
 The Kalman Filter algorithm will go through the following steps:  
 
