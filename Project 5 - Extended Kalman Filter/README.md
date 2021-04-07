@@ -46,8 +46,8 @@ File Structure
 
 * `main.cpp` -  communicates with a simulator that recieves Lidar and Radar data from our vehicle, calls a function to run the kalman filter and calls a function to calculate the error RMSE.  Sends a sensor measurement to `FusionEKF.cpp`     
 * `FusionEKF.cpp` - initializes the filter, calls the `predict` function, calls the `update` function.  takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter class`. The `ekf_` will hold the matrix and vector values. Uses the `ekf_` instance to call the `predict and update` equations.    
-* `kalman_filter.cpp`*- defines the predict function, the update function for lidar, and the update function for radar.   
-* `tools.cpp`- function to calculate RMSE and the Jacobian matrix.  
+* `kalman_filter.cpp`* - defines the `predict` function, the `update` function for lidar, and the `update` function for radar.   
+* `tools.cpp`- function to calculate `RMSE` and the `Jacobian matrix`.  
  
 Algorithim
 ---
@@ -93,7 +93,18 @@ The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishin
 
 * For laser sensors, we have a 2D measurement vector.  Each location component Px, PY are affected by a random noise.  So our noise vector "w" has the same dimension as "z".  And it is a distribution with zero mean and a 2x2 covariance matrix which comes from the product of the vertical vector "w" and its transpose.  
 
-* 
+***Extended Kalman Filter / Sensor Fusion***  
+
+Extended Kalman Filters(EKF) linearize the distribution around the mean of the current estimate and then use this linearization in the predict and update states of the Kalman Filter algorithm.  An existing Kalman Filter cannot be applied to a non-linear distribution, common with Radar data.  The key to be able to solve the kalman filter update equations is to linearize the **h(x)** function.
+
+<p align="center">
+<img width="800" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/gaussian.png"
+</p>
+
+
+The EKF uses a method called a first order taylor expansion 
+
+
 
 ---  
 Remarks
