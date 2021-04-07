@@ -145,7 +145,9 @@ where **Df(a)** is called the `JacobianMatrix` & **D<sup>2</sup>f(a)** is called
 
 **Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2</sup>f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2</sub>** or the multi-dimensional equivalent **(x-a)<sup>T</sup>(x-a)** will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
 
+The Extended Kalman Filter Equations then become.
 
+![EKF](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanvextendedkalmanfilter.png)
 ---  
 Remarks
 ---
