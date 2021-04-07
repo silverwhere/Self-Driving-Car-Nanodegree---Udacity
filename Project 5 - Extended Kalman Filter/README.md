@@ -90,7 +90,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
 
 <p align="center">
-<img width="500" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/radar%20equations.jpg"
+<img width="600" height="250" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/radar%20equations.jpg"
 </p>
 
 
@@ -108,6 +108,9 @@ Extended Kalman Filters(EKF) linearize the distribution around the mean of the c
 
 
 The EKF uses a method called a first order taylor expansion 
+<p align="center">
+<img width="800" height="150" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
+</p>
 
 
 
