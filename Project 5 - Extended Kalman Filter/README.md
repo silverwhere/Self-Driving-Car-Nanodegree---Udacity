@@ -47,7 +47,7 @@ File Structure
 * `main.cpp` -  communicates with a simulator that recieves Lidar and Radar data from our vehicle, calls a function to run the kalman filter and calls a function to calculate the error RMSE.  Sends a sensor measurement to `FusionEKF.cpp`     
 * `FusionEKF.cpp` - initializes the filter, calls the `predict` function, calls the `update` function.  takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter class`. The `ekf_` will hold the matrix and vector values. Uses the `ekf_` instance to call the `predict and update` equations.    
 * `kalman_filter.cpp`* - defines the `predict` function, the `update` function for lidar, and the `update` function for radar.   
-* `tools.cpp`- function to calculate `RMSE` and the `Jacobian matrix`.  
+* `tools.cpp`- function to calculate `RMSE` and the `JacobianMatrix`.  
 
 Process Flow
 ---
@@ -59,11 +59,14 @@ Process Flow
 <img width="600" height="450" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
 </p>  
 
-* For the first iteration we just initalize the state and covariance matrix.  
-* After we will call `predict` and `update`
+* For the first iteration we just initalize the state `x` and `P` covariance matrix.  
+* After we will call `predict` and `update`  
+  
 * Before `predict` we need to compute the elapsed time between the current and previous observation.
-* Based on the elapsed time we calculate the new `x` state transition and `P` process covariance matrices.
-* 
+* Based on the elapsed time we calculate the new `x'` state transition and `P'` process covariance matrices.  
+  
+* The measurement `update` step depends on the the sensor type `RADAR` or `LIDAR`
+* If sensor = `RADAR` then we have to compute the new `JacobianMatrix` **H<sub>j</sub>** using the non-linear measurment function to project the predicted state **h(x)** and call the measurement update `z`.
 
 
 Algorithim
