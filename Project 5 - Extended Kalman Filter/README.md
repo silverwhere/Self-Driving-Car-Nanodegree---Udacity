@@ -48,9 +48,22 @@ File Structure
 * `FusionEKF.cpp` - initializes the filter, calls the `predict` function, calls the `update` function.  takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter class`. The `ekf_` will hold the matrix and vector values. Uses the `ekf_` instance to call the `predict and update` equations.    
 * `kalman_filter.cpp`* - defines the `predict` function, the `update` function for lidar, and the `update` function for radar.   
 * `tools.cpp`- function to calculate `RMSE` and the `Jacobian matrix`.  
- 
-Algorithim
+
+Process Flow
 ---
+
+* We have a pedestrian on a bicycle that is represented by a 2-D position P<sub>x</sub>, P<sub>y</sub>  as well as 2-D velocity v<sub>x</sub>, v<sub>y</sub>.  Therefore `x` =  P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub>, v<sub>y</sub>  
+* Each time we receive new sensor measurement data the estimation function process measurement is triggered.
+
+<p align="center">
+<img width="500" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
+</p>  
+
+* For the first iteration we just initalize the state and covariance matrix.
+
+
+Algorithim
+
 
 The Kalman Filter algorithm will go through the following steps:  
 
@@ -88,7 +101,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 **H**  is the matrix that projects your belief about the object’s current state into the measurement space of the sensor.  
 
-* For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about [px​,py​,vx​,vy​] whereas the z vector will only contain [px,py]. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement. 
+* For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub>, v<sub>y</sub> whereas the z vector will only contain P<sub>x</sub>, P<sub>y</sub>. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement. 
 * For radar, there is no H matrix that will map the state vector "x" into polar cordinates; instead you need to calculate the mapping manually to convert from cartesian coordinates to polar coordinates.  
 
 The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
@@ -113,9 +126,9 @@ As the **h(x)** function is multi-dimensional the EKF will need to utilize a met
 
 ![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg) 
   
-where **Df(a)** is called the 'JacobianMatrix' & **D<sup>2<sup>f(a)** is called the Hessan matrix.  These represent the first and second order derivatives of multi-dimensional equations.
+where **Df(a)** is called the `JacobianMatrix` & **D<sup>2</sup>f(a)** is called the Hessan matrix.  These represent the first and second order derivatives of multi-dimensional equations.
 
-**Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2 f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2<sub>** or the multi-dimensional equivalent **(x-a)<sup>T<sub>(x-a) will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
+**Jacobian Matrix** - To derive a linear approximations for **h(x)** function, we will only keep the expansion up to the `JacobianMatrix` **Df(a)**.  We will ignore the Hessan matrix **D<sup>2</sup>f(a)** and other higher order terms.  Assuming **(x-a)** is small, **(x-a)<sup>2</sub>** or the multi-dimensional equivalent **(x-a)<sup>T</sup>(x-a)** will be even smaller; the EKF we'll be using assumes that higher order terms beyond the Jacobian are negligible.  
 
 
 ---  
