@@ -114,7 +114,7 @@ Extended Kalman Filters(EKF) linearize the distribution around the mean of the c
 
 As the **h(x)** function is multi-dimensional the EKF will need to utilize a method called a multivariable Taylor Series Expansion to make a linear approximation of the **h(x)** function.   
 <p align="center">
-<img width="800" height="75" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
+<img width="1000" height="75" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
 </p>  
   
 where **Df(a)** is called the 'JacobianMatrix' & **D<sup>2<sup>f(a)** is called the Hessan matrix.  These represent the first and second order derivatives of multi-dimensional equations.
