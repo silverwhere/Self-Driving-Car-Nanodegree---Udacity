@@ -118,7 +118,7 @@ As an example, a pedestrian randomly changes her velocity (accelerating) between
 * For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub>, v<sub>y</sub> whereas the z vector will only contain P<sub>x</sub>, P<sub>y</sub>. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement. 
 * For radar, there is no H matrix that will map the state vector "x" into polar cordinates; instead you need to calculate the mapping manually to convert from cartesian coordinates to polar coordinates.  
 
-The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
+The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve for the measurement update error `y` **y = Z - H*x'** 
 
 ![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/radar%20equations.png)
 
