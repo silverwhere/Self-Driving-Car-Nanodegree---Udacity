@@ -112,7 +112,7 @@ As the **h(x)** function is multi-dimensional the EKF will need to utilize a met
 <img width="800" height="75" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/taylor.jpg"
 </p>  
   
-where **Df(a)** is called the 'JacobianMatrix' & **D^2f(a)** is called the Hessian matrix.  These represent the first and second order derivatives of multi-dimensional equations.
+where **Df(a)** is called the 'JacobianMatrix' & **D<sub>2<sub>f(a)** is called the Hessian matrix.  These represent the first and second order derivatives of multi-dimensional equations.
 
 
 
