@@ -77,7 +77,24 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 ---
 **update (measurement update)** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  Then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
- 
+
+**z** is the measurement vector.   
+* For a lidar sensor, the z vector contains the position−x and position−y measurements.
+* For a radar sensor, the z vector contains the range(rho), bearing(phi) and radial velocity(rho_dot).
+
+**H**  is the matrix that projects your belief about the object’s current state into the measurement space of the sensor.  
+
+* For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector x contains information about [px​,py​,vx​,vy​] whereas the z vector will only contain [px,py]. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement. 
+* For radar, there is no H matrix that will map the state vector "x" into polar cordinates; instead you need to calculate the mapping manually to convert from cartesian coordinates to polar coordinates.  
+
+The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'**  
+
+**R** is the covariance matrix.  For a radar sensor this matrix represents uncertainty in our sensor measurments.  The dimensions of the R matrix is squared and each side of its matrix is the same length as the number of measurement parameters.
+
+* For laser sensors, we have a 2D measurement vector.  Each location component Px, PY are affected by a random noise.  So our noise vector "w" has the same dimension as "z".  And it is a distribution with zero mean and a 2x2 covariance matrix which comes from the product of the vertical vector "w" and its transpose.  
+
+* 
+
 ---  
 Remarks
 ---
