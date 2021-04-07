@@ -122,6 +122,7 @@ The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplish
 **R** is the covariance matrix.  For a radar sensor this matrix represents uncertainty in our sensor measurments.  The dimensions of the R matrix is squared and each side of its matrix is the same length as the number of measurement parameters.
 
 * For laser sensors, we have a 2D measurement vector.  Each location component Px, PY are affected by a random noise.  So our noise vector "w" has the same dimension as "z".  And it is a distribution with zero mean and a 2x2 covariance matrix which comes from the product of the vertical vector "w" and its transpose.  
+* These parameters are provided by the sensor manufacturer
 
 ***Extended Kalman Filter / Sensor Fusion***  
 
