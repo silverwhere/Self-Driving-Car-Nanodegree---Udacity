@@ -58,9 +58,21 @@ The Kalman Filter algorithm will go through the following steps:
 
 **initialize state and covariance matrices** - the filter will initialize the bicycle's position based on the first measurement. Then the car will receive another sensor measurement after a time period Δt. 
 
-**predict** - the algorithm will predict where the bicycle will be after time Δt. One basic way to predict the bicycle location after Δt is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity Δt.  We will assume the velocity is constant.  
+**predict (state prediction)** - the algorithm will predict where the bicycle will be after time Δt. One basic way to predict the bicycle location after Δt is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity Δt.  We will assume the velocity is constant. 
+  
+Let’s say we know an object’s current position and velocity , which we keep in the x variable. Now one second has passed. We can predict where the object will be one second later because we knew the object position and velocity one second ago; we’ll just assume the object kept going at the same velocity.
+  
+But maybe the object didn’t maintain the exact same velocity. Maybe the object changed direction, accelerated or decelerated. So when we predict the position one second later, our uncertainty increases.
+  
+**x** is the mean state vector. For an extended Kalman filter, the mean state vector contains information about the object’s position and velocity that you are tracking. It is called the “mean” state vector because position and velocity are represented by a gaussian distribution with mean x.  
 
-**update** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  Then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
+**P** is the state covariance matrix, which contains information about the uncertainty of the object’s position and velocity. You can think of it as containing standard deviations.  
+**Q**  is the Process Covariance Matrix. It is a covariance matrix associated with the noise in states. I didn’t specify the equation to calculate the matrix here.
+
+**F** is the Transition Matrix (the one that deals with time steps and constant velocities) 
+
+---
+**update (measurement update)** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  Then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
  
   
 Remarks
