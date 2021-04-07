@@ -98,7 +98,7 @@ The "H" matrix from the Lidar and **h(x)** equations from Radar are accomplishin
 Extended Kalman Filters(EKF) linearize the distribution around the mean of the current estimate and then use this linearization in the predict and update states of the Kalman Filter algorithm.  An existing Kalman Filter cannot be applied to a non-linear distribution, common with Radar data.  The key to be able to solve the kalman filter update equations is to linearize the **h(x)** function.
 
 <p align="center">
-<img width="500" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/gaussian.png"
+<img width="800" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/gaussian.png"
 </p>
 
 
