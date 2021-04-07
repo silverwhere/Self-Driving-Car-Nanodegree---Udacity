@@ -5,7 +5,7 @@
 Overview
 ---
 
-In this project, I utilized an `Extended Kalman Filter` and  `Sensor Fusion`  to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric.
+In this project, I utilized an `Extended Kalman Filter` and  `Sensor Fusion`  to estimate the state of a moving object of interest with noisy lidar and radar measurements.  The project involved utilzing lidar data (Point Cloud) for position and radar data (doppler) for radial velocity.  Sensor Fusion was utilized to accurately predict where the pedestrian on a bicycle is obtaining RMSE values that are lower than the tolerance outlined in the project [rubric](https://review.udacity.com/#!/rubrics/748/view).
 
 <p align="center">
 <img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/overview.jpeg"
@@ -69,7 +69,7 @@ Process Flow
 * If sensor = `RADAR` then we have to compute the new `JacobianMatrix` using the non-linear measurement function **H<sub>j</sub>** to project the predicted state **h(x)** and call the measurement update.  
 * If sensor = `LIDAR` then we just set up the `H` and `R` and then call the measurement update.  
 
-* then the car will receive another sensor measurement after a time period \Delta{t}Δt. The algorithm then does another `predict` and `update` step.
+* then the car will receive another sensor measurement after a time period Δt. The algorithm then does another `predict` and `update` step in a continous loop.
 
 
 Algorithim
