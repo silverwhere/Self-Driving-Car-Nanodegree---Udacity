@@ -76,9 +76,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 **F** is the Transition Matrix (the one that deals with time steps and constant velocities) 
 
 ---
-<p align="center">
-<img width="800" height="550" src="(https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanequations.png"
-</p>
+
 
 ---
 **update (measurement update)** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.  Then the car will receive another sensor measurement after a time period Δt. The algorithm then does another predict and update step.
@@ -94,7 +92,7 @@ But maybe the object didn’t maintain the exact same velocity. Maybe the object
 
 The **H** matrix from the Lidar and **h(x)** equations from Radar are accomplishing the same thing;  they are both need to solve **y = Z - H*x'** 
 
-![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanvextendedkalmanfilter.png)
+![Figure](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/radar%20equations.png)
 
 
 **R** is the covariance matrix.  For a radar sensor this matrix represents uncertainty in our sensor measurments.  The dimensions of the R matrix is squared and each side of its matrix is the same length as the number of measurement parameters.
