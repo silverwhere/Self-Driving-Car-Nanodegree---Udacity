@@ -52,7 +52,15 @@ File Structure
 Process Flow
 ---
 
-* We have a pedestrian on a bicycle that is represented by a 2-D position P<sub>x</sub>, P<sub>y</sub>  as well as 2-D velocity v<sub>x</sub>, v<sub>y</sub>.  Therefore `x` =  P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub>, v<sub>y</sub>
+* We have a pedestrian on a bicycle that is represented by a 2-D position P<sub>x</sub>, P<sub>y</sub>  as well as 2-D velocity v<sub>x</sub>, v<sub>y</sub>.  Therefore `x` =  P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub>, v<sub>y</sub>  
+* Each time we receive new sensor measurement data the estimation function process measurement is triggered.
+
+<p align="center">
+<img width="500" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
+</p>  
+
+* For the first iteration we just initalize the state and covariance matrix.
+
 
 Algorithim
 
