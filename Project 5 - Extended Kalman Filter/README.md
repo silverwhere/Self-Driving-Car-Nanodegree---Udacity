@@ -149,6 +149,7 @@ The Extended Kalman Filter Equations then become.
 
 ![EKF](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanvextendedkalmanfilter.png)
 ---  
+
 Results
 ---
 
@@ -156,5 +157,6 @@ My algorithm was run against Dataset 1 in the simulator which is the same as "da
 
 ![RMSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/RMSE.jpg)  
 
-
-
+Remarks
+---
+Sensor fusion is the ability to bring together inputs from multiple radars, lidars and cameras to form a single model or image of the environment around a vehicle. The resulting model is more accurate because it balances the strengths of the different sensors.  Working with Lidar and Radar data was a great experience to accurately detect a pedestrian with accuracy.  I really enjoyed going through the understanding of how a Kalmin Filter is implemented and updated.  What would be really interesting to work with would be camera data, or acoustic data.  Overall, though it would also be interesting to work with data from multiple sensors with measurement data being recieved at the same time and weighting the measurements.  I really enjoyed this project and see it as an applicable skill as I progress towards becoming a self-driving vehicle engineer.
