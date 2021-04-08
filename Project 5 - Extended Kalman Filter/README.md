@@ -152,7 +152,7 @@ The Extended Kalman Filter Equations then become.
 Results
 ---
 
-My algorithm was run against Dataset 1 in the simulator which is the same as "data/obj_pose-laser-radar-synthetic-input.txt" in the repository. I collected the positions that the algorithm outputs and compare them to ground truth data. My P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub> and v<sub>y</sub>  RMSE are less than or equal to the values [.11, .11, 0.52, 0.52].
+My algorithm was run against Dataset 1 in the simulator which is the same as "data/obj_pose-laser-radar-synthetic-input.txt" in the repository. I collected the positions that the algorithm outputs and compare them to ground truth data. My P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub> and v<sub>y</sub>  RMSE are less than or equal to the values [.11, .11, 0.52, 0.52].  Lidar measurements are red circles, radar measurements are blue circles with an arrow pointing in the direction of the observed angle, and estimation markers are green triangles.  
 
 ![RMSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/RMSE.jpg)  
 
