@@ -5,7 +5,7 @@
 Overview
 ---
 
-In this project, I utilized an `Extended Kalman Filter` and  `Sensor Fusion`  to estimate the state of a moving object of interest with noisy lidar and radar measurements.  The project involved utilzing lidar data (Point Cloud) for position and radar data (doppler) for radial velocity.  Sensor Fusion was utilized to accurately predict where the pedestrian on a bicycle is obtaining RMSE values that are lower than the tolerance outlined in the project [rubric](https://review.udacity.com/#!/rubrics/748/view).
+In this project, I utilized an `Extended Kalman Filter` and  `Sensor Fusion`  to estimate the state of a moving object of interest with noisy lidar and radar measurements.  The project involved utilzing lidar data (Point Cloud) for position and radar data (Doppler) for radial velocity.  Sensor Fusion was utilized to accurately predict where the pedestrian on a bicycle is obtaining RMSE values that are lower than the tolerance outlined in the project [rubric](https://review.udacity.com/#!/rubrics/748/view).
 
 <p align="center">
 <img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/overview.jpeg"
@@ -149,6 +149,12 @@ The Extended Kalman Filter Equations then become.
 
 ![EKF](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalmanvextendedkalmanfilter.png)
 ---  
-Remarks
+Results
 ---
+
+My algorithm was run against Dataset 1 in the simulator which is the same as "data/obj_pose-laser-radar-synthetic-input.txt" in the repository. I collected the positions that the algorithm outputs and compare them to ground truth data. My P<sub>x</sub>, P<sub>y</sub>,v<sub>x</sub> and v<sub>y</sub>  RMSE are less than or equal to the values [.11, .11, 0.52, 0.52].  Lidar measurements are red circles, radar measurements are blue circles with an arrow pointing in the direction of the observed angle, and estimation markers are green triangles.  
+
+![RMSE](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/RMSE.jpg)  
+
+
 
