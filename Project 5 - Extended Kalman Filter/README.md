@@ -56,7 +56,7 @@ Process Flow
 * Each time we receive new sensor measurement data the estimation function process measurement is triggered.
 
 <p align="center">
-<img width="600" height="400" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/kalman_filter_map.png"
+<img width="600" height="400" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%205%20-%20Extended%20Kalman%20Filter/img/kalman_filter_map.png"
 </p>  
 
 * For the first iteration we just initalize the state `x` and `P` covariance matrix.  
