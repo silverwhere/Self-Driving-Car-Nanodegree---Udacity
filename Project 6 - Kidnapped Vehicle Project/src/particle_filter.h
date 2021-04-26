@@ -2,7 +2,6 @@
  * particle_filter.h
  * 2D particle filter class.
  *
-
  */
 
 #ifndef PARTICLE_FILTER_H_
