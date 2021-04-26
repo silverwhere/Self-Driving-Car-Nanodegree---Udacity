@@ -39,12 +39,11 @@ File Structure
     `vector<LandmarkObs> predicted` is the first vector which is prediction measurements between one particular particile and all of the map landmarks within sensor range `vector<LandmarkObs>& observations` is the actual landmark measurments gathered from the LIDAR Sensor.
      This function will perform nearest neighbour data association and assign each sensor observation the map landmark ID associated with it.  
       
-    - `updateWeights` takes as input the range of the sensor `sensor_range` the landmark measurement uncertainties `std_landmark[]` a vector of landmark measurements                 `vector<LandmarkObs> observations` and `map_landmarks` as input.  
+    - `updateWeights` takes as input the range of the sensor `sensor_range` the landmark measurement uncertainties `std_landmark[]` a vector of landmark measurements                 `vector<LandmarkObs> observations` and `map_landmarks` as input.    
     
     - `resample()` function, use the weights of the particles in the particle filter and C++ standard libraries `discrete_distribution` function to update the particles to a          Bayesian posterior distribution.
 
-    - `weighted_mean_error` evalulates the performance of the particle filter by calculating the weighted error.  This function takes as input the ground-truth position of 
-                      
+    - `weighted_mean_error` evalulates the performance of the particle filter by calculating the weighted error.  This function takes as input the ground-truth position `gt_x` and `gt_y` at a particular timestep.                        
                           
 
 

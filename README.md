@@ -24,7 +24,7 @@ PART 2
 Localization, Path Planning, Control, and System Integration  
 Here, I expand on my sensor knowledge to localize and control the vehicle. I evaluate sensor data from camera, radar, lidar, and GPS, and use these in closed-loop controllers that actuate the vehicle, finishing by combining all my skills on a real self-driving car under system integration!
 
-Project: Kidnapped Vehicle  
+Project: [Kidnapped Vehicle](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%206%20-%20Kidnapped%20Vehicle%20Project)  
 Project: Highway Driving  
 Project: PID Controller  
 Project: System Integration  
