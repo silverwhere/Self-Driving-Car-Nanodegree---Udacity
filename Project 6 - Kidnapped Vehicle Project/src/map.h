@@ -1,8 +1,6 @@
 /**
  * map.h
  *
- * Created on: Dec 12, 2016
- * Author: mufferm
  */
 
 #ifndef MAP_H_
