@@ -23,12 +23,12 @@ File Structure
 ---
 
 * `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.  
-             -  Set the number of particles `num_particles` to draw.  
-             -  Set the control measurement uncertainty `signma_pos`  
-             -  Set the landmark measurment uncertainty `sigma_landmark`  
-             -  Reads in map data  
-             -  Reads in control data and;  
-             -  Reads in observation data for each timestep.  
+    - Set the number of particles `num_particles` to draw.  
+    - Set the control measurement uncertainty `signma_pos`  
+    - Set the landmark measurment uncertainty `sigma_landmark`  
+    - Reads in map data  
+    - Reads in control data and;  
+    - Reads in observation data for each timestep.  
 
 * `particle_filter.cpp` - Contains all the member functions of the `ParticleFilter` class.  
     - `init` function takes as input GPS coordinates `double x` and `double y`,  initial heading estimate `theta` and an array of uncertainties for these measurements `std[]`.      Then will sample from random Gaussian distribution centered around these measurements to initialize all the particles.  All particle weights will be initialized to 1.          Refer to `particle_struct` in `particle_filter .h`  
