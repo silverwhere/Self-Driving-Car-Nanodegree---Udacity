@@ -31,10 +31,9 @@ File Structure
              -  Reads in control data and;  
              -  Reads in observation data for each timestep.  
 
-* `particle_filter.cpp` - Contains all the member functions of the `ParticleFilter` class.
-        
-                        - `init` function takes GPS coordinates `double x` and `double y`,  initial heading estimate `theta` and an array of uncertainties for these                                        measurements.  Then will sample from random Gaussian distribution centered around these measurements to initialize all the particles.
-                           All particle weights will be initialized to 1.  Refer to `particle_struct` in `particle_filter.h`  
+* `particle_filter.cpp` - Contains all the member functions of the `ParticleFilter` class.  
+                        - `init` function takes GPS coordinates `double x` and `double y`,  initial heading estimate `theta` and an array of uncertainties for these                                        measurements `std[]`.  Then will sample from random Gaussian distribution centered around these measurements to initialize all the particles.
+                           All particle weights will be initialized to 1.  Refer to `particle_struct` in `particle_filter`  
                         - `prediction`     
                       
                           
