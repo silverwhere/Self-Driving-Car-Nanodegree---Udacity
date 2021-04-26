@@ -42,7 +42,7 @@ File Structure
       
     - `updateWeights` takes as input the range of the sensor `sensor_range` the landmark measurement uncertainties `std_landmark[]` a vector of landmark measurements                 `vector<LandmarkObs> observations` and `map_landmarks` as input.  
     
-    -
+    - `resample()` function, use the weights of the particles in the particle filter and C++ standard libraries `discrete_distribution` function to update the particles to a          Bayesian posterior distribution.
                       
                           
 
