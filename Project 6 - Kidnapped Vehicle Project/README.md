@@ -24,12 +24,12 @@ File Structure
 ---
 
 * `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.
-*            -  Set the number of particles `M` to draw.
-*            -  Set the control measurement uncertainty `signma_pos`
-*            -  Set the landmark measurment uncertainty `sigma_landmark`
-*            -  Reads in map data
-*            -  Reads in control data and;
-*            -  Reads in observation data for each timestep.
+             -  Set the number of particles `M` to draw.  
+             -  Set the control measurement uncertainty `signma_pos`  
+             -  Set the landmark measurment uncertainty `sigma_landmark`  
+             -  Reads in map data  
+             -  Reads in control data and;  
+             -  Reads in observation data for each timestep.  
 
 
 
