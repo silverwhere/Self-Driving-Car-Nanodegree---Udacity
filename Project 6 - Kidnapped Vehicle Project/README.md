@@ -31,5 +31,9 @@ File Structure
              -  Reads in control data and;  
              -  Reads in observation data for each timestep.  
 
+* `particle_filter.cpp` - Contains all the member functions of the `ParticleFilter` class.
+                        - `init` function takes GPS coordinates `double x` & `double y`,  initial heading estimate `theta` and an array of uncertainties for these measurements                                  `std[]` random Gaussian noise to initialize.
+                        -   
+
 
 
