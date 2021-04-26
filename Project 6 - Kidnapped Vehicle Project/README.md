@@ -23,7 +23,7 @@ This project requires [C++](https://isocpp.org/) and the following C++ libraries
 File Structure
 ---
 
-* `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.
+* `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.  
              -  Set the number of particles `M` to draw.  
              -  Set the control measurement uncertainty `signma_pos`  
              -  Set the landmark measurment uncertainty `sigma_landmark`  
