@@ -23,9 +23,13 @@ This project requires [C++](https://isocpp.org/) and the following C++ libraries
 File Structure
 ---
 
-* `main.cpp` -  communicates with a simulator that recieves Lidar and Radar data from our vehicle, calls a function to run the kalman filter and calls a function to calculate the error RMSE.  Sends a sensor measurement to `FusionEKF.cpp`     
-* `FusionEKF.cpp` - initializes the filter, calls the `predict` function, calls the `update` function.  takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. `FusionEKF.cpp` has a variable called `ekf_`, which is an instance of a `KalmanFilter class`. The `ekf_` will hold the matrix and vector values. Uses the `ekf_` instance to call the `predict and update` equations.    
-* `kalman_filter.cpp`* - defines the `predict` function, the `update` function for lidar, and the `update` function for radar.   
-* `tools.cpp`- function to calculate `RMSE` and the `JacobianMatrix`.  
+* `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.
+*            -  Set the number of particles `M` to draw.
+*            -  Set the control measurement uncertainty `signma_pos`
+*            -  Set the landmark measurment uncertainty `sigma_landmark`
+*            -  Reads in map data
+*            -  Reads in control data and;
+*            -  Reads in observation data for each timestep.
+
 
 
