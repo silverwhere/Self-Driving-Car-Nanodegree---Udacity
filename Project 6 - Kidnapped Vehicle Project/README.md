@@ -24,7 +24,7 @@ File Structure
 ---
 
 * `main.cpp` -  This file runs the particle filter, measures the runtime calculate the weighted error at each timestep.  
-             -  Set the number of particles `M` to draw.  
+             -  Set the number of particles `num_particles` to draw.  
              -  Set the control measurement uncertainty `signma_pos`  
              -  Set the landmark measurment uncertainty `sigma_landmark`  
              -  Reads in map data  
@@ -32,9 +32,12 @@ File Structure
              -  Reads in observation data for each timestep.  
 
 * `particle_filter.cpp` - Contains all the member functions of the `ParticleFilter` class.  
-                        - `init` function takes GPS coordinates `double x` and `double y`,  initial heading estimate `theta` and an array of uncertainties for these                                        measurements `std[]`.  Then will sample from random Gaussian distribution centered around these measurements to initialize all the particles.
-                           All particle weights will be initialized to 1.  Refer to `particle_struct` in `particle_filter`  
-                        - `prediction`     
+                        - `init` function takes as input GPS coordinates `double x` and `double y`,  initial heading estimate `theta` and an array of uncertainties for these                              measurements `std[]`.  Then will sample from random Gaussian distribution centered around these measurements to initialize all the particles.
+                           All particle weights will be initialized to 1.  Refer to `particle_struct` in `particle_filter .h`  
+                        - `prediction` takes as input the amount of time between timestepts `delta_t` the velocity and yaw rate measurment uncertainties `std_meas[]` and the  
+                           current `velocity` and `yaw_rate` timestep measurments.  Using these measurements the function will update the particles position estimates and  
+                           account for sensor noise by adding Gaussian noise.  Gaussian noise can be added by sampling from a Gaussian distribution with mean equal to the 
+                           updated particle position and standard deviation equal to the standard deviation of the measurements.
                       
                           
 
