@@ -110,7 +110,7 @@ For the particle filter above, notice how the large number of particles distribu
 Results
 ---
 
-Overall my particle filter performed rapidly to localize my vehicle based on algorithim to calculate the particle weights effectively.  The position of landmarks was unique in the map, with long distances and clusters, but I was able to localize my vehicle quickly without any large error in measurement.  
+Overall my particle filter performed rapidly to localize my vehicle based on algorithim to calculate the particle weights effectively.  The position of landmarks was unique in the map, with long distances and clusters of them to test my filter, but I was able to localize my vehicle quickly without any large error in measurement.  
 
 Remarks
 ---
