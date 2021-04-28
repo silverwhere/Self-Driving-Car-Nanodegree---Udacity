@@ -73,7 +73,7 @@ The vehicle uses LIDAR to sense its distance to landmarks, buildings, trees (obs
 These observation measurements are transformed from vehicle coordinates (local coordinate system) to map coordinates (global coordinate system) using the following homogenous transformation matrix.
 
 <p align="center">
-<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/homogenous_transformation.png"
 </p>  
                           
 For each LIDAR observation (x, y) the nearest particle to a detected landmark is desired, a technique known as 'nearest neighbour' is utilized to perform this technique.  To accomplish this we use our transformed observation data coordinates from our LIDAR data.  Rarely is sensor data aligned perfectly with a map of known landmark coordinates and therefore there is a deviation.  Therefore each observation particle with the smallest deviation from the map of known landmark coordinates is determined by filtering all particles to determine the best fitting particle.
