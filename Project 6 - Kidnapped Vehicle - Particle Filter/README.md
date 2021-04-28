@@ -18,8 +18,29 @@ Dependencies
 ---
 
 This project requires [C++](https://isocpp.org/) and the following C++ libraries installed:  
+
+Directory Structure
+---
   
-  
+  root
+|   build.sh
+|   clean.sh
+|   CMakeLists.txt
+|   README.md
+|   run.sh
+|
+|___data
+|   |   
+|   |   map_data.txt
+|   
+|   
+|___src
+    |   helper_functions.h
+    |   main.cpp
+    |   map.h
+    |   particle_filter.cpp
+    |   particle_filter.h
+    
 File Structure
 ---
 
