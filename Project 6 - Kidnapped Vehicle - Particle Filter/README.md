@@ -101,13 +101,18 @@ All of the above has related to one single particle. Now the calculations are ca
 
 Weight disparity leading to weight collapse is a common issue encountered in these filtering algorithms; however, it can be mitigated by including a resampling step before the weights become too uneven.  Resampling involves keeping the particles with weights with a high posterior probability and removing those that do not.  This leads to more accurate new prior probability particles with each successive update step.  The new priors are more reliable than the orignal priors, but slightly less reliable than the posteriors calculated, as uncertainty increases with movement. 
 
+<p align="center">
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/partilce-filtering.gif"
+</p>   
+
+For the particle filter above, notice how the large number of particles distributed across the map, posterior probabilities (weights) collapse the particles to a few very tight bunches after only a few iterations. Also, observe how, due to the symmetry of the space, there are two concentrations that exist towards the end, until the symmetry from the map is broken, when the robot moves out of the aisle, into a room, and senses its interiors.
+
 Results
 ---
 
-<p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/partilce-filtering.gif"
-</p> 
-
+Overall my particle filter performed rapidly to localize my vehicle based on algorithim to calculate the particle weights effectively.  The position of landmarks was unique in the map, with long distances and clusters, but I was able to localize my vehicle quickly without any large error in measurement.  
 
 Remarks
 ---
+  
+This was an interesting project, I enjoyed working with LIDAR data, but for a particle filter, I feel because it can work with non-linear data more easily, data from radar could have been utilized.  I would also like to have explored the limitations on the number of particles before overwhelming the speed of my processing to localize effectively. Going forward I am very interested in simultaneous localization and mapping (SLAM) which is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of a vehicles location within it. 
