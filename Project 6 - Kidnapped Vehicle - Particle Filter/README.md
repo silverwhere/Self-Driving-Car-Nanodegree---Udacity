@@ -57,15 +57,22 @@ Initializes particle filter by initializing particles (num_particles = 100) to G
 * x Initial x position [m] (simulated estimate from GPS)
 * y Initial y position [m]
 * theta Initial orientation (heading) [rad]
-* std[] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m], standard deviation of yaw [rad]]
+* std[ ] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m], standard deviation of yaw [rad]]
 
 **Prediction:**  
+  
+In more technical term each particle is a prior belief or simply a prior about the location and orientation of the vehicle. To represent different orientations or headings at the same location inside the GPS spot, one has to stack many such layers of particles, one for every possible orientation into a three-dimensional cube or cylinder.
+Particles are more fine-grained priors, derived from a single, coarse prior provided by a GPS. With the priors set in place, the next step is to improve the belief or evaluate the priors against reality by sensing the environment.  
 
 The location of each particle at the next time step after the time `delta_t` is predicted using the following calculation. The calculation depends on whether the heading (yaw rate) equals 0 or not:  
 
 <p align="center">
 <img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
 </p>  
+ 
+<p align="center">
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
+</p>
 
 **Update Weights:**
 The vehicle uses LIDAR to sense its distance to landmarks, buildings, trees (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as a standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
