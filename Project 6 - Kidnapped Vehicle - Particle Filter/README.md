@@ -9,7 +9,7 @@ Overview
 The project involves a vehicle that is kidnapped within a world that has no idea of its location but can see landmarks using GPS and LIDAR sensors. Utilizing data from initial GPS estimates and LIDAR data, I can use a particle filter based on the vehicle's reported observations of objects nearby to localize it and find it!  The particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step, the particle filter will also get observation and control data. 
  
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20Project/img/partilce-filtering.gif"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/partilce-filtering.gif"
 </p>  
   
 In this project I will implement a 2 dimensional particle filter in C++. The particle filter will be given a map and some initial localization information (GPS). At each time step my filter will also get observation and control data.  The project involves the completion of the following [rubric](https://review.udacity.com/#!/rubrics/747/view). 
