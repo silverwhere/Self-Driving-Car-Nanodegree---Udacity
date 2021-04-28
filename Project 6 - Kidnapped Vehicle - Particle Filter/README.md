@@ -92,7 +92,7 @@ Associating the particle's pose with an observation (x,y), you land at some plac
 For each observation, the multivariate Gaussian normal distribution with its closest landmark is calculated and all resulting probabilities are multiplied. The result is the particle weight.  This is calculation is filtered through each particle.  The purpose is to have the particles with the highest weights survive and with each resampling, replacement particles are generated to remove particles with low posterior probability.
 
 <p align="center">
-<img width="600" height="600" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/multivariate_gaussian_density.png"
+<img width="300" height="150" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/multivariate_gaussian_density.png"
 </p>
 
 All of the above has related to one single particle. Now the calculations are carried out for each particle. The particles with the highest weights gradually prevail in the algorithm (filtering). Hence, at the end of each weight update step, 'resampling' of particles with replacement is done to remove particles with low posterior probability.
