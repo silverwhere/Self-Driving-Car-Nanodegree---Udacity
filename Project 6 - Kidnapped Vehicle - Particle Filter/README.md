@@ -99,7 +99,7 @@ All of the above has related to one single particle. Now the calculations are ca
 
 **Resampling:**  
 
-Weight disparity leading to weight collapse is a common issue encountered in these filtering algorithms; however, it can be mitigated by including a resampling step before the weights become too uneven.  Resampling involves keeping the particles with weights with a high posterior probability and removing those that do not.  This leads to more accurate new prior probability particles with each successive update step.  The new priors are more reliable than the orignal priors, but slightly less reliable than the posteriors calculated, as uncertainty increaes with movement. 
+Weight disparity leading to weight collapse is a common issue encountered in these filtering algorithms; however, it can be mitigated by including a resampling step before the weights become too uneven.  Resampling involves keeping the particles with weights with a high posterior probability and removing those that do not.  This leads to more accurate new prior probability particles with each successive update step.  The new priors are more reliable than the orignal priors, but slightly less reliable than the posteriors calculated, as uncertainty increases with movement. 
 
 Results
 ---
