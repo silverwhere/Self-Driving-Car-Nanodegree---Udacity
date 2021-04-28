@@ -69,10 +69,6 @@ The location of each particle at the next time step after the time `delta_t` is 
 <p align="center">
 <img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
 </p>  
- 
-<p align="center">
-<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
-</p>
 
 **Update Weights:**
 The vehicle uses LIDAR to sense its distance to landmarks, buildings, trees (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as a standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
@@ -82,6 +78,10 @@ These observation measurements are transformed from vehicle coordinates (local c
 <p align="center">
 <img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/homogenous_transformation.png"
 </p>  
+  
+<p align="center">
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/observations.png"
+</p>
                           
 For each LIDAR observation (x, y) the nearest particle to a detected landmark is desired, a technique known as 'nearest neighbour' is utilized to perform this technique.  To accomplish this we use our transformed observation data coordinates from our LIDAR data.  Rarely is sensor data aligned perfectly with a map of known landmark coordinates and therefore there is a deviation.  Therefore each observation particle with the smallest deviation from the map of known landmark coordinates is determined by filtering all particles to determine the best fitting particle.
 
