@@ -61,7 +61,9 @@ Initializes particle filter by initializing particles (num_particles = 100) to G
 **Prediction:**
 The location of each particle at the next time step after the time `delta_t` is predicted using the following calculation. The calculation depends on whether the heading (yaw rate) equals 0 or not:  
 
-INSERT PHOTO
+<p align="center">
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
+</p>  
 
 **Update Weights:**
 The vehicle uses LIDAR to sense its distance to landmarks (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as the standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
