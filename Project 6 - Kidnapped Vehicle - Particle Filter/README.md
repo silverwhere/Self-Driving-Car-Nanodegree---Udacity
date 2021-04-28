@@ -9,7 +9,7 @@ Overview
 The project involves a vehicle that is kidnapped within a world that has no idea of its location but can see landmarks using GPS and LIDAR sensors. Utilizing data from initial GPS estimates and LIDAR data, I can use a particle filter based on the vehicle's reported observations of objects nearby to localize it and find it!  The particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step, the particle filter will also get observation and control data. 
  
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/partilce-filtering.gif"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/particle_filter.jpeg"
 </p>  
   
 In this project I will implement a 2 dimensional particle filter in C++. The particle filter will be given a map and some initial localization information (GPS). At each time step my filter will also get observation and control data.  The project involves the completion of the following [rubric](https://review.udacity.com/#!/rubrics/747/view). 
@@ -51,24 +51,37 @@ Algorithim
 
 **Implementation of Particle Filter**
 
-**Initialization:**
-Initializes particle filter by initializing particles (num_particles = 100) to Gaussian distribution around first position and all the weights to 1.
+**Initialization:**  
+Initializes particle filter by initializing particles (num_particles = 100) to Gaussian distribution around first position and all the weights to 1.  The particles are initialized with a GPS position and heading. Every feasible position on the grid is called a particle and it represents a likely position of the vehicle inside the GPS location. 
+
 * x Initial x position [m] (simulated estimate from GPS)
 * y Initial y position [m]
 * theta Initial orientation (heading) [rad]
-* std[] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m], standard deviation of yaw [rad]]
+* std[ ] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m], standard deviation of yaw [rad]]
 
-**Prediction:**
+**Prediction:**  
+  
+In more technical term each particle is a prior belief or simply a prior about the location and orientation of the vehicle. To represent different orientations or headings at the same location inside the GPS spot, one has to stack many such layers of particles, one for every possible orientation into a three-dimensional cube or cylinder.
+Particles are more fine-grained priors, derived from a single, coarse prior provided by a GPS. With the priors set in place, the next step is to improve the belief or evaluate the priors against reality by sensing the environment.  
+
 The location of each particle at the next time step after the time `delta_t` is predicted using the following calculation. The calculation depends on whether the heading (yaw rate) equals 0 or not:  
 
-INSERT PHOTO
+<p align="center">
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
+</p>  
+ 
+<p align="center">
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
+</p>
 
 **Update Weights:**
-The vehicle uses LIDAR to sense its distance to landmarks (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as the standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
+The vehicle uses LIDAR to sense its distance to landmarks, buildings, trees (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as a standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
 
 These observation measurements are transformed from vehicle coordinates (local coordinate system) to map coordinates (global coordinate system) using the following homogenous transformation matrix.
 
-INSERT PHOTO
+<p align="center">
+<img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/homogenous_transformation.png"
+</p>  
                           
 For each LIDAR observation (x, y) the nearest particle to a detected landmark is desired, a technique known as 'nearest neighbour' is utilized to perform this technique.  To accomplish this we use our transformed observation data coordinates from our LIDAR data.  Rarely is sensor data aligned perfectly with a map of known landmark coordinates and therefore there is a deviation.  Therefore each observation particle with the smallest deviation from the map of known landmark coordinates is determined by filtering all particles to determine the best fitting particle.
 
