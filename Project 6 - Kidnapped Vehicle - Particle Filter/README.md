@@ -52,6 +52,7 @@ Algorithim
 **Implementation of Particle Filter**
 
 **Initialization:**  
+
 Initializes particle filter by initializing particles (num_particles = 100) to Gaussian distribution around first position and all the weights to 1.  The particles are initialized with a GPS position and heading. Every feasible position on the grid is called a particle and it represents a likely position of the vehicle inside the GPS location. 
 
 * x Initial x position [m] (simulated estimate from GPS)
@@ -70,7 +71,8 @@ The location of each particle at the next time step after the time `delta_t` is 
 <img width="1200" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/motion_formulae.png"
 </p>  
 
-**Update Weights:**
+**Update Weights:**  
+
 The vehicle uses LIDAR to sense its distance to landmarks, buildings, trees (observation measurements). LIDAR data is received as a list of x, y coordinates along with sensor noise mapped as a standard deviation in x and y. As the LIDAR sensor is attached to the vehicle, the measurements are in the vehicle's own coordinate system and not the coordinate system of the map which we will need to correctly perform observation measurement transformations, along with identifying measurement landmark associations to correctly calculate each particle's weight.
 
 These observation measurements are transformed from vehicle coordinates (local coordinate system) to map coordinates (global coordinate system) using the following homogenous transformation matrix.
@@ -91,7 +93,8 @@ For each observation, the multivariate Gaussian normal distribution with its clo
 
 All of the above has related to one single particle. Now the calculations are carried out for each particle. The particles with the highest weights gradually prevail in the algorithm (filtering). Hence, at the end of each weight update step, 'resampling' of particles with replacement is done to remove particles with low posterior probability.
 
-**Resampling:**
+**Resampling:**  
+
 Weight disparity leading to weight collapse is a common issue encountered in these filtering algorithms; however, it can be mitigated by including a resampling step before the weights become too uneven.  Resampling involves keeping the particles with weights with a high posterior probability and removing those that do not.  This leads to more accurate particles with each successive update step. 
 
 Results
