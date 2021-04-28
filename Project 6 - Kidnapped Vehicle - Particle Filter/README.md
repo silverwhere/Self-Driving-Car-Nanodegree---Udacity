@@ -93,7 +93,7 @@ For each observation, the multivariate Gaussian normal distribution with its clo
 
 <p align="center">
 <img width="525" height="150" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/multivariate_gaussian_density.png"
-</p>
+</p>  
 
 All of the above has related to one single particle. Now the calculations are carried out for each particle. The particles with the highest weights gradually prevail in the algorithm (filtering). Hence, at the end of each weight update step, 'resampling' of particles with replacement is done to remove particles with low posterior probability.
 
