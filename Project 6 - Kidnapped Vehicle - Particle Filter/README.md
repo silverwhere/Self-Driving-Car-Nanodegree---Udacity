@@ -105,7 +105,7 @@ Results
 ---
 
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/particle_filter.jpeg"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter/img/partilce-filtering.gif"
 </p> 
 
 
