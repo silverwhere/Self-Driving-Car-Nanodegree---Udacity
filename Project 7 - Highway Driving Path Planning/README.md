@@ -98,13 +98,13 @@ My path planner was able to correctly navigate the highway for greater than the 
 Remarks
 --- 
 
-
+The project was extremely interesting and I can certainly see my knowledge across the whole nanodegree converging into trajectory generation.  As I review videos being performed by one company named [Cruise](https://www.getcruise.com/) I really have a strong understanding of path planning and also an great appreciation of all the details that have to be considered when planning a trajectory.  Furthermore, of interest are edge cases, such as dynamic events such as temporary construction on routes utilizing localization data with provided maps.  Probably a good reason to consider other alternatives such as SLAM to aid in these events.
 
 
 References
 --- 
 
-A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single hearder file is really easy to use.
+A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single hearder file is really easy to use.  I utilized the spline.h library to help fit a smooth curve for my trajectory over a distance with `N` trajectory points evenly spaced to control my vehicles acceleration and velocity.
 
 ---
 
