@@ -21,6 +21,8 @@ sudo chmod u+x {simulator_file_name}
 Dependencies
 ---
 
+*This project requires [C++](https://isocpp.org/) and the following C++ libraries installed:  
+    * spline.h
 * cmake >= 3.5
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.1
