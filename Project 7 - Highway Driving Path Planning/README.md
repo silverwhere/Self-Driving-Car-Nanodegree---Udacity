@@ -56,17 +56,17 @@ Here is the data provided from the Simulator to the C++ Program
 
 #### Main car's localization Data (No Noise)
 
-["x"] The car's x position in map coordinates
+`x` The car's x position in map coordinates
 
-["y"] The car's y position in map coordinates
+`y` The car's y position in map coordinates
 
-["s"] The car's s position in frenet coordinates
+`s` The car's s position in frenet coordinates
 
-["d"] The car's d position in frenet coordinates
+`d` The car's d position in frenet coordinates
 
-["yaw"] The car's yaw angle in the map
+`yaw`  The car's yaw angle in the map
 
-["speed"] The car's speed in MPH
+`speed` The car's speed in MPH
 
 #### Previous path data given to the Planner
 
