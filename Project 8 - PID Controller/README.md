@@ -49,7 +49,7 @@ Parameter optimisation can be done manually or using Twiddle algorithm.  Twiddle
 p for our PID parameters that returns an error.  This is useful as each error from `p_error`, `i_error` and `d_error` all have a contributing effect on each other error respectively.  By tuning our parameters we are able to effectively find the choice of parameters based on the `best_err` for each parameter selected.  The result will be a vehicle that is able to utilize the PID controller with parameters that produce minimal error for each part of the controller.  A trade-off of Twiddle however is that the twiddle controller will initially overshoot the intended trajectory initially as seen from the output below.
 
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/twiddle.jpg"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/twiddle.jpg"
 </p>    
   
 ---
