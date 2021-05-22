@@ -46,7 +46,7 @@ It’s the integral or sum of error to deal with systematic biases.  In other wo
 </p>  
 
 ## Twiddle (Coordinate Ascent)  
-Parameter optimisation can be done manually or using Twiddle algorithm.  Twiddle is an algorithm that tries to find a good choice of parameters 
+Parameter optimization can be done manually or using Twiddle algorithm.  Twiddle is an algorithm that tries to find a good choice of parameters 
 p for our PID parameters that returns an error.  This is useful as each error from `p_error`, `i_error` and `d_error` all have a contributing effect on each other error respectively.  By tuning our parameters we are able to effectively find the choice of parameters based on the `best_err` for each parameter selected.  The result will be a vehicle that is able to utilize the PID controller with parameters that produce minimal error for each part of the controller.  A trade-off of Twiddle however is that the twiddle controller will initially overshoot the intended trajectory initially as seen from the output below.
 
 <p align="center">
@@ -101,3 +101,7 @@ I was able to successfully navigate around the test track with the parameters se
    
 https://youtu.be/ACr3J5Q0OSA
 
+Remarks
+---
+  
+This was a complementary project to learn how to use PID Controller.  What I would have enjoyed more was creating a controller for the speed of the vehicle as well.  This way when I approached a sharp curve I could reduce my speed at the apex of the curve and accelerated outwards.  Overall, a fun project and interesting to learn that the Google Self Driving vehicle uses a similar algorithm to this today.
