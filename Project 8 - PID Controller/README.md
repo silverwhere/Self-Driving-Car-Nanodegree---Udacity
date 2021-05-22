@@ -30,8 +30,8 @@ steering angle = -tau_p * cte - tau_d * diff_cte
 ```  
 
 <p float="left">
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd-ctrl.png" width="500" height="300" />
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd.gif" width="500" height="300"/> 
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd-ctrl.png" width="500" />
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd.gif" width="500" height="300"/> 
 </p>  
   
     
@@ -41,7 +41,7 @@ It’s the integral or sum of error to deal with systematic biases.  In other wo
 ```steering angle = -tau_p * cte - tau_d * diff_cte - tau_i * int_cte```    
   
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pid-ctrl.png"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pid-ctrl.png"
 </p>  
 
 ## Twiddle (Coordinate Ascent)  
