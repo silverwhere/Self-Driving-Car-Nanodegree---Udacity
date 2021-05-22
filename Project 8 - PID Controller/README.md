@@ -17,8 +17,8 @@ It sets the steering angle in proportion to CTE with a proportional factor `tau`
 In other words, the P, or "proportional", component had the most directly observable effect on the car’s behaviour. It causes the car to steer proportional (and opposite) to the car’s distance from the lane center(CTE) - if the car is far to the right it steers hard to the left, if it’s slightly to the left it steers slightly to the right.  As can be seen from the figure below, the limitation of the P controller is that it will oscillate along the intended trajectory.
 
 <p float="left">
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p-ctrl.png" width="500" />
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p.gif" width="500" height="320"/> 
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p-ctrl.png" width="500" />
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p.gif" width="500" height="320"/> 
 </p>  
   
 ## D component  
