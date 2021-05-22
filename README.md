@@ -26,7 +26,7 @@ Here, I expand on my sensor knowledge to localize and control the vehicle. I eva
 
 Project: [Kidnapped Vehicle](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter)  - Particle Filter - Vehicle Localization - GPS/LIDAR data   
 Project: [Highway Driving Path Planning](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%207%20-%20Highway%20Driving%20Path%20Planning) - Trajectory Generation  
-Project: PID Controller  
+Project: [PID Controller](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%208%20-%20PID%20Controller) - Control Theory  
 Project: System Integration  
 Project: [Optimize Your GitHub Profile](http://www.github.com/silverwhere)  
 Project: [Improve Your LinkedIn Profile](http://www.linkedin.com/in/ianwhittal/)    
