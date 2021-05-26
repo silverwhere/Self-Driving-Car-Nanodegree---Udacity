@@ -5,7 +5,7 @@ Overview
 ---
 PID stands for Proportional-Integral-Derivative. These three components are combined in such a way that it produces a control signal to steer a vehicle.  In this project I developed a PID controller in C++ to maneuver a vehicle around a track in the Udacity simulator. The simulator will provide the cross track error (CTE) and the velocity (mph), while my algorithim will be developed to steer and maneuver the vehicle around the test track with minimal oscillation.
 
-https://youtu.be/WaVhuAvrYF0
+[![YouTube](https://youtu.be/WaVhuAvrYF0)]
 
 ## Cross Track Error  
 A cross track error is distance between the vehicle´s actual trajectory and the intended trajectory. In theory it’s best suited to control the car by steering in proportion to Cross Track Error (CTE).  For this project the CTE is measured against the centreline of the lane, however in other cases it may be measured from the edge of the lane, or lane line.  
