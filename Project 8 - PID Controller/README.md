@@ -102,7 +102,7 @@ File Structure
 Results
 ---
   
-I was able to successfully navigate around the test track with the parameters selected for my PID algorithim.  A video link to my results is posted:
+I was able to successfully navigate around the test track with the parameters selected for my PID algorithim. `main.cpp` lists the iterative process I undertook to determine my coefficients for my PID Controller. I adjusted the `P` proportional and 'D' derivative the most to smooth out the oscillations.  The `I` Integral error aided in the corners when adjusted near the finalization of `P-D` A video link to my results is posted:  
   
 
 https://youtu.be/WaVhuAvrYF0
