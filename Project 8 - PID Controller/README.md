@@ -5,6 +5,7 @@ Overview
 ---
 PID stands for Proportional-Integral-Derivative. These three components are combined in such a way that it produces a control signal to steer a vehicle.  In this project I developed a PID controller in C++ to maneuver a vehicle around a track in the Udacity simulator. The simulator will provide the cross track error (CTE) and the velocity (mph), while my algorithim will be developed to steer and maneuver the vehicle around the test track with minimal oscillation.
 
+https://youtu.be/WaVhuAvrYF0
 
 ## Cross Track Error  
 A cross track error is distance between the vehicle´s actual trajectory and the intended trajectory. In theory it’s best suited to control the car by steering in proportion to Cross Track Error (CTE).  For this project the CTE is measured against the centreline of the lane, however in other cases it may be measured from the edge of the lane, or lane line.  
@@ -54,7 +55,7 @@ Parameter optimisation can be done manually or using Twiddle algorithm.  Twiddle
 p for our PID parameters that returns an error.  This is useful as each error from `p_error`, `i_error` and `d_error` all have a contributing effect on each other error respectively.  By tuning our parameters we are able to effectively find the choice of parameters based on the `best_err` for each parameter selected.  The result will be a vehicle that is able to utilize the PID controller with parameters that produce minimal error for each part of the controller.  A trade-off of Twiddle however is that the twiddle controller will initially overshoot the intended trajectory initially as seen from the output below.
 
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/twiddle.jpg"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/twiddle.jpg"
 </p>    
   
 ---
