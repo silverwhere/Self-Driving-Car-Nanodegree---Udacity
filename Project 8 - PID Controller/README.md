@@ -5,7 +5,6 @@ Overview
 ---
 PID stands for Proportional-Integral-Derivative. These three components are combined in such a way that it produces a control signal to steer a vehicle.  In this project I developed a PID controller in C++ to maneuver a vehicle around a track in the Udacity simulator. The simulator will provide the cross track error (CTE) and the velocity (mph), while my algorithim will be developed to steer and maneuver the vehicle around the test track with minimal oscillation.
 
-[![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/youtube.jpg)](https://www.youtube.com/watch?v=ACr3J5Q0OSA)  
 
 ## Cross Track Error  
 A cross track error is distance between the vehicle´s actual trajectory and the intended trajectory. In theory it’s best suited to control the car by steering in proportion to Cross Track Error (CTE).  For this project the CTE is measured against the centreline of the lane, however in other cases it may be measured from the edge of the lane, or lane line.  
@@ -18,8 +17,8 @@ It sets the steering angle in proportion to CTE with a proportional factor `tau`
 In other words, the P, or "proportional", component had the most directly observable effect on the car’s behaviour. It causes the car to steer proportional (and opposite) to the car’s distance from the lane center(CTE) - if the car is far to the right it steers hard to the left, if it’s slightly to the left it steers slightly to the right.  As can be seen from the figure below, the limitation of the P controller is that it will oscillate along the intended trajectory.
 
 <p float="left">
-  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p-ctrl.png" width="500" />
-  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p.gif" width="500" height="320"/> 
+  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p-ctrl.png" width="500" />
+  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p.gif" width="500" height="320"/> 
 </p>  
   
 ## D component  
@@ -31,8 +30,8 @@ steering angle = -tau_p * cte - tau_d * diff_cte
 ```  
 
 <p float="left">
-  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd-ctrl.png" width="500" />
-  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd.gif" width="500" height="300"/> 
+  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd-ctrl.png" width="500" height="300" />
+  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd.gif" width="500" height="300"/> 
 </p>  
   
     
@@ -42,15 +41,15 @@ It’s the integral or sum of error to deal with systematic biases.  In other wo
 ```steering angle = -tau_p * cte - tau_d * diff_cte - tau_i * int_cte```    
   
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pid-ctrl.png"
+<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pid-ctrl.png"
 </p>  
 
 ## Twiddle (Coordinate Ascent)  
-Parameter optimization can be done manually or using Twiddle algorithm.  Twiddle is an algorithm that tries to find a good choice of parameters 
+Parameter optimisation can be done manually or using Twiddle algorithm.  Twiddle is an algorithm that tries to find a good choice of parameters 
 p for our PID parameters that returns an error.  This is useful as each error from `p_error`, `i_error` and `d_error` all have a contributing effect on each other error respectively.  By tuning our parameters we are able to effectively find the choice of parameters based on the `best_err` for each parameter selected.  The result will be a vehicle that is able to utilize the PID controller with parameters that produce minimal error for each part of the controller.  A trade-off of Twiddle however is that the twiddle controller will initially overshoot the intended trajectory initially as seen from the output below.
 
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/twiddle.jpg"
+<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/twiddle.jpg"
 </p>    
   
 ---
@@ -101,7 +100,3 @@ I was able to successfully navigate around the test track with the parameters se
    
 https://youtu.be/ACr3J5Q0OSA
 
-Remarks
----
-  
-This was a complementary project to learn how to use PID Controller.  What I would have enjoyed more was creating a controller for the speed of the vehicle as well.  This way when I approached a sharp curve I could reduce my speed at the apex of the curve and accelerated outwards.  Overall, a fun project and interesting to learn that the Google Self Driving vehicle uses a similar algorithm to this today.
