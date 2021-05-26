@@ -35,8 +35,8 @@ steering angle = -tau_p * cte - tau_d * diff_cte
 The purpose of the term D is to suppress this oscillation effect by adding a damping term to the formula. This term is the change of error. The PD controller understands that the error decreases and slightly reduces the angle it adopts to approach a smooth path.   
 
 <p float="left">
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd-ctrl.png" width="500" height="300" />
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd.gif" width="500" height="300"/> 
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd-ctrl.png" width="500" height="300" />
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pd.gif" width="500" height="300"/> 
 </p>  
   
     
@@ -46,7 +46,7 @@ It’s the integral or sum of error to deal with systematic biases such as mecha
 ```steering angle = -tau_p * cte - tau_d * diff_cte - tau_i * int_cte```    
   
 <p align="center">
-<img width="600" height="350" src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pid-ctrl.png"
+<img width="600" height="350" src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/pid-ctrl.png"
 </p>  
 
 ## Twiddle (Coordinate Ascent)  
