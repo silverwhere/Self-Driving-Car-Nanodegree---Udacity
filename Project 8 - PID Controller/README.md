@@ -5,7 +5,7 @@ Overview
 ---
 PID stands for Proportional-Integral-Derivative. These three components are combined in such a way that it produces a control signal to steer a vehicle.  In this project I developed a PID controller in C++ to maneuver a vehicle around a track in the Udacity simulator. The simulator will provide the cross track error (CTE) and the velocity (mph), while my algorithim will be developed to steer and maneuver the vehicle around the test track with minimal oscillation.
 
-[![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/youtube.jpg)](https://youtu.be/WaVhuAvrYF0)
+[![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/youtube.jpg)](https://youtu.be/h9MlML9h5Dw)
 
 ## Cross Track Error  
 A cross track error is distance between the vehicle´s actual trajectory and the intended trajectory. In theory it’s best suited to control the car by steering in proportion to Cross Track Error (CTE).  For this project the CTE is measured against the centreline of the lane, however in other cases it may be measured from the edge of the lane, or lane line.  
@@ -105,4 +105,4 @@ Results
 I was able to successfully navigate around the test track with the parameters selected for my PID algorithm. `main.cpp` line 40, lists the iterative process I undertook to determine my coefficients for my PID Controller. I adjusted the `P` proportional and 'D' derivative the most to smooth out the oscillations.  The `I` Integral error aided in the corners when adjusted near the finalization of `P-D` A video link to my results is posted:  
   
 
-https://youtu.be/WaVhuAvrYF0
+https://youtu.be/h9MlML9h5Dw
