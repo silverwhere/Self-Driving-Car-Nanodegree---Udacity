@@ -12,9 +12,13 @@ A cross track error is distance between the vehicle´s actual trajectory and the
 ## P component
 It sets the steering angle in proportion to CTE with a proportional factor `tau`.  (the coefficient `tau` is called "response strength"):
   
-```steering angle = -tau_p * ctee```  
+```steering angle = -tau_p * cte```  
+
+This term applies a correction to the steering wheel proportional to the error. If we are too far from the goal, we turn the wheel in the other direction.
    
 In other words, the P, or "proportional", component had the most directly observable effect on the car’s behaviour. It causes the car to steer proportional (and opposite) to the car’s distance from the lane center(CTE) - if the car is far to the right it steers hard to the left, if it’s slightly to the left it steers slightly to the right.  As can be seen from the figure below, the limitation of the P controller is that it will oscillate along the intended trajectory.
+  
+The disadvantage of a single P Controller is that it causes a constant oscillation. 
 
 <p float="left">
   <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p-ctrl.png" width="500" />
@@ -28,6 +32,7 @@ diff_cte = cte - prev_cte
 prev_cte = cte
 steering angle = -tau_p * cte - tau_d * diff_cte
 ```  
+The purpose of the term D is to suppress this oscillation effect by adding a damping term to the formula. This term is the change of error. The PD controller understands that the error decreases and slightly reduces the angle it adopts to approach a smooth path.   
 
 <p float="left">
   <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/pd-ctrl.png" width="500" height="300" />
@@ -36,7 +41,7 @@ steering angle = -tau_p * cte - tau_d * diff_cte
   
     
 ## I component
-It’s the integral or sum of error to deal with systematic biases.  In other words, the `I`, or "integral", component counteracts a bias in the CTE which prevents the `P-D` controller from reaching the center line. This bias can take several forms, such as a steering drift , but I believe that in this particular implementation the `I` component particularly serves to reduce the CTE around curves.
+It’s the integral or sum of error to deal with systematic biases such as mechanical error.  In other words, the `I`, or "integral", component counteracts a bias in the CTE which prevents the `P-D` controller from reaching the center line. This bias can take several forms, such as a steering drift , but I believe that in this particular implementation the `I` component particularly serves to reduce the CTE around curves.
 
 ```steering angle = -tau_p * cte - tau_d * diff_cte - tau_i * int_cte```    
   
@@ -97,6 +102,5 @@ Results
 ---
   
 I was able to successfully navigate around the test track with the parameters selected for my PID algorithim.  A video link to my results is posted:
-   
-https://youtu.be/ACr3J5Q0OSA
+
 
