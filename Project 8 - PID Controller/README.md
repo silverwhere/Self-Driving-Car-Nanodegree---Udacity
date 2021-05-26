@@ -21,8 +21,8 @@ In other words, the P, or "proportional", component had the most directly observ
 The disadvantage of a single P Controller is that it causes a constant oscillation. 
 
 <p float="left">
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p-ctrl.png" width="500" />
-  <img src="https://github.com/silverwhere/PID-Controller-Project/blob/master/img/p.gif" width="500" height="320"/> 
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p-ctrl.png" width="500" />
+  <img src="https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%208%20-%20PID%20Controller/img/p.gif" width="500" height="320"/> 
 </p>  
   
 ## D component  
