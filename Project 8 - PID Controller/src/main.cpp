@@ -51,10 +51,17 @@ int main() {
   // 0.14, 0.003, 4.0 - Wheels touched red of Apex on final turn
   // 0.14, 0.004, 4.0 - Appears to drive successfully, reduce P and D by factor of half.
   // 0.07, 0.004, 2.0 - Wheels chalked right at start. 
-  // 0.07, 0.004, 1.5 - Best performance - Slight oscillation most likely due to Proportional controller - lower "P"
+  // 0.07, 0.004, 1.5 - Best performance - Slight oscillation most likely due to Proportional controller - lower "P", still hitting road line on 2 turns.
+  // 0.06, 0.004, 2.0 - Better performance, still hitting yellow line, but just on it - increase "d", increase "p"
+  //
  
+  /*
+  *	Kp (proportional gain): 0.07
+  *	Ki (integral gain)    : 0.004
+  *	Kd (derivative gain)  : 2.2
+  */
 
-  pid.Init(0.06, 0.004, 1.5);
+  pid.Init(0.07, 0.004, 2.2);
   
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
                      uWS::OpCode opCode) {
