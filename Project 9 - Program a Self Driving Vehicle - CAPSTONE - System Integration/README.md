@@ -7,7 +7,7 @@ Overview
 ---
     
 ![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
-[![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/YouTube.png)](https://youtu.be/aiAuKvl1UZo)  
+[![YouTube](LINK TO IMAGE)](LINK)  
 
 ROS Architecture
 ---  
@@ -21,7 +21,7 @@ The following is a system architecture diagram showing the ROS nodes and topics 
 Code Structure
 ---
 
-The code is contained entirely within the /ros/src/ directory. Within this directory, you will find the following ROS packages:
+The code is contained entirely within the `/ros/src/` directory. Within this directory, you will find the following ROS packages:
 
 ### /ros/src/tl_detector/  
 
@@ -38,6 +38,11 @@ Insert Image
 This package contains the waypoint updater node: `waypoint_updater.py`. The purpose of this node is to update the target velocity property of each waypoint based on traffic light and obstacle detection data. This node will subscribe to the `/base_waypoints`, `/current_pose`, `/obstacle_waypoint`, and `/traffic_waypoint` topics, and publish a list of waypoints ahead of the car with target velocities to the `/final_waypoints` topic.  
 
 Insert Image  
+
+### /ros/src/twist_controller/  
+Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. This package contains the files that are responsible for control of the vehicle: the node `dbw_node.py` and the `file twist_controller.py`, along with a pid and lowpass filter that you can use in your implementation. The dbw_node subscribes to the `/current_velocity` topic along with the `/twist_cmd` topic to receive target linear and angular velocities. Additionally, this node will subscribe to `/vehicle/dbw_enabled`, which indicates if the car is under dbw or driver control. This node will publish throttle, brake, and steering commands to the `/vehicle/throttle_cmd`, `/vehicle/brake_cmd`, and `/vehicle/steering_cmd` topics.  
+
+Insert Image
 
 Details
 ---  
