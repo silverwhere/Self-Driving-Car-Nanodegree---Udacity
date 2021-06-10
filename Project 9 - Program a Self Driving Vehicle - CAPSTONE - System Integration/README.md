@@ -1,4 +1,4 @@
-# Project 8 - System Integration - Program a Self Driving Vehicle
+# Project 9 - System Integration - Program a Self Driving Vehicle
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
@@ -9,14 +9,35 @@ Overview
 ![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
 [![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/YouTube.png)](https://youtu.be/aiAuKvl1UZo)  
 
-Simulator
+ROS Architecture
 ---  
+For this project, I wrote ROS nodes to implement core functionality of the autonomous vehicle system, including traffic light detection, control, and waypoint following! I tested my code using a simulator that mimics the functionality on Carla prior to being run on the real vehicle.  Note: All vehicle parameters (i.e. wheel radius, vehicle mass, fuel tank capacity) match those of the real Udacity vehicle for accurate simulation.
+
+The following is a system architecture diagram showing the ROS nodes and topics used in the project.  The ROS nodes and topics shown in the diagram are described briefly in the Code Structure section below, and more detail is provided for each node in later classroom concepts of this lesson.
 
 
 
-Dependencies
+
+Code Structure
 ---
 
+The code is contained entirely within the /ros/src/ directory. Within this directory, you will find the following ROS packages:
+
+### /ros/src/tl_detector/  
+
+This package contains the traffic light detection node: `tl_detector.py`. This node takes in data from the `/image_color`, `/current_pose`, and `/base_waypoints` topics and publishes the locations to stop for red traffic lights to the `/traffic_waypoint topic`.  
+
+The `/current_pose` topic provides the vehicle's current position, and `/base_waypoints` provides a complete list of waypoints the car will be following.  
+
+I built both a traffic light detection node and a traffic light classification node. Traffic light detection takes place within `tl_detector.py`, whereas traffic light classification takes place within `../tl_detector/light_classification_model/tl_classfier.py`.  
+
+Insert Image
+
+### /ros/src/waypoint_updater/  
+
+This package contains the waypoint updater node: `waypoint_updater.py`. The purpose of this node is to update the target velocity property of each waypoint based on traffic light and obstacle detection data. This node will subscribe to the `/base_waypoints`, `/current_pose`, `/obstacle_waypoint`, and `/traffic_waypoint` topics, and publish a list of waypoints ahead of the car with target velocities to the `/final_waypoints` topic.  
+
+Insert Image  
 
 Details
 ---  
