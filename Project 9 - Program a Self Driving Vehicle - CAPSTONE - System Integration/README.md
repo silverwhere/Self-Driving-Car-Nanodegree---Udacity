@@ -46,6 +46,20 @@ Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake
 
 ![twist_controller](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration/imgs/dbw-node-ros-graph.png)  
 
+In addition to these packages you will find the following, which are not necessary to change for the project. The styx and styx_msgs packages are used to provide a link between the simulator and ROS, and to provide custom ROS message types:
+
+### /ros/src/styx/
+A package that contains a server for communicating with the simulator, and a bridge to translate and publish simulator messages to ROS topics.
+
+### /ros/src/styx_msgs/
+A package which includes definitions of the custom ROS message types used in the project.
+
+### /ros/src/waypoint_loader/
+A package which loads the static waypoint data and publishes to /base_waypoints.
+
+### /ros/src/waypoint_follower/
+A package containing code from Autoware which subscribes to /final_waypoints and publishes target vehicle linear and angular velocities in the form of twist commands to the `/twist_cmd topic`.
+
 Details
 ---  
 
