@@ -33,18 +33,18 @@ The `/current_pose` topic provides the vehicle's current position, and `/base_wa
 
 I built both a traffic light detection node and a traffic light classification node. Traffic light detection takes place within `tl_detector.py`, whereas traffic light classification takes place within `../tl_detector/light_classification_model/tl_classfier.py`.  
 
-Insert Image
+![tl_detector](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration/imgs/tl-detector-ros-graph.png)  
 
 ### /ros/src/waypoint_updater/  
 
 This package contains the waypoint updater node: `waypoint_updater.py`. The purpose of this node is to update the target velocity property of each waypoint based on traffic light and obstacle detection data. This node will subscribe to the `/base_waypoints`, `/current_pose`, `/obstacle_waypoint`, and `/traffic_waypoint` topics, and publish a list of waypoints ahead of the car with target velocities to the `/final_waypoints` topic.  
 
-Insert Image  
+![waypoint_updator] 
 
 ### /ros/src/twist_controller/  
 Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. This package contains the files that are responsible for control of the vehicle: the node `dbw_node.py` and the `file twist_controller.py`, along with a pid and lowpass filter that you can use in your implementation. The dbw_node subscribes to the `/current_velocity` topic along with the `/twist_cmd` topic to receive target linear and angular velocities. Additionally, this node will subscribe to `/vehicle/dbw_enabled`, which indicates if the car is under dbw or driver control. This node will publish throttle, brake, and steering commands to the `/vehicle/throttle_cmd`, `/vehicle/brake_cmd`, and `/vehicle/steering_cmd` topics.  
 
-Insert Image
+![twist_controller]
 
 Details
 ---  
