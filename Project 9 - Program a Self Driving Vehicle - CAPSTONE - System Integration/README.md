@@ -5,6 +5,8 @@
 
 Overview
 ---
+
+Udacity Nanodegree CAPSTONE!  This project is the culmination of the work learned to date in the nanodegree.  In this project I will be reponsible to program several subsystems to operate "CARLA" the Udacity Self Driving Car, both in simulator and on-road.  The subsystems 
     
 ![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
 [![YouTube](LINK TO IMAGE)](LINK)  
