@@ -13,7 +13,9 @@ ROS Architecture
 ---  
 For this project, I wrote ROS nodes to implement core functionality of the autonomous vehicle system, including traffic light detection, control, and waypoint following! I tested my code using a simulator that mimics the functionality on Carla prior to being run on the real vehicle.  Note: All vehicle parameters (i.e. wheel radius, vehicle mass, fuel tank capacity) match those of the real Udacity vehicle for accurate simulation.
 
-The following is a system architecture diagram showing the ROS nodes and topics used in the project.  The ROS nodes and topics shown in the diagram are described briefly in the Code Structure section below, and more detail is provided for each node in later classroom concepts of this lesson.
+The following is a system architecture diagram showing the ROS nodes and topics used in the project.  The ROS nodes and topics shown in the diagram are described briefly in the Code Structure section below, and more detail is provided for each node in later classroom concepts of this lesson.  
+
+![Ros Arch](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration/imgs/ros_architecture.png)  
 
 
 
