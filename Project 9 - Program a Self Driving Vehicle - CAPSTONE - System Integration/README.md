@@ -1,3 +1,48 @@
+# Project 8 - System Integration - Program a Self Driving Vehicle
+
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+
+
+Overview
+---
+    
+![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
+[![YouTube](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/YouTube.png)](https://youtu.be/aiAuKvl1UZo)  
+
+Simulator
+---  
+
+
+
+Dependencies
+---
+
+
+Details
+---  
+
+
+
+Results
+---
+
+
+
+Remarks
+--- 
+
+
+
+
+References
+--- 
+
+
+
+---
+
+
+
 This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
 
 Please use **one** of the two installation options, either native **or** docker installation.
