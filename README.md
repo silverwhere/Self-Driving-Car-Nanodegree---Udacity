@@ -1,7 +1,7 @@
 # Self Driving Car Engineer Nanodegree Udacity  
 ---
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)  
-### *December 2020 to current course work By Ian Whittal, P.Eng* 
+### *December 2020 to June 2021 course work By Ian Whittal, P.Eng* 
 
 <p align="center">
 <img width="700" height="500" src="https://github.com/udacity/self-driving-car/blob/master/images/car.jpeg"</p>    
@@ -27,7 +27,7 @@ Here, I expand on my sensor knowledge to localize and control the vehicle. I eva
 Project: [Kidnapped Vehicle](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%206%20-%20Kidnapped%20Vehicle%20-%20Particle%20Filter)  - Particle Filter - Vehicle Localization - GPS/LIDAR data   
 Project: [Highway Driving Path Planning](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%207%20-%20Highway%20Driving%20Path%20Planning) - Trajectory Generation  
 Project: [PID Controller](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%208%20-%20PID%20Controller) - Control Theory  
-Project: System Integration  
+Project: [System Integration](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/tree/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration) - Capstone - Program A Self Driving Car    
 Project: [Optimize Your GitHub Profile](http://www.github.com/silverwhere)  
 Project: [Improve Your LinkedIn Profile](http://www.linkedin.com/in/ianwhittal/)    
 
