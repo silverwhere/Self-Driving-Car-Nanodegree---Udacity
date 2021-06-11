@@ -85,14 +85,17 @@ Results
 The results of my ROS implemented code is a vehicle that is able to navigate the simulator without issue.  
 
 * The vehicle is able to accelerate and deceleration within desired ranges.  
-* The vehicle is able to follow the lane and 
+* The vehicle is able generate waypoints and navigate each of them maintaining a target velocity
+* Steering is maintained with oscillation minimized with the use of a PID controller
+* Object detection of traffic lights is achieved with the vehicle able to navigate stopping or proceeding through the interesection without issue.
 
 
 Remarks
 --- 
 
+This is my final remarks on what has been an almost 2 year journey beginning with Intro to Self Driving Cars!  I look back fondly at all the math and programming I had to learn to achieve this final project and have what I consider to be an amazing understanding of the workings of a self driving vehicle.  Overall, I really enjoyed the final project.  Learning how to actuate a vehicle using ROS was very informative.  As I understand the simulator was designed to be implemented in Carla, perhaps this is why traffic was not added to the simulator as in past projects.  Overall though I am very excited to share that I have developed software that has been used on a real self-driving vehicle.
 
-
+Thank you Sebastian Thrun & David Silver for what I consider to be a wonderful complement to my Mechanical Engineering skillset!  
 
 ---
 
