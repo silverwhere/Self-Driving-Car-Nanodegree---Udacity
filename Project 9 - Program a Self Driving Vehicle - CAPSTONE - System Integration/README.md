@@ -6,14 +6,14 @@
 Overview
 ---
 
-Udacity Nanodegree CAPSTONE!  This project is the culmination of the work learned to date in the nanodegree.  In this project I will be reponsible to program several subsystems to operate "CARLA" the Udacity Self Driving Car, both in simulator and on-road.  In the perception subsystem I will implement traffic light detection.  In the planning subsystem I will implement a waypoint updater based on traffic light status.  In the control subsystems I will be implementing drive by wire nodes that takes target trajectory information as input and sends control commands to control the vehicle.  The project will be developed on a simulator and than can be tested on a real vehicle!
+Udacity Nanodegree CAPSTONE!  This project is the culmination of the work learned to date in the nanodegree.  In this project, I will be responsible to program several subsystems to operate "CARLA" the Udacity Self Driving Car, both in the simulator and on-road.  In the perception subsystem, I will implement traffic light detection.  In the planning subsystem, I will implement a waypoint updater based on traffic light status.  In the control subsystem, I will be implementing drive-by-wire nodes that take target trajectory information as input and send control commands to control the vehicle.  The project will be developed on a simulator and then can be tested on a real vehicle!
     
 ![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
 [![YouTube](LINK TO IMAGE)](LINK)  
 
 ROS Architecture
 ---  
-For this project, I wrote ROS nodes to implement core functionality of the autonomous vehicle system, including traffic light detection, control, and waypoint following! I tested my code using a simulator that mimics the functionality on Carla prior to being run on the real vehicle.  Note: All vehicle parameters (i.e. wheel radius, vehicle mass, fuel tank capacity) match those of the real Udacity vehicle for accurate simulation.
+For this project, I wrote ROS nodes to implement core functionality of the autonomous vehicle system, including traffic light detection, control, and waypoint following! I tested my code using a simulator that mimics the functionality of Carla prior to being run on the real vehicle.  Note: All vehicle parameters (i.e. wheel radius, vehicle mass, fuel tank capacity) match those of the real Udacity vehicle for accurate simulation.
 
 The following is a system architecture diagram showing the ROS nodes and topics used in the project.  The ROS nodes and topics shown in the diagram are described briefly in the Code Structure section below, and more detail is provided for each node in later classroom concepts of this lesson.  
 
@@ -36,22 +36,22 @@ I built both a traffic light detection node and a traffic light classification n
 
 ### /ros/src/waypoint_updater/  
 
-This package contains the waypoint updater node: `waypoint_updater.py`. The purpose of this node is to update the target velocity property of each waypoint based on traffic light and obstacle detection data. This node will subscribe to the `/base_waypoints`, `/current_pose`, `/obstacle_waypoint`, and `/traffic_waypoint` topics, and publish a list of waypoints ahead of the car with target velocities to the `/final_waypoints` topic.  
+This package contains the waypoint updater node: `waypoint_updater.py`. The purpose of this node is to update the target velocity property of each waypoint based on the traffic light and obstacle detection data. This node will subscribe to the `/base_waypoints`, `/current_pose`, `/obstacle_waypoint`, and `/traffic_waypoint` topics, and publish a list of waypoints ahead of the car with target velocities to the `/final_waypoints` topic.  
 
 ![waypoint_updator](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration/imgs/waypoint-updater-ros-graph.png)   
 
 ### /ros/src/twist_controller/  
-Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. This package contains the files that are responsible for control of the vehicle: the node `dbw_node.py` and the file `twist_controller.py`, along with a pid and lowpass filter that you can use in your implementation. The dbw_node subscribes to the `/current_velocity` topic along with the `/twist_cmd` topic to receive target linear and angular velocities. Additionally, this node will subscribe to `/vehicle/dbw_enabled`, which indicates if the car is under dbw or driver control. This node will publish throttle, brake, and steering commands to the `/vehicle/throttle_cmd`, `/vehicle/brake_cmd`, and `/vehicle/steering_cmd` topics.  
+Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. This package contains the files that are responsible for control of the vehicle: the node `dbw_node.py` and the file `twist_controller.py`, along with a PID and lowpass filter that you can use in your implementation. The dbw_node subscribes to the `/current_velocity` topic along with the `/twist_cmd` topic to receive target linear and angular velocities. Additionally, this node will subscribe to `/vehicle/dbw_enabled`, which indicates if the car is under dbw or driver control. This node will publish throttle, brake, and steering commands to the `/vehicle/throttle_cmd`, `/vehicle/brake_cmd`, and `/vehicle/steering_cmd` topics.  
 
 ![twist_controller](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%209%20-%20Program%20a%20Self%20Driving%20Vehicle%20-%20CAPSTONE%20-%20System%20Integration/imgs/dbw-node-ros-graph.png)  
 
-In addition to these packages you will find the following, which are not necessary to change for the project. The styx and styx_msgs packages are used to provide a link between the simulator and ROS, and to provide custom ROS message types:
+In addition to these packages you will find the following, which are not necessary to change for the project. The `styx` and `styx_msgs` packages are used to provide a link between the simulator and ROS, and to provide custom ROS message types:
 
 ### /ros/src/styx/
 A package that contains a server for communicating with the simulator, and a bridge to translate and publish simulator messages to ROS topics.
 
 ### /ros/src/styx_msgs/
-A package which includes definitions of the custom ROS message types used in the project.
+A package that includes definitions of the custom ROS message types used in the project.
 
 ### /ros/src/waypoint_loader/
 A package which loads the static waypoint data and publishes to `/base_waypoints`.
@@ -64,19 +64,19 @@ Details
 
 I. Perception
 
-Utilzing a camera the Udacity self-driving car "Carla" can use machine learning and deep learning methods to train a traffic light classifier to predict the traffic light state. In the simulator as long as the camera sees a traffic light, it can evaluate wheter it is Red, Yellow or Green.  I choose to obey traffic laws, so when if we see a yellow light forinstance we will continue through the intersection and not speed up.  A red light will require the vehicle to detect the red light and to begin a gentle deceleration.  A Green light will mean to proceed through the interesection. 
+Utilizing a camera the Udacity self-driving car "Carla" can use machine learning and deep learning methods to train a traffic light classifier to predict the traffic light state. In the simulator as long as the camera sees a traffic light, it can evaluate whether it is Red, Yellow or Green. I choose to obey traffic laws, so when if we see a yellow light for instance we will continue through the intersection and not speed up. A red light will require the vehicle to detect the red light and to begin a gentle deceleration. Green light will mean proceeding through the intersection.   
    
 II. Planner
 
-We can think of our waypoint planner as a HD Map with x, y coordinates easily determined.  These pre-loaded coordinates of continuous points are what we define as 'waypoints'.  The path planner will use these waypoints to determine our acceleration neccessary to maintain our desired target velocity between each waypoint line segment.  Further, we will need to update our target velocity when information from perception subsystems, such as a Red or Green light are detected.  If a Red light is detected we will want our vehicle to slow down and stop at the stopline of the intersection with the detected redlight.  Calculating our distance between our current waypoint and target stopping waypoint we can calculate a deceleration curve to ensure our velocity decreases as we get closer to the intersection.  Note we will need to apply a braking torque ~ 700 Newton-metres to hold the vehicle in place while stopped at the intersection.  
+We can think of our waypoint planner as a HD Map with x, y coordinates easily determined. These pre-loaded coordinates of continuous points are what we define as 'waypoints'. The path planner will use these waypoints to determine the acceleration necessary to maintain our desired target velocity between each waypoint line segment. Further, we will need to update our target velocity when information from perception subsystems, such as a Red or Green light are detected. If a Red light is detected we will want our vehicle to slow down and stop at the stop line of the intersection with the detected redlight. Calculating our distance between our current waypoint and target stopping waypoint we can calculate a deceleration curve to ensure our velocity decreases as we get closer to the intersection. Note we will need to apply a braking torque ~ 700 Newton-metres to hold the vehicle in place while stopped at the intersection.  
 
 The planner will plan all actions for the car, assigning target velocities (angular and linear) to every waypoint ahead of the vehicle in the planned trajectory ahead.
   
 III. Controls
 
-Based on the inputs from the planner we are able to control the vehicles steering, throttle and braking.  The goal of the vehicle is to follow the waypoints as planned.  To prevent major oscilation or deviation from the path a PID controller is utilized to correctly operate the vehicle along the desired trajectory.  By monitoring any error from our actual trajectory to the planned waypoint trajectory the PID controller can apply steering inputs.
-
-Further, based on input from perception and planning, if a intersection is detected with a green or red light, or a red light that turns green after already decelerating, the controller can accelerate/decelerate the vehicle at a comfortable rate of acceleration.   Current velocity and target velocity will be monitored and corrected should the current velocity be too high or low from the target velocity.  
+Based on the inputs from the planner we can control the vehicle's steering, throttle and braking. The goal of the vehicle is to follow the waypoints as planned. To prevent major oscillation or deviation from the path a PID controller is utilized to correctly operate the vehicle along the desired trajectory. By monitoring any error from our actual trajectory to the planned waypoint trajectory the PID controller can apply steering inputs.  
+  
+Further, based on input from perception and planning, if an intersection is detected with a green or red light, or a red light that turns green after already decelerating, the controller can accelerate/decelerate the vehicle at a comfortable rate of acceleration. Current velocity and target velocity will be monitored and corrected should the current velocity be too high or low from the target velocity.
 
 
 Results
