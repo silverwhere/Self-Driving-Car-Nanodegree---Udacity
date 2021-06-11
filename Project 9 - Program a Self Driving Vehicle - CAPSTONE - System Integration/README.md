@@ -9,7 +9,7 @@ Overview
 Udacity Nanodegree CAPSTONE!  This project is the culmination of the work learned to date in the nanodegree.  In this project, I will be responsible to program several subsystems to operate "CARLA" the Udacity Self Driving Car, both in the simulator and on-road.  In the perception subsystem, I will implement traffic light detection.  In the planning subsystem, I will implement a waypoint updater based on traffic light status.  In the control subsystem, I will be implementing drive-by-wire nodes that take target trajectory information as input and send control commands to control the vehicle.  The project will be developed on a simulator and then can be tested on a real vehicle!
     
 ![McLaren](https://github.com/silverwhere/Self-Driving-Car-Nanodegree---Udacity/blob/main/Project%207%20-%20Highway%20Driving%20Path%20Planning/img/mclaren.jpg)
-[![YouTube](LINK TO IMAGE)](LINK)  
+[![YouTube](LINK TO IMAGE)](https://youtu.be/HeZ4mnrke7I)  
 
 ROS Architecture
 ---  
