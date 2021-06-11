@@ -82,6 +82,10 @@ Further, based on input from perception and planning, if an intersection is dete
 Results
 ---
 
+The results of my ROS implemented code is a vehicle that is able to navigate the simulator without issue.  
+
+* The vehicle is able to accelerate and deceleration within desired ranges.  
+* The vehicle is able to follow the lane and 
 
 
 Remarks
